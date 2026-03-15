@@ -6,29 +6,28 @@ import { text } from "stream/consumers";
 
 const testimonials = [
   {
-    text: "I was initially nervous about visiting the doctor, but the entire team at this hospital made me feel completely at ease. The clinic is spotless, the staff is warm and attentive, and the specialists walked me through every step with genuine care. My treatment was quick, painless, and completely transparent. It is a place I now trust completely.",
-    recommendation: "Highly recommended!",
-    name: "Anjali Desai",
+    text:" As a parent of a child who recently underwent surgery at this hospital, I cannot express enough gratitude for the exceptional care we received. The pediatric team was not only highly skilled but also incredibly compassionate, making us feel at ease during a stressful time. The hospital environment was clean and welcoming, which helped reduce our anxiety. I highly recommend this hospital for pediatric care.",
+      recommendation: "Highly recommended!",
+    name: "Shivam Patel",
     role: "Regular Patient",
     image:
-      "https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?q=80&w=2576&auto=format&fit=crop",
-  },
+    "https://images.pexels.com/photos/11708068/pexels-photo-11708068.jpeg"
+    },
   {
-    text: "Finding a reliable medical center with state-of-the-art facilities was tough, but I found exactly what I needed here. The telemedicine setup is flawless, and my in-person visits have been equally incredible. The doctors listen carefully and provide actionable, clear advice without rushing. Thank you for making healthcare stress-free!",
-    recommendation: "Exceptional service!",
-    name: "Rohan Mehta",
+    text: "I recently had a consultation with one of the specialists at this hospital, and I couldn't be happier with the care I received. The doctor was not only highly skilled but also took the time to listen to my concerns and answer all my questions. The staff was courteous and efficient, making the entire process smooth and stress-free. I felt truly cared for and would definitely return for any future medical needs.",
+     recommendation: "Exceptional service!",
+    name: "Sonia Verma",
     role: "Consultation Patient",
     image:
-    "https://images.unsplash.com/photo-1509933551745-514268e48884?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGluZGlhbiUyMHBlb3BsZXxlbnwwfHwwfHx8Mg%3D%3D"
-   },
+    "https://images.pexels.com/photos/5936267/pexels-photo-5936267.jpeg"
+    },
   {
-    text: "As a parent, I can't thank this hospital enough for the care they provided to my child. From the moment we walked in, we were treated with kindness and professionalism. The pediatric specialists are not only knowledgeable but also incredibly compassionate. They took the time to explain everything in detail and made sure we were comfortable throughout the process. My child received top-notch care, and I am forever grateful.",
-     recommendation: "A lifesaver for parents!",
-    name: "Anuj Sharma",
-    role: "Father of Pediatric Patient",
+    text:" My child was admitted to this hospital for a minor surgery, and I am so grateful for the excellent care we received. The pediatric team was fantastic, providing compassionate care and keeping us informed every step of the way.     environment was clean and welcoming, which helped reduce our anxiety during the stay. I highly recommend this hospital for pediatric care.",
+        recommendation: "A lifesaver for parents!",
+    name: "Puja Sharma",
+    role: "Mother of a Pediatric Patient",
     image:
- "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fG1lbnxlbnwwfHwwfHx8Mg%3D%3D"
-  },
+ "https://images.pexels.com/photos/25578637/pexels-photo-25578637.jpeg"   },
 ];
 
 export default function TestimonialsSection() {

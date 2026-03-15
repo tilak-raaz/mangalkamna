@@ -40,36 +40,37 @@ export default function HeroSection() {
       ))}
 
       {/* Light Overlay so the dark text is readable */}
-      <div className="absolute inset-0 z-0 bg-white/20"></div>
-      <div className="absolute inset-0 z-0 bg-gradient-to-r from-white/70 via-white/10 to-transparent"></div>
+      <div className="absolute inset-0 z-0 bg-white/40 md:bg-white/20"></div>
+      <div className="absolute inset-0 z-0 bg-gradient-to-t md:bg-gradient-to-r from-white/95 via-white/80 md:via-white/70 to-transparent"></div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24 mt-20 md:mt-0">
         <div className="w-full flex justify-between items-end">
-          <div className="max-w-2xl space-y-8">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-[#cb1b1a]/20 px-4 py-2 rounded-full shadow-sm">
-              <div className="w-2.5 h-2.5 bg-[#cb1b1a] rounded-full animate-pulse"></div>
-              <span className="text-sm font-bold text-[#681412] tracking-wide">
+          <div className="max-w-2xl space-y-6 md:space-y-8">
+            <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-[#cb1b1a]/20 px-3 md:px-4 py-1.5 md:py-2 rounded-full shadow-sm">
+              <div className="w-2 md:w-2.5 h-2 md:h-2.5 bg-[#cb1b1a] rounded-full animate-pulse"></div>
+              <span className="text-xs md:text-sm font-bold text-[#681412] tracking-wide">
                 24/7 Online Hospital
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-[4.3rem] font-bold leading-[1.15] tracking-tight text-[#681412]">
-              Your Health, <br /> Our Commitment - <br />
-              <span className="text-[#cb1b1a] font-extrabold relative">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.3rem] font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-[#681412]">
+              Your Health, <br className="hidden sm:block" /> Our Commitment -{" "}
+              <br className="hidden md:block" />
+              <span className="text-[#cb1b1a] font-extrabold relative block sm:inline">
                 Excellence in Medical Care.
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-[#681412]/80 max-w-2xl leading-relaxed font-medium">
+            <p className="text-base sm:text-lg md:text-xl text-[#681412]/80 max-w-2xl leading-relaxed font-medium">
               State-of-the-art healthcare services delivered with compassion,
               precision, and a patient first approach.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 pt-6">
-              <button className="w-full sm:w-auto bg-[#cb1b1a] text-white px-8 py-4 rounded-full font-bold hover:bg-[#a51615] transition-colors shadow-lg shadow-[#cb1b1a]/30 text-center">
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-4 md:pt-6">
+              <button className="w-full sm:w-auto bg-[#cb1b1a] text-white px-8 py-3.5 md:py-4 rounded-full font-bold hover:bg-[#a51615] transition-colors shadow-lg shadow-[#cb1b1a]/30 text-center text-sm md:text-base">
                 Our Departments
               </button>
-              <button className="w-full sm:w-auto bg-white/80 backdrop-blur-md text-[#681412] border-2 border-[#681412]/20 px-8 py-4 rounded-full font-bold hover:bg-white hover:border-[#681412]/40 transition-colors text-center shadow-sm">
+              <button className="w-full sm:w-auto bg-white/90 backdrop-blur-md text-[#681412] border-2 border-[#681412]/20 px-8 py-3.5 md:py-4 rounded-full font-bold hover:bg-white hover:border-[#681412]/40 transition-colors text-center shadow-sm text-sm md:text-base">
                 Our Services
               </button>
             </div>

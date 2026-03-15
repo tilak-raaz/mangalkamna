@@ -4,10 +4,10 @@ export default function AppointmentSection() {
   return (
     <section
       id="appointment"
-      className="py-24 bg-white relative overflow-hidden"
+      className="py-24 bg-slate-50 relative overflow-hidden"
     >
       {/* Background Decor Elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -z-10 hidden lg:block"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-200/50 -z-10 hidden lg:block"></div>
 
       <div className="max-w-[85rem] mx-auto px-4 md:px-8 lg:px-12">
         {/* Header */}

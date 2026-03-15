@@ -6,28 +6,28 @@ import { text } from "stream/consumers";
 
 const testimonials = [
   {
-    text:" As a parent of a child who recently underwent surgery at this hospital, I cannot express enough gratitude for the exceptional care we received. The pediatric team was not only highly skilled but also incredibly compassionate, making us feel at ease during a stressful time. The hospital environment was clean and welcoming, which helped reduce our anxiety. I highly recommend this hospital for pediatric care.",
-      recommendation: "Highly recommended!",
+    text: " As a parent of a child who recently underwent surgery at this hospital, I cannot express enough gratitude for the exceptional care we received. The pediatric team was not only highly skilled but also incredibly compassionate, making us feel at ease during a stressful time. The hospital environment was clean and welcoming, which helped reduce our anxiety. I highly recommend this hospital for pediatric care.",
+    recommendation: "Highly recommended!",
     name: "Shivam Patel",
     role: "Regular Patient",
     image:
-    "https://images.pexels.com/photos/11708068/pexels-photo-11708068.jpeg"
-    },
+      "https://images.pexels.com/photos/11708068/pexels-photo-11708068.jpeg",
+  },
   {
     text: "I recently had a consultation with one of the specialists at this hospital, and I couldn't be happier with the care I received. The doctor was not only highly skilled but also took the time to listen to my concerns and answer all my questions. The staff was courteous and efficient, making the entire process smooth and stress-free. I felt truly cared for and would definitely return for any future medical needs.",
-     recommendation: "Exceptional service!",
+    recommendation: "Exceptional service!",
     name: "Sonia Verma",
     role: "Consultation Patient",
-    image:
-    "https://images.pexels.com/photos/5936267/pexels-photo-5936267.jpeg"
-    },
+    image: "https://images.pexels.com/photos/5936267/pexels-photo-5936267.jpeg",
+  },
   {
-    text:" My child was admitted to this hospital for a minor surgery, and I am so grateful for the excellent care we received. The pediatric team was fantastic, providing compassionate care and keeping us informed every step of the way.     environment was clean and welcoming, which helped reduce our anxiety during the stay. I highly recommend this hospital for pediatric care.",
-        recommendation: "A lifesaver for parents!",
+    text: " My child was admitted to this hospital for a minor surgery, and I am so grateful for the excellent care we received. The pediatric team was fantastic, providing compassionate care and keeping us informed every step of the way.     environment was clean and welcoming, which helped reduce our anxiety during the stay. I highly recommend this hospital for pediatric care.",
+    recommendation: "A lifesaver for parents!",
     name: "Puja Sharma",
     role: "Mother of a Pediatric Patient",
     image:
- "https://images.pexels.com/photos/25578637/pexels-photo-25578637.jpeg"   },
+      "https://images.pexels.com/photos/25578637/pexels-photo-25578637.jpeg",
+  },
 ];
 
 export default function TestimonialsSection() {
@@ -78,16 +78,16 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Content Area */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 relative min-h-[550px] lg:min-h-[450px]">
+        <div className="relative">
           {testimonials.map((testimonial, index) => {
             const isActive = index === activeIndex;
             return (
               <div
                 key={index}
-                className={`absolute inset-0 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 transition-all duration-700 ease-in-out pointer-events-none ${
+                className={`w-full grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 lg:gap-24 transition-all duration-700 ease-in-out pointer-events-none ${
                   isActive
-                    ? "opacity-100 z-10 pointer-events-auto translate-x-0"
-                    : "opacity-0 z-0 translate-x-4"
+                    ? "opacity-100 z-10 pointer-events-auto relative translate-x-0"
+                    : "opacity-0 z-0 absolute top-0 left-0 translate-x-4"
                 }`}
               >
                 {/* Left Text Side */}
@@ -110,7 +110,7 @@ export default function TestimonialsSection() {
                 </div>
 
                 {/* Right Image Side */}
-                <div className="relative h-[400px] md:h-[450px] lg:h-full mt-10 md:mt-12 lg:mt-0">
+                <div className="relative h-[400px] md:h-[450px] lg:h-full lg:min-h-[450px] mt-10 md:mt-12 lg:mt-0">
                   {/* Decorative Stacked Background Cards */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[85%] h-full bg-slate-200/50 rounded-[2rem] -mt-8 border border-white/50"></div>
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[92%] h-full bg-slate-100 rounded-[2rem] -mt-4 border border-white/50 shadow-sm"></div>

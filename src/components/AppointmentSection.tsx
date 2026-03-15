@@ -188,11 +188,20 @@ export default function AppointmentSection() {
                     <h5 className="font-bold text-[17px] mb-1 text-white">
                       Our Location
                     </h5>
-                    <p className="text-red-100/80 leading-relaxed text-[15px]">
-                      123 Healthcare Avenue,
+                    <a
+                      href="https://maps.google.com/?q=Plot+no.38P/40/47P/48P/48,+Rajeev+Nagar+Colony+opp+Bombay+wali+bagichi,+Sheetla+road,+Kendriya+Hindi+Sansthan+Rd,+Hariparwat+ward,+Agra,+Uttar+Pradesh+282002"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-red-100/80 leading-relaxed text-[15px] hover:text-white transition-colors"
+                    >
+                      Plot no.38P/40/47P/48P/48,
                       <br />
-                      Medical District, NY 10001
-                    </p>
+                      Rajeev Nagar Colony opp Bombay wali bagichi, Sheetla road,
+                      <br />
+                      Kendriya Hindi Sansthan Rd, Hariparwat ward,
+                      <br />
+                      Agra, Uttar Pradesh 282002
+                    </a>
                   </div>
                 </div>
 

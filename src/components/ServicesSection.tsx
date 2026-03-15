@@ -9,8 +9,8 @@ const services = [
     description:
       "Heart Health & Cardiac Surgery. Expert care for your heart with state-of-the-art diagnostic and treatment facilities.",
     image:
-      "https://images.unsplash.com/photo-1628177142898-93e46e462850?q=80&w=2670&auto=format&fit=crop",
-  },
+    "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+   },
   {
     title: "Orthopedics",
     description:
@@ -30,8 +30,7 @@ const services = [
     description:
       "Women's Health & Maternity. Dedicated maternal care, family planning, and complete women's health services.",
     image:
-      "https://images.unsplash.com/photo-1531983412531-1f49a365bb47?auto=format&fit=crop&q=80&w=2670",
-  },
+ "https://images.pexels.com/photos/7108391/pexels-photo-7108391.jpeg"  },
   {
     title: "Oncology",
     description:

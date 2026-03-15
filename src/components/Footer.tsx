@@ -210,8 +210,17 @@ export default function Footer() {
                 <span className="text-sm">appointments@physeo.com</span>
               </div>
               <div className="flex items-center gap-3 text-slate-400">
-                <MapPin size={16} className="text-[#cb1b1a]" />
-                <span className="text-sm">123 Healthcare Ave, NY 10001</span>
+                <MapPin size={24} className="text-[#cb1b1a] shrink-0" />
+                <a
+                  href="https://maps.google.com/?q=Plot+no.38P/40/47P/48P/48,+Rajeev+Nagar+Colony+opp+Bombay+wali+bagichi,+Sheetla+road,+Kendriya+Hindi+Sansthan+Rd,+Hariparwat+ward,+Agra,+Uttar+Pradesh+282002"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm hover:text-white transition-colors text-left"
+                >
+                  Plot no.38P/40/47P/48P/48, Rajeev Nagar Colony opp Bombay wali
+                  bagichi, Sheetla road, Kendriya Hindi Sansthan Rd, Hariparwat
+                  ward, Agra, Uttar Pradesh 282002
+                </a>
               </div>
             </div>
           </div>

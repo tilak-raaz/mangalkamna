@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Facebook,
   Twitter,
@@ -79,16 +80,16 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="#services"
-                  className="text-slate-400 hover:text-[#cb1b1a] transition-colors flex items-center gap-2 group"
+                <Link
+                  href="/services"
+                  className="text-slate-400 hover:text-white transition-colors flex items-center gap-2 group"
                 >
                   <ArrowRight
                     size={14}
                     className="text-[#cb1b1a] opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all"
                   />{" "}
                   Our Services
-                </a>
+                </Link>
               </li>
               <li>
                 <a

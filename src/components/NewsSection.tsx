@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight, Calendar, User } from "lucide-react";
 
 const newsArticles = [
@@ -99,8 +100,8 @@ export default function NewsSection() {
 
                 {/* Read More Link */}
                 <div className="mt-auto">
-                  <a
-                    href="#"
+                  <Link
+                    href={`/news/${article.id}`}
                     className="inline-flex items-center gap-2 text-[#681412] font-bold text-[15px] group/btn"
                   >
                     <span className="border-b-2 border-transparent group-hover/btn:border-[#681412] transition-all pb-0.5">
@@ -109,7 +110,7 @@ export default function NewsSection() {
                     <span className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center group-hover/btn:bg-[#681412] group-hover/btn:text-white transition-colors">
                       <ArrowRight size={16} />
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>
@@ -118,7 +119,10 @@ export default function NewsSection() {
 
         {/* Global CTA Button */}
         <div className="mt-16 flex justify-center">
-          <button className="flex items-center gap-3 bg-[#681412] text-white px-10 py-5 rounded-full font-bold hover:bg-[#a51615] transition-all duration-300 shadow-xl shadow-[#681412]/20 hover:shadow-[#681412]/40 group text-lg hover:-translate-y-1">
+          <Link
+            href="/news"
+            className="flex items-center gap-3 bg-[#681412] text-white px-10 py-5 rounded-full font-bold hover:bg-[#a51615] transition-all duration-300 shadow-xl shadow-[#681412]/20 hover:shadow-[#681412]/40 group text-lg hover:-translate-y-1"
+          >
             <span>View All Articles & Health Tips</span>
             <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-[#681412] transition-colors">
               <ArrowRight
@@ -126,7 +130,7 @@ export default function NewsSection() {
                 className="group-hover:translate-x-0.5 transition-transform"
               />
             </div>
-          </button>
+          </Link>
         </div>
       </div>
     </section>

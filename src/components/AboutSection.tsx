@@ -1,4 +1,5 @@
 import { ArrowRight, Award, Stethoscope, Bed, Ambulance } from "lucide-react";
+import Link from "next/link";
 
 export default function AboutSection() {
   return (
@@ -103,14 +104,17 @@ export default function AboutSection() {
 
           {/* CTA Button */}
           <div className="pt-8 flex justify-center">
-            <button className="flex items-center gap-3 text-[#681412] font-bold text-lg group">
+            <Link
+              href="/about"
+              className="flex items-center gap-3 text-[#681412] font-bold text-lg group"
+            >
               <span className="border-b-2 border-transparent group-hover:border-[#681412] transition-all pb-1">
                 Learn More About Our Hospital
               </span>
               <span className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center group-hover:bg-[#681412] group-hover:text-white transition-colors">
                 <ArrowRight size={20} />
               </span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

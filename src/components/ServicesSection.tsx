@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 const services = [
   {
@@ -9,8 +10,8 @@ const services = [
     description:
       "Heart Health & Cardiac Surgery. Expert care for your heart with state-of-the-art diagnostic and treatment facilities.",
     image:
-    "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-   },
+      "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
   {
     title: "Orthopedics",
     description:
@@ -29,8 +30,8 @@ const services = [
     title: "Gynaecology & Obstetrics",
     description:
       "Women's Health & Maternity. Dedicated maternal care, family planning, and complete women's health services.",
-    image:
- "https://images.pexels.com/photos/7108391/pexels-photo-7108391.jpeg"  },
+    image: "https://images.pexels.com/photos/7108391/pexels-photo-7108391.jpeg",
+  },
   {
     title: "Oncology",
     description:
@@ -98,14 +99,26 @@ export default function ServicesSection() {
             Our Departments
           </span>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12">
-            <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-slate-900 leading-[1.1] tracking-tight max-w-2xl">
-              Excellence in <br className="hidden md:block" />
-              <span className="text-[#681412]">Medical Services</span>
-            </h2>
-            <p className="text-slate-600 text-lg md:text-xl leading-relaxed max-w-xl lg:pb-2">
-              We offer leading-edge treatments across diverse medical
-              specialties, bringing you comprehensive healthcare under one roof.
-            </p>
+            <div>
+              <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-slate-900 leading-[1.1] tracking-tight max-w-2xl mb-4">
+                Excellence in <br className="hidden md:block" />
+                <span className="text-[#681412]">Medical Services</span>
+              </h2>
+              <p className="text-slate-600 text-lg md:text-xl leading-relaxed max-w-xl lg:pb-2">
+                We offer leading-edge treatments across diverse medical
+                specialties, bringing you comprehensive healthcare under one
+                roof.
+              </p>
+            </div>
+            <div className="lg:pb-2">
+              <Link
+                href="/departments"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#681412] text-white font-bold rounded-full hover:bg-[#cb1b1a] hover:shadow-[0_10px_20px_-10px_rgba(203,27,26,0.5)] transition-all duration-300 group"
+              >
+                View All Departments
+                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
         </div>
 

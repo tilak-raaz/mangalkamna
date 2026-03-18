@@ -31,13 +31,13 @@ export default function Navbar() {
             Home
           </Link>
           <Link
-            href="#about"
+            href="/about"
             className="text-[#681412]/80 hover:text-[#cb1b1a] transition-colors font-bold"
           >
             About Us
           </Link>
           <Link
-            href="#services"
+            href="/departments"
             className="text-[#681412]/80 hover:text-[#cb1b1a] transition-colors font-bold"
           >
             Departments
@@ -160,14 +160,14 @@ export default function Navbar() {
             Home
           </Link>
           <Link
-            href="#about"
+            href="/about"
             onClick={() => setIsMobileMenuOpen(false)}
             className="border-b border-gray-100 pb-4 hover:text-[#cb1b1a] transition-colors"
           >
             About Us
           </Link>
           <Link
-            href="#services"
+            href="/departments"
             onClick={() => setIsMobileMenuOpen(false)}
             className="border-b border-gray-100 pb-4 hover:text-[#cb1b1a] transition-colors"
           >

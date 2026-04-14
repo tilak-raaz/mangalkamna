@@ -29,26 +29,17 @@ export default function Leadership() {
           <div className="flex flex-col gap-8 md:gap-10 relative z-10 w-full max-w-5xl mx-auto">
             {[
               {
-                name: "Dr. [Name]",
-                role: "Chairman & Managing Director",
-                bio: "Visionary leader with 35+ years in healthcare management. Under his leadership, the hospital has achieved national-level accreditations and expanded to serve the entire region.",
-                image:
-                  "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070&auto=format&fit=crop",
+                name: "Dr. Shekhar Vajpeyi",
+                role: "Senior Consultant – Urology, Andrology & Uro-Oncology",
+                bio: "M.S., M.Ch (Urology) | Expert in laser prostate surgery, stone surgery, minimally invasive uro-oncology, endourology and reconstructive urology with extensive surgical experience.",
+                image: "https://res.cloudinary.com/du5qoczcn/image/upload/a_-90/ar_1:1,c_auto/0D5A8851_a6tvgn.jpg",
               },
               {
-                name: "Dr. [Name]",
-                role: "Medical Director",
-                bio: "A renowned surgeon with expertise in minimally invasive procedures. Leads the hospital's clinical excellence initiatives and medical quality assurance.",
-                image:
-                  "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop",
-              },
-              {
-                name: "Mr./Ms. [Name]",
-                role: "Chief Executive Officer",
-                bio: "Strategic business leader driving the hospital's growth, patient experience improvements, and digital transformation initiatives.",
-                image:
-                  "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
-              },
+                name: "Dr. Vinayak Vajpeyi",
+                role: "Consultant – Urology & Minimally Invasive Surgery",
+                bio: "M.S., M.Ch (Urology) | Specializing in advanced endourology, laparoscopic procedures and modern prostate treatments.",
+                image: "https://res.cloudinary.com/du5qoczcn/image/upload/a_-90/ar_1:1,c_auto/0D5A8848_wp5brx.jpg",
+              }
             ].map((leader, idx) => (
               <div
                 key={idx}

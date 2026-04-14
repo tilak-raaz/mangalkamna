@@ -6,57 +6,37 @@ import Link from "next/link";
 
 const services = [
   {
-    title: "Cardiology",
+    title: "Urology",
     description:
-      "Heart Health & Cardiac Surgery. Expert care for your heart with state-of-the-art diagnostic and treatment facilities.",
-    image:
-      "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    title: "Orthopedics",
-    description:
-      "Bone, Joint & Spine Care. Advanced treatment for bones, ligaments, tendons, and muscles to help you regain mobility.",
+      "Comprehensive medical and surgical management of genitourinary disorders. Subspecialities: Endourology, Laparoscopic & Minimally Invasive Urology, Oncourology, Reconstructive Urology, Andrology & Male Infertility. We focus on organ preservation, minimal blood loss, faster recovery, and long-term functional outcomes.",
     image:
       "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2680&auto=format&fit=crop",
   },
   {
-    title: "Neurology",
+    title: "Nephrology",
     description:
-      "Brain & Nervous System. Comprehensive care for disorders of the nervous system and spinal cord using advanced therapeutic tools.",
+      "Comprehensive kidney care, from early diagnosis to advanced renal replacement therapy. Services Include: CKD & AKI Treatment, Hemodialysis, Hypertension Clinic, Diabetic Kidney Disease, Glomerular Disease, and Pre/Post-Transplant Care.",
     image:
       "https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=2671&auto=format&fit=crop",
   },
   {
-    title: "Gynaecology & Obstetrics",
+    title: "Cardiology",
     description:
-      "Women's Health & Maternity. Dedicated maternal care, family planning, and complete women's health services.",
-    image: "https://images.pexels.com/photos/7108391/pexels-photo-7108391.jpeg",
+      "Early detection, intervention, and long-term management of heart diseases. Services: ECG & 2D Echo, Stress Testing, Coronary Angiography, Angioplasty (PTCA), Heart Failure Management, Preventive Cardiology, Hypertension & Lipid Clinics.",
+    image:
+      "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=987&auto=format&fit=crop",
   },
   {
-    title: "Oncology",
+    title: "Cardiac Surgery",
     description:
-      "Cancer Diagnosis & Treatment. Cutting-edge radiation, chemotherapy, and surgical oncology treatments tailored to you.",
+      "Advanced surgical care supported by dedicated cardiac ICU. Surgical Services: CABG (Coronary Artery Bypass Grafting), Valve Repair & Replacement, Congenital Cardiac Surgery, Emergency Cardiac Surgery, and Post-operative Cardiac Critical Care.",
     image:
       "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=2670",
   },
   {
-    title: "Paediatrics",
+    title: "Critical Care & ICU",
     description:
-      "Child Healthcare. Complete medical care for infants, children, and adolescents focusing on emotional and physical developmental needs.",
-    image:
-      "https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=2670&auto=format&fit=crop",
-  },
-  {
-    title: "Ophthalmology",
-    description:
-      "Eye Care. Precision vision correction, cataract surgeries, and comprehensive treatments for various eye diseases.",
-    image:
-      "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=2680",
-  },
-  {
-    title: "Radiology & Imaging",
-    description:
-      "Diagnostics & Scans. High-resolution MRI, CT, X-ray and ultrasound imaging providing highly accurate diagnostic foundations.",
+      "Advanced ICU and HDU equipped with Ventilators, Multiparameter Monitors, and Isolation Facilities. We manage post-operative patients, cardiac emergencies, renal failure, sepsis, trauma & multi-organ dysfunction with a Trained Critical Care Team.",
     image:
       "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=2670",
   },

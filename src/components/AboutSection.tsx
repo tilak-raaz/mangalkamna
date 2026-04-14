@@ -50,10 +50,10 @@ export default function AboutSection() {
                 <Award className="text-[#cb1b1a]" size={32} strokeWidth={2} />
               </div>
               <h3 className="font-bold text-slate-800 text-xl leading-tight">
-                25+ Years of Service
+                Modular Operation Theatres
               </h3>
               <p className="text-slate-600 font-medium text-sm leading-relaxed">
-                Trusted by generations of patients and families.
+                State-of-the-art facilities for advanced surgical procedures.
               </p>
             </div>
 
@@ -66,10 +66,10 @@ export default function AboutSection() {
                 />
               </div>
               <h3 className="font-bold text-slate-800 text-xl leading-tight">
-                200+ Expert Doctors
+                Dedicated ICU & HDU
               </h3>
               <p className="text-slate-600 font-medium text-sm leading-relaxed">
-                Specialists across 30+ medical disciplines.
+                Advanced critical care & cardiac monitoring available.
               </p>
             </div>
 
@@ -78,10 +78,10 @@ export default function AboutSection() {
                 <Bed className="text-[#cb1b1a]" size={32} strokeWidth={2} />
               </div>
               <h3 className="font-bold text-slate-800 text-xl leading-tight">
-                500+ Bed Capacity
+                45 Beds (Expandable)
               </h3>
               <p className="text-slate-600 font-medium text-sm leading-relaxed">
-                Equipped ICU, NICU, and general wards.
+                Comfortable patient care with scalable capacity.
               </p>
             </div>
 
@@ -94,10 +94,10 @@ export default function AboutSection() {
                 />
               </div>
               <h3 className="font-bold text-slate-800 text-xl leading-tight">
-                24/7 Emergency Care
+                Pharmacy & 24/7 Emergency
               </h3>
               <p className="text-slate-600 font-medium text-sm leading-relaxed">
-                Round-the-clock emergency and trauma services.
+                Round-the-clock emergency care, in-house diagnostics & laboratory.
               </p>
             </div>
           </div>

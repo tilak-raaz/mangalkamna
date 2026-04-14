@@ -1,94 +1,47 @@
 import Link from "next/link";
 import {
-  Heart,
-  Bone,
-  Brain,
-  Baby,
   Activity,
-  Eye,
-  Stethoscope,
-  Smile,
-  Radiation,
   Droplets,
-  Wind,
-  CheckCircle2,
+  Heart,
+  HeartPulse,
+  Stethoscope,
   ChevronRight,
 } from "lucide-react";
 
 const departments = [
   {
-    name: "Cardiology",
-    icon: Heart,
-    slug: "cardiology",
-    description: "Heart failure, CAD, arrhythmias, valve disorders",
-  },
-  {
-    name: "Orthopedics",
-    icon: Bone,
-    slug: "orthopedics",
-    description: "Joint replacement, spine surgery, sports injuries",
-  },
-  {
-    name: "Neurology",
-    icon: Brain,
-    slug: "neurology",
-    description: "Stroke, epilepsy, Parkinson's, headache disorders",
-  },
-  {
-    name: "Paediatrics",
-    icon: Baby,
-    slug: "paediatrics",
-    description: "Child wellness, vaccinations, neonatal care",
-  },
-  {
-    name: "Oncology",
+    name: "Urology",
     icon: Activity,
-    slug: "oncology",
-    description: "Cancer surgery, chemotherapy, radiation therapy",
-  },
-  {
-    name: "Ophthalmology",
-    icon: Eye,
-    slug: "ophthalmology",
-    description: "Cataract, LASIK, retina, glaucoma treatment",
-  },
-  {
-    name: "Gynaecology",
-    icon: Stethoscope,
-    slug: "gynaecology",
-    description: "Maternity, fertility, laparoscopy, menopause",
-  },
-  {
-    name: "Dental Care",
-    icon: Smile,
-    slug: "dental-care",
-    description: "Orthodontics, implants, root canal, cosmetic dentistry",
-  },
-  {
-    name: "Radiology",
-    icon: Radiation,
-    slug: "radiology",
-    description: "MRI, CT, X-Ray, ultrasound, PET scan",
+    slug: "urology",
+    description: "Endourology, Oncourology, Reconstructive Urology, Andrology",
   },
   {
     name: "Nephrology",
     icon: Droplets,
     slug: "nephrology",
-    description: "Kidney disease, dialysis, transplant care",
+    description: "Hemodialysis, CKD, AKI, Post-Transplant Care",
   },
   {
-    name: "Pulmonology",
-    icon: Wind,
-    slug: "pulmonology",
-    description: "Asthma, COPD, sleep disorders, lung infections",
+    name: "Cardiology",
+    icon: Heart,
+    slug: "cardiology",
+    description: "ECG, 2D Echo, Angioplasty, Heart Failure Management",
   },
   {
-    name: "Physiotherapy",
-    icon: CheckCircle2,
-    slug: "physiotherapy",
-    description: "Rehabilitation, sports therapy, post-surgical recovery",
+    name: "Cardiac Surgery",
+    icon: HeartPulse,
+    slug: "cardiac-surgery",
+    description: "CABG, Valve Repair, Congenital Cardiac Surgery",
   },
+  {
+    name: "Critical Care & ICU",
+    icon: Stethoscope,
+    slug: "critical-care-icu",
+    description: "Advanced Ventilation, Cardiac Emergencies, Sepsis, Trauma",
+  }
 ];
+
+
 
 export default function DepartmentListings() {
   return (

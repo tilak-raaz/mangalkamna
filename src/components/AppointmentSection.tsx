@@ -214,9 +214,7 @@ export default function AppointmentSection() {
                       Phone Number
                     </h5>
                     <p className="text-red-100/80 leading-relaxed text-[15px]">
-                      +1 (603) 555-0103
-                      <br />
-                      +1 (603) 555-0104
+                      +91 82797 67958
                     </p>
                   </div>
                 </div>
@@ -230,9 +228,7 @@ export default function AppointmentSection() {
                       Email Address
                     </h5>
                     <p className="text-red-100/80 leading-relaxed text-[15px]">
-                      appointments@physeo.com
-                      <br />
-                      support@physeo.com
+                      Hospitalmangalkamna@gmail.com
                     </p>
                   </div>
                 </div>

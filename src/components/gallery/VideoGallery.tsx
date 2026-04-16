@@ -1,41 +1,38 @@
-import { Play, Video } from "lucide-react";
-import Image from "next/image";
-
 export default function VideoGallery() {
   const videos = [
     {
       id: 1,
       title: "Hospital Overview & Virtual Tour",
       duration: "03:45",
-      url: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1000",
+      url: "https://www.w3schools.com/html/mov_bbb.mp4",
       badge: "Overview",
     },
     {
       id: 2,
-      title: "Heart Health Tips by Dr. Smith",
+      title: "Advanced Facilities Tour",
       duration: "05:20",
-      url: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=1000",
-      badge: "Doctor Interview",
+      url: "https://www.w3schools.com/html/mov_bbb.mp4",
+      badge: "Facilities",
     },
     {
       id: 3,
-      title: "My Recovery Journey: A Patient Story",
-      duration: "04:15",
-      url: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1000",
-      badge: "Testimonial",
-    },
-    {
-      id: 4,
       title: "Advanced Cardiology Department Highlights",
-      duration: "02:30",
-      url: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=1000",
+      duration: "04:15",
+      url: "https://www.w3schools.com/html/mov_bbb.mp4",
       badge: "Department",
     },
     {
+      id: 4,
+      title: "Operation Theatre Innovations",
+      duration: "02:30",
+      url: "https://www.w3schools.com/html/mov_bbb.mp4",
+      badge: "Equipment",
+    },
+    {
       id: 5,
-      title: "Annual Blood Donation Drive 2024",
+      title: "Annual Hospital Events",
       duration: "01:50",
-      url: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000",
+      url: "https://www.w3schools.com/html/mov_bbb.mp4",
       badge: "Health Campaign",
     },
   ];
@@ -64,32 +61,19 @@ export default function VideoGallery() {
               key={video.id}
               className={`group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(203,27,26,0.1)] transition-all duration-300 border border-slate-100 ${index === 0 ? "md:col-span-2 lg:col-span-2" : ""}`}
             >
-              {/* Video Thumbnail Area */}
+              {/* Video Area */}
               <div
-                className={`relative w-full ${index === 0 ? "h-64 sm:h-80 md:h-[400px]" : "h-56"} bg-slate-900 overflow-hidden cursor-pointer`}
+                className={`relative w-full ${index === 0 ? "h-64 sm:h-80 md:h-[400px]" : "h-56"} bg-slate-900 overflow-hidden`}
               >
-                <Image
+                <video
                   src={video.url}
-                  alt={video.title}
-                  fill
-                  className="object-cover opacity-70 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700"
+                  controls
+                  preload="metadata"
+                  className="w-full h-full object-cover"
                 />
 
-                {/* Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/40 group-hover:bg-[#cb1b1a] group-hover:border-[#cb1b1a] group-hover:scale-110 transition-all duration-300 shadow-[0_0_30px_rgba(0,0,0,0.3)] group-hover:shadow-[0_0_30px_rgba(203,27,26,0.5)]">
-                    <Play className="w-6 h-6 text-white ml-1 fill-white" />
-                  </div>
-                </div>
-
-                {/* Duration Tag */}
-                <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-lg text-sm font-medium flex items-center gap-1.5 border border-white/10">
-                  <Video className="w-4 h-4 text-slate-300" />
-                  {video.duration}
-                </div>
-
                 {/* Badge Tag */}
-                <div className="absolute top-4 left-4 bg-[#cb1b1a] text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider shadow-md">
+                <div className="absolute top-4 left-4 bg-[#cb1b1a] text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider shadow-md pointer-events-none">
                   {video.badge}
                 </div>
               </div>

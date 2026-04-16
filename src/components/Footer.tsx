@@ -204,13 +204,13 @@ export default function Footer() {
             <div className="pt-4 space-y-3">
               <div className="flex items-center gap-3 text-slate-400">
                 <Phone size={16} className="text-[#cb1b1a]" />
-                <span className="text-sm">+1 (603) 555-0103</span>
+                <span className="text-sm">+91 82797 67958</span>
               </div>
               <div className="flex items-center gap-3 text-slate-400">
                 <Mail size={16} className="text-[#cb1b1a]" />
-                <span className="text-sm">appointments@physeo.com</span>
+                <span className="text-sm">Hospitalmangalkamna@gmail.com</span>
               </div>
-              <div className="flex items-center gap-3 text-slate-400">
+              <div className="flex items-start gap-3 text-slate-400">
                 <MapPin size={24} className="text-[#cb1b1a] shrink-0" />
                 <a
                   href="https://maps.google.com/?q=Plot+no.38P/40/47P/48P/48,+Rajeev+Nagar+Colony+opp+Bombay+wali+bagichi,+Sheetla+road,+Kendriya+Hindi+Sansthan+Rd,+Hariparwat+ward,+Agra,+Uttar+Pradesh+282002"

@@ -27,7 +27,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative w-full min-h-[100vh] flex items-center pt-32 pb-16 overflow-hidden bg-white">
+    <section className="relative w-full min-h-[calc(100vh-105px)] flex items-center py-12 md:py-20 overflow-hidden bg-white">
       {/* Carousel Background */}
       {images.map((img, index) => (
         <div
@@ -43,7 +43,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0 bg-white/40 md:bg-white/20"></div>
       <div className="absolute inset-0 z-0 bg-gradient-to-t md:bg-gradient-to-r from-white/95 via-white/80 md:via-white/70 to-transparent"></div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24 mt-20 md:mt-0">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
         <div className="w-full flex justify-between items-end">
           <div className="max-w-2xl space-y-6 md:space-y-8">
             <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-[#cb1b1a]/20 px-3 md:px-4 py-1.5 md:py-2 rounded-full shadow-sm">

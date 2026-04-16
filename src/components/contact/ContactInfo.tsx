@@ -15,45 +15,44 @@ export default function ContactInfo() {
     {
       icon: Building2,
       label: "Hospital Name",
-      value: "[Full Official Name of Hospital]",
+      value: "Mangalkamna Hospital",
       isPrimary: true,
     },
     {
       icon: MapPin,
       label: "Address",
-      value:
-        "[Building Name / Number], [Street], [Locality], [City] – [PIN Code], [State]",
+      value: "Greater Noida, Uttar Pradesh, India",
     },
     {
       icon: Phone,
       label: "Main Reception",
-      value: "+91-XXXX-XXXXXX",
+      value: "+91 82797 67958",
     },
     {
       icon: ShieldAlert,
       label: "Emergency (24/7)",
-      value: "+91-XXXX-XXXXXX",
+      value: "+91 82797 67958",
       highlight: true,
     },
     {
       icon: Phone,
       label: "Appointments",
-      value: "+91-XXXX-XXXXXX | appointments@[domain].com",
+      value: "+91 82797 67958 | Hospitalmangalkamna@gmail.com",
     },
     {
       icon: Globe,
       label: "International Patients",
-      value: "+91-XXXX-XXXXXX | international@[domain].com",
+      value: "+91 82797 67958 | Hospitalmangalkamna@gmail.com",
     },
     {
       icon: MessagesSquare,
       label: "Feedback & Grievances",
-      value: "feedback@[domain].com",
+      value: "Hospitalmangalkamna@gmail.com",
     },
     {
       icon: Mail,
       label: "General Enquiries",
-      value: "info@[domain].com",
+      value: "Hospitalmangalkamna@gmail.com",
     },
     {
       icon: Clock,

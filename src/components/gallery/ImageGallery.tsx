@@ -1,18 +1,6 @@
-"use client";
-import { useState } from "react";
 import Image from "next/image";
 
 export default function ImageGallery() {
-  const [activeTab, setActiveTab] = useState("All");
-
-  const categories = [
-    "All",
-    "Infrastructure",
-    "Equipment",
-    "Staff",
-    "Patient Care",
-  ];
-
   const galleryItems = [
     {
       id: 1,
@@ -32,43 +20,31 @@ export default function ImageGallery() {
       id: 3,
       title: "Advanced Equipment",
       category: "Equipment",
-      url: "https://res.cloudinary.com/du5qoczcn/image/upload/v1776352150/0D5A8872_ucuav8.jpg",
+      url: "https://res.cloudinary.com/du5qoczcn/image/upload/v1776522226/0D5A8872-2_y1nwyr.jpg",
       alt: "Advanced Equipment",
     },
     {
       id: 4,
       title: "Operation Theatre",
       category: "Patient Care",
-      url: "https://res.cloudinary.com/du5qoczcn/image/upload/v1776351794/0D5A8868_gcenpe.jpg",
-      alt: "Operation Theatre",
+      url: "https://res.cloudinary.com/du5qoczcn/image/upload/v1776522550/0D5A8865_ucncgl.jpg",
+      alt: "Recovery Rooms",
     },
     {
       id: 5,
       title: "Recovery Rooms",
       category: "Infrastructure",
-      url: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop",
-      alt: "Recovery Rooms",
+      url: "https://res.cloudinary.com/du5qoczcn/image/upload/v1776522223/0D5A8868-2_npgr6g.jpg",
+      alt: "Operation Theatre",
     },
     {
       id: 6,
-      title: "Our Medical Team",
-      category: "Staff",
-      url: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop",
+      title: "",
+       
+      url: "https://res.cloudinary.com/du5qoczcn/image/upload/v1776522900/0D5A8825_av7fg3.jpg",
       alt: "Medical Team",
     },
-    {
-      id: 7,
-      title: "Patient Support",
-      category: "Patient Care",
-      url: "https://images.unsplash.com/photo-1527613426406-382276532454?q=80&w=2070&auto=format&fit=crop",
-      alt: "Patient Support",
-    },
   ];
-
-  const filteredItems =
-    activeTab === "All"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === activeTab);
 
   return (
     <section className="py-20 bg-white border-y border-slate-100">
@@ -80,30 +56,13 @@ export default function ImageGallery() {
             <span className="w-8 h-0.5 bg-[#cb1b1a]"></span>
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-            Browse by Category
+            Our Gallery
           </h2>
-        </div>
-
-        {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveTab(category)}
-              className={`px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
-                activeTab === category
-                  ? "bg-[#cb1b1a] text-white shadow-[0_8px_16px_rgba(203,27,26,0.25)]"
-                  : "bg-slate-50 text-slate-600 hover:bg-red-50 hover:text-[#cb1b1a] border border-slate-100 hover:border-red-100"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
         </div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {filteredItems.map((item) => (
+          {galleryItems.map((item) => (
             <div
               key={item.id}
               className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(203,27,26,0.1)] transition-all duration-500 bg-slate-100 aspect-square cursor-pointer"

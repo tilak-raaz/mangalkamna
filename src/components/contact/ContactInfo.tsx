@@ -39,21 +39,7 @@ export default function ContactInfo() {
       label: "Appointments",
       value: "+91 82797 67958 | Hospitalmangalkamna@gmail.com",
     },
-    {
-      icon: Globe,
-      label: "International Patients",
-      value: "+91 82797 67958 | Hospitalmangalkamna@gmail.com",
-    },
-    {
-      icon: MessagesSquare,
-      label: "Feedback & Grievances",
-      value: "Hospitalmangalkamna@gmail.com",
-    },
-    {
-      icon: Mail,
-      label: "General Enquiries",
-      value: "Hospitalmangalkamna@gmail.com",
-    },
+     
     {
       icon: Clock,
       label: "Hospital Hours",

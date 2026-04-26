@@ -1,4 +1,4 @@
-import { ShieldCheck, Activity, Target, Gem, Award } from "lucide-react";
+import { ShieldCheck, Activity, Gem, Award } from "lucide-react";
 
 export default function Accreditations() {
   return (
@@ -30,20 +30,20 @@ export default function Accreditations() {
             {/* Accreditation Cards */}
             {[
               {
-                title: "NABH",
-                desc: "National Accreditation Board for Hospitals & Healthcare Providers",
+                title: "NABL",
+                desc: "National Accreditation Board for Testing & Calibration Laboratories — Laboratory Accreditation",
                 icon: (
-                  <ShieldCheck
+                  <Activity
                     size={36}
                     className="text-[#cb1b1a] group-hover:text-white transition-colors duration-300"
                   />
                 ),
               },
               {
-                title: "NABL",
-                desc: "National Accreditation Board for Testing & Calibration Laboratories",
+                title: "NABH",
+                desc: "National Accreditation Board for Hospitals & Healthcare Providers (Applied/In Progress)",
                 icon: (
-                  <Activity
+                  <ShieldCheck
                     size={36}
                     className="text-[#cb1b1a] group-hover:text-white transition-colors duration-300"
                   />
@@ -54,16 +54,6 @@ export default function Accreditations() {
                 desc: "Certified for maintaining top-tier quality management systems.",
                 icon: (
                   <Gem
-                    size={36}
-                    className="text-[#cb1b1a] group-hover:text-white transition-colors duration-300"
-                  />
-                ),
-              },
-              {
-                title: "JCI Accreditation",
-                desc: "Recognized for Joint Commission International standards globally.",
-                icon: (
-                  <Target
                     size={36}
                     className="text-[#cb1b1a] group-hover:text-white transition-colors duration-300"
                   />

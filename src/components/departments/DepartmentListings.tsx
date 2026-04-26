@@ -6,6 +6,8 @@ import {
   HeartPulse,
   Stethoscope,
   ChevronRight,
+  Microscope2,
+  Zap,
 } from "lucide-react";
 
 const departments = [
@@ -14,42 +16,70 @@ const departments = [
     icon: Activity,
     slug: "urology",
     description: "Endourology, Oncourology, Reconstructive Urology, Andrology",
+    isVisible: true,
   },
   {
     name: "Nephrology",
     icon: Droplets,
     slug: "nephrology",
     description: "Hemodialysis, CKD, AKI, Post-Transplant Care",
+    isVisible: true,
+  },
+  {
+    name: "General Surgery",
+    icon: Stethoscope,
+    slug: "general-surgery",
+    description: "Hernia Repair, Cholecystectomy, Cancer Surgery",
+    isVisible: true,
+  },
+  {
+    name: "General Medicine",
+    icon: Stethoscope,
+    slug: "general-medicine",
+    description: "Diabetes, Hypertension, Respiratory Diseases",
+    isVisible: true,
   },
   {
     name: "Cardiology",
     icon: Heart,
     slug: "cardiology",
     description: "ECG, 2D Echo, Angioplasty, Heart Failure Management",
+    isVisible: false,
   },
   {
     name: "Cardiac Surgery",
     icon: HeartPulse,
     slug: "cardiac-surgery",
     description: "CABG, Valve Repair, Congenital Cardiac Surgery",
+    isVisible: false,
   },
   {
-    name: "Critical Care & ICU",
-    icon: Stethoscope,
-    slug: "critical-care-icu",
-    description: "Advanced Ventilation, Cardiac Emergencies, Sepsis, Trauma",
-  }
+    name: "Pathology",
+    icon: Microscope2,
+    slug: "pathology",
+    description: "Clinical Pathology, Histopathology, Microbiology",
+    isVisible: true,
+  },
+  {
+    name: "Radiology",
+    icon: Zap,
+    slug: "radiology",
+    description: "X-Ray, Ultrasound, CT Scan, MRI",
+    isVisible: true,
+  },
 ];
 
-
-
 export default function DepartmentListings() {
+  const visibleDepartments = departments.filter(
+    (dept) => dept.isVisible !== false,
+  );
+
   return (
     <section className="py-20 bg-white relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
         {/* Grid Container */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
-          {departments.map((dept, index) => {
+          {visibleDepartments.map((dept, index) => {
             const Icon = dept.icon;
             return (
               <div

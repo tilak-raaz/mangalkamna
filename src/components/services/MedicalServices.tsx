@@ -35,7 +35,6 @@ const serviceCategories = [
     items: [
       "Pathology & Clinical Laboratory (NABL Certified)",
       "Radiology — MRI, CT Scan, X-Ray, Ultrasound",
-      "PET-CT Scan",
       "4D / 3D Echocardiography",
       "Endoscopy & Colonoscopy",
       "Pulmonary Function Tests (PFT)",
@@ -47,12 +46,13 @@ const serviceCategories = [
     title: "Specialized Programmes",
     icon: Baby,
     items: [
-      "Mother & Child Care Programme",
+      "Infertility Care & Reproductive Medicine",
+      "Sexual Issue Management",
       "Cancer Screening & Early Detection",
       "Cardiac Wellness Programme",
       "Diabetes Management & Education",
-      "Mental Health & Counselling Services",
       "Pain Management Clinic",
+      "Mental Health & Counselling Services",
       "Physiotherapy & Rehabilitation Centre",
     ],
   },

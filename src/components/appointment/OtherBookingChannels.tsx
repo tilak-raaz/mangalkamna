@@ -5,14 +5,14 @@ export default function OtherBookingChannels() {
     {
       icon: Phone,
       title: "Phone",
-      details: "+91-XXXX-XXXXXX",
+      details: "+91-8679026660",
       subDetails: "8:00 AM – 8:00 PM, all days",
     },
     {
       icon: MessageCircle,
       title: "WhatsApp",
       details: "Message us on",
-      subDetails: "+91-XXXX-XXXXXX",
+      subDetails: "+91-8679026660",
     },
     {
       icon: UserPlus,

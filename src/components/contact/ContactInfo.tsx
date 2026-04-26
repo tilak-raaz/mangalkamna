@@ -25,21 +25,22 @@ export default function ContactInfo() {
     },
     {
       icon: Phone,
-      label: "Main Reception",
-      value: "+91 82797 67958",
+      label: "Phone Numbers",
+      value:
+        "+91-90274-22666 | +91-86790-26660 | +91-86790-2663 | 05624-622053",
     },
     {
       icon: ShieldAlert,
       label: "Emergency (24/7)",
-      value: "+91 82797 67958",
+      value: "+91-90274-22666",
       highlight: true,
     },
     {
       icon: Phone,
       label: "Appointments",
-      value: "+91 82797 67958 | Hospitalmangalkamna@gmail.com",
+      value: "+91-90274-22666 | Hospitalmangalkamna@gmail.com",
     },
-     
+
     {
       icon: Clock,
       label: "Hospital Hours",
@@ -48,7 +49,7 @@ export default function ContactInfo() {
     {
       icon: Car,
       label: "Parking",
-      value: "Ample free parking available — Basement + Open parking",
+      value: "Ample Free Parking Available",
     },
   ];
 

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import AchievementsBar from "./AchievementsBar";
 
 const images = [
   "https://res.cloudinary.com/du5qoczcn/image/upload/v1773571642/WhatsApp_Image_2026-03-15_at_16.17.01_mft9qc.jpg",
@@ -46,6 +47,8 @@ export default function HeroSection() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
         <div className="w-full flex justify-between items-end">
           <div className="max-w-2xl space-y-6 md:space-y-8">
+            <AchievementsBar />
+
             <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-[#cb1b1a]/20 px-3 md:px-4 py-1.5 md:py-2 rounded-full shadow-sm">
               <div className="w-2 md:w-2.5 h-2 md:h-2.5 bg-[#cb1b1a] rounded-full animate-pulse"></div>
               <span className="text-xs md:text-sm font-bold text-[#681412] tracking-wide">
@@ -54,12 +57,20 @@ export default function HeroSection() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.3rem] font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-[#681412]">
-              Your Health, <br className="hidden sm:block" /> Our Commitment -{" "}
-              <br className="hidden md:block" />
+              Advanced Medical and Surgical <br className="hidden sm:block" />
               <span className="text-[#cb1b1a] font-extrabold relative block sm:inline">
-                Excellence in Medical Care.
+                Super-Speciality Hospital
               </span>
             </h1>
+
+            <p className="text-sm md:text-base text-[#681412]/70 font-medium mb-6">
+              by Dr Shekhar Bajpei
+            </p>
+
+            <p className="text-xs sm:text-sm md:text-base text-[#681412]/75 font-medium mb-6 leading-relaxed">
+              24*7 Emergency Care • Advanced Diagonostic Services • Expert
+              Doctors and Specialists • Modern Operation Theatres
+            </p>
 
             <p className="text-base sm:text-lg md:text-xl text-[#681412]/80 max-w-2xl leading-relaxed font-medium">
               State-of-the-art healthcare services delivered with compassion,

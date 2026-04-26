@@ -3,12 +3,9 @@ import {
   HeartPulse,
   Brain,
   Car,
-  Baby,
   ShieldPlus,
-  Skull,
   Flame,
   Wind,
-  Syringe,
 } from "lucide-react";
 
 export default function EmergencyServices() {
@@ -17,12 +14,8 @@ export default function EmergencyServices() {
     { name: "Cardiac Arrest & Heart Attack Response", icon: HeartPulse },
     { name: "Stroke & Neurological Emergencies", icon: Brain },
     { name: "Accident & Multi-trauma Care", icon: Car },
-    { name: "Paediatric Emergency Services", icon: Baby },
-    { name: "Obstetric & Gynaecological Emergencies", icon: Activity },
-    { name: "Poisoning & Toxicology", icon: Skull },
     { name: "Burns & Reconstructive Emergency Care", icon: Flame },
     { name: "Respiratory Emergencies (ICU Support)", icon: Wind },
-    { name: "Post-surgical Emergency Response", icon: Syringe },
   ];
 
   return (

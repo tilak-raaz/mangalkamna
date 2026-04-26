@@ -1,4 +1,12 @@
-import { Flag, Building, ShieldCheck, PlusSquare, Activity, Cpu, Users } from "lucide-react";
+import {
+  Flag,
+  Building,
+  ShieldCheck,
+  PlusSquare,
+  Activity,
+  Cpu,
+  Users,
+} from "lucide-react";
 
 export default function Milestones() {
   return (
@@ -46,8 +54,14 @@ export default function Milestones() {
                 },
                 {
                   year: "2015",
-                  title: "Accreditation",
-                  desc: "Received NABH Accreditation.",
+                  title: "NABL Accreditation",
+                  desc: "Obtained NABL Accreditation for the laboratory.",
+                  icon: <ShieldCheck size={24} />,
+                },
+                {
+                  year: "2016",
+                  title: "NABH Accreditation",
+                  desc: "NABH Accreditation (Applied/In Progress).",
                   icon: <ShieldCheck size={24} />,
                 },
                 {

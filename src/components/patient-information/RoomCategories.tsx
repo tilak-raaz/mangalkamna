@@ -9,30 +9,23 @@ export default function RoomCategories() {
       highlight: false,
     },
     {
-      type: "Semi-Private Room",
+      type: "Semi-Private",
       amenities: "Air conditioning, attached bathroom, TV, 1 attender bed",
       occupancy: "2 patients",
       highlight: false,
     },
     {
-      type: "Private Room",
+      type: "Private",
       amenities:
         "Air conditioning, attached bathroom, sofa-cum-bed, TV, mini fridge",
       occupancy: "Single occupancy",
       highlight: true,
     },
     {
-      type: "Deluxe Room",
+      type: "Deluxe",
       amenities:
         "Premium furnishing, guest lounge area, dedicated nursing care",
       occupancy: "Single + attendant",
-      highlight: false,
-    },
-    {
-      type: "Suite",
-      amenities:
-        "Premium layout with living area, separate kitchen pantry, VIP services",
-      occupancy: "VIP / Executive",
       highlight: false,
     },
   ];

@@ -31,12 +31,9 @@ export default function AboutSection() {
               <span className="text-slate-900 font-bold">
                 Mangalkamna Hospital
               </span>{" "}
-              — a trusted healthcare institution serving our community for over{" "}
-              <span className="text-[#cb1b1a] font-bold border-b-2 border-[#cb1b1a]/20">
-                15 years
-              </span>
-              . We combine cutting-edge medical technology with a highly
-              experienced team of specialists to provide world-class treatment
+              — an advanced and new institution with highly experienced super
+              specialists. We combine cutting-edge medical technology with a
+              dedicated team of specialists to provide world-class treatment
               across all major disciplines. Whether you need routine check-ups,
               advanced surgical procedures, or critical emergency care, we are
               here for you — every step of the way.
@@ -97,7 +94,8 @@ export default function AboutSection() {
                 Pharmacy & 24/7 Emergency
               </h3>
               <p className="text-slate-600 font-medium text-sm leading-relaxed">
-                Round-the-clock emergency care, in-house diagnostics & laboratory.
+                Round-the-clock emergency care, in-house diagnostics &
+                laboratory.
               </p>
             </div>
           </div>

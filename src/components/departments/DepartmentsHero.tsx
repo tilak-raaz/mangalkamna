@@ -32,9 +32,9 @@ export default function DepartmentsHero() {
 
             {/* Sub-text */}
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium max-w-3xl">
-              From preventive care to complex surgical interventions, our 30+
-              departments are equipped with the latest technology and led by
-              experienced specialists.
+              30+ Departments — from Preventive Care to Complex Surgical
+              Intervention. Our institution is equipped with the latest
+              technology, led by experienced super specialists and specialists.
             </p>
           </div>
         </div>

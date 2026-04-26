@@ -2,7 +2,6 @@ import {
   Pill,
   Activity,
   Syringe,
-  Building2,
   BookHeart,
   Ambulance,
   Globe2,
@@ -15,15 +14,11 @@ const supportServices = [
   },
   {
     icon: Syringe,
-    title: "Blood Bank & Transfusion",
+    title: "Blood Bank",
   },
   {
     icon: Activity,
-    title: "Dietary & Nutrition",
-  },
-  {
-    icon: Building2,
-    title: "Medical Social Work",
+    title: "Dietary & Nutrition Services",
   },
   {
     icon: BookHeart,
@@ -85,12 +80,12 @@ export default function SupportServices() {
               <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#cb1b1a] mb-3 bg-white px-3 py-1.5 rounded-full shadow-sm">
                 Need Help?
               </span>
-              <h3 className="text-xl font-bold mb-4 z-10">Call Support</h3>
+              <h3 className="text-xl font-bold mb-4 z-10">Call Us 24/7</h3>
               <a
-                href="tel:1066"
+                href="tel:+919027422666"
                 className="inline-flex items-center justify-center w-full py-3 bg-white text-[#681412] font-black rounded-xl hover:bg-slate-50 hover:shadow-md transition-all duration-300 transform group-hover:scale-105 z-10"
               >
-                Dial 1066
+                +91-90274-22666
               </a>
             </div>
           </div>

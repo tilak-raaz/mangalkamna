@@ -4,33 +4,33 @@ import { ArrowRight, Calendar, User } from "lucide-react";
 const newsArticles = [
   {
     id: 1,
-    title: "The Importance of Regular Cardiovascular Check-ups After 40",
-    category: "Cardiology",
-    date: "March 15, 2026",
+    title: "Preventing Kidney Stones: Hydration and Dietary Changes",
+    category: "Urology",
+    date: "April 18, 2026",
     excerpt:
-      "Understanding the subtle warning signs of heart disease and why scheduling an annual cardiovascular screening can be a life-saving decision.",
+      "Discover the most effective lifestyle modifications and dietary adjustments to prevent the formation of painful kidney stones and maintain optimal renal health.",
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2670",
+      "https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&q=80&w=2670",
   },
   {
     id: 2,
-    title: "Nutritional Guidelines for Managing Type 2 Diabetes",
-    category: "Nutrition",
-    date: "March 10, 2026",
+    title: "Understanding Prostate Health: When to Get Screened",
+    category: "Urology",
+    date: "April 05, 2026",
     excerpt:
-      "A comprehensive guide to building balanced, nutritious meal plans that help stabilize blood sugar levels and promote overall well-being.",
+      "An essential guide to the warning signs of prostate enlargement (BPH) and the critical importance of regular PSA screenings for early detection.",
     image:
-      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=2653",
+      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=2670",
   },
   {
     id: 3,
-    title: "Mental Wellness: Strategies for Coping with Workplace Stress",
-    category: "Wellness",
-    date: "March 02, 2026",
+    title: "Managing Overactive Bladder: Modern Treatment Options",
+    category: "Urology",
+    date: "March 22, 2026",
     excerpt:
-      "Actionable mindfulness techniques and lifestyle adjustments to protect your mental health while navigating a demanding professional environment.",
+      "Explore the latest advancements in treating overactive bladder, ranging from targeted behavioral therapies and medications to minimally invasive procedures.",
     image:
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=2620",
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=2670",
   },
 ];
 

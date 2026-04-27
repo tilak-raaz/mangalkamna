@@ -25,7 +25,7 @@ const ARTICLES = [
     category: "Kidney Care",
     image:
       "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80",
-    date: "Aug 15, 2024",
+    date: "Apr 20, 2026",
     readTime: "6 min read",
     author: "Dr. Shekhar Vajpeyi",
     excerpt:
@@ -38,7 +38,7 @@ const ARTICLES = [
     category: "Urology Care",
     image:
       "https://images.unsplash.com/photo-1628595351029-c29e9620e401?auto=format&fit=crop&q=80",
-    date: "Aug 12, 2024",
+    date: "Apr 15, 2026",
     readTime: "5 min read",
     author: "Dr. Vinayak Vajpeyi",
     excerpt:
@@ -51,7 +51,7 @@ const ARTICLES = [
     category: "Prostate Health",
     image:
       "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80",
-    date: "Aug 10, 2024",
+    date: "Apr 10, 2026",
     readTime: "5 min read",
     author: "Dr. Shekhar Vajpeyi",
     excerpt:
@@ -64,7 +64,7 @@ const ARTICLES = [
     category: "Urological Procedures",
     image:
       "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80",
-    date: "Aug 08, 2024",
+    date: "Apr 05, 2026",
     readTime: "6 min read",
     author: "Dr. Vinayak Vajpeyi",
     excerpt:
@@ -73,59 +73,57 @@ const ARTICLES = [
   },
   {
     id: "5",
-    title: "Male Infertility: Causes, Diagnosis, and Treatment",
+    title: "Male Infertility: Causes, Diagnosis, and Modern Treatments",
     category: "Male Infertility",
     image:
       "https://images.unsplash.com/photo-1631815587646-b85a1bb027e1?auto=format&fit=crop&q=80",
-    date: "Aug 05, 2024",
+    date: "Mar 28, 2026",
     readTime: "7 min read",
     author: "Dr. Shekhar Vajpeyi",
     excerpt:
-      "Comprehensive guide to male infertility evaluation and treatment options, including surgical and medical interventions.",
+      "Comprehensive guide to male infertility evaluation and treatment options, including surgical and advanced medical interventions.",
     slug: "male-infertility-treatment",
   },
   {
     id: "6",
-    title:
-      "Dialysis vs Transplant: Understanding Your Renal Replacement Options",
+    title: "Dialysis vs Transplant: Understanding Your Renal Replacement Options",
     category: "Kidney Disease Management",
     image:
       "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&q=80",
-    date: "Aug 02, 2024",
+    date: "Mar 22, 2026",
     readTime: "6 min read",
-    author: "Hospital Team",
+    author: "Mangalkamna Hospital Team",
     excerpt:
       "Learn about different renal replacement therapies and how to choose the right option for your kidney care journey.",
     slug: "renal-replacement-options",
   },
   {
     id: "7",
-    title: "[Hospital Name] Launches New Robotic Surgery Program",
+    title: "Mangalkamna Hospital Upgrades Advanced Laser Lithotripsy Services",
     category: "Hospital News & Announcements",
     image:
       "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80",
-    date: "Jul 28, 2024",
+    date: "Mar 15, 2026",
     readTime: "3 min read",
     author: "Admin",
     excerpt:
-      "We are proud to introduce state-of-the-art robotic surgery, improving precision and recovery times.",
-    slug: "new-robotic-surgery-program",
+      "We are proud to introduce state-of-the-art laser technology for urological procedures, improving precision and ensuring faster patient recovery.",
+    slug: "new-laser-urology-services",
   },
   {
     id: "8",
-    title: "Free Health Camp Report: 500 Patients Screened",
-    category: "Health Camps & Events",
+    title: "Free Urology & Kidney Health Camp in Agra: Over 500 Patients Screened",
+    category: "Hospital News & Announcements",
     image:
       "https://images.unsplash.com/photo-1576091160550-2173eff3e8fc?auto=format&fit=crop&q=80",
-    date: "Jul 25, 2024",
+    date: "Mar 10, 2026",
     readTime: "3 min read",
     author: "Admin",
     excerpt:
-      "A look back at our recent community health drive in the local district.",
-    slug: "health-camp-report",
+      "A look back at our recent community health drive organized by Mangalkamna Hospital to spread awareness about early detection of kidney diseases.",
+    slug: "urology-health-camp-report",
   },
 ];
-
 export default function BlogList() {
   const [activeCategory, setActiveCategory] = useState("All");
 

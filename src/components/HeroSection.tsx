@@ -52,7 +52,7 @@ export default function HeroSection() {
             <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-[#cb1b1a]/20 px-3 md:px-4 py-1.5 md:py-2 rounded-full shadow-sm">
               <div className="w-2 md:w-2.5 h-2 md:h-2.5 bg-[#cb1b1a] rounded-full animate-pulse"></div>
               <span className="text-xs md:text-sm font-bold text-[#681412] tracking-wide">
-                24/7 Online Hospital
+                24/7 Hospital
               </span>
             </div>
 
@@ -64,11 +64,11 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-sm md:text-base text-[#681412]/70 font-medium mb-6">
-              by Dr Shekhar Bajpei
+              By Dr Shekhar Vajpeyi
             </p>
 
             <p className="text-xs sm:text-sm md:text-base text-[#681412]/75 font-medium mb-6 leading-relaxed">
-              24*7 Emergency Care • Advanced Diagonostic Services • Expert
+              24/7 Emergency Care • Advanced Diagonostic Services • Expert
               Doctors and Specialists • Modern Operation Theatres
             </p>
 

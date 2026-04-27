@@ -6,29 +6,83 @@ import { text } from "stream/consumers";
 
 const testimonials = [
   {
-    text: " As a parent of a child who recently underwent surgery at this hospital, I cannot express enough gratitude for the exceptional care we received. The pediatric team was not only highly skilled but also incredibly compassionate, making us feel at ease during a stressful time. The hospital environment was clean and welcoming, which helped reduce our anxiety. I highly recommend this hospital for pediatric care.",
+    text: "As a parent of a child who recently underwent surgery at this hospital, I cannot express enough gratitude for the exceptional care we received. The pediatric team was not only highly skilled but also incredibly compassionate, making us feel at ease during a stressful time. The hospital environment was clean and welcoming, which helped reduce our anxiety. I highly recommend this hospital for pediatric care.",
     recommendation: "Highly recommended!",
     name: "Shivam Patel",
     role: "Regular Patient",
-    image:
-      "https://images.pexels.com/photos/11708068/pexels-photo-11708068.jpeg",
-  },
+    image:""
+   },
   {
     text: "I recently had a consultation with one of the specialists at this hospital, and I couldn't be happier with the care I received. The doctor was not only highly skilled but also took the time to listen to my concerns and answer all my questions. The staff was courteous and efficient, making the entire process smooth and stress-free. I felt truly cared for and would definitely return for any future medical needs.",
     recommendation: "Exceptional service!",
     name: "Sonia Verma",
     role: "Consultation Patient",
-    image: "https://images.pexels.com/photos/5936267/pexels-photo-5936267.jpeg",
-  },
+    image:""
+   },
   {
-    text: " My child was admitted to this hospital for a minor surgery, and I am so grateful for the excellent care we received. The pediatric team was fantastic, providing compassionate care and keeping us informed every step of the way.     environment was clean and welcoming, which helped reduce our anxiety during the stay. I highly recommend this hospital for pediatric care.",
+    text: "My child was admitted to this hospital for a minor surgery, and I am so grateful for the excellent care we received. The pediatric team was fantastic, providing compassionate care and keeping us informed every step of the way. environment was clean and welcoming, which helped reduce our anxiety during the stay. I highly recommend this hospital for pediatric care.",
     recommendation: "A lifesaver for parents!",
     name: "Puja Sharma",
     role: "Mother of a Pediatric Patient",
-    image:
-      "https://images.pexels.com/photos/25578637/pexels-photo-25578637.jpeg",
+    image:""},
+  {
+    text: "Experienced Doctors started this ventures Including top urologist, pathologist and Cardiologist. Top notch standard medical infrastructure facility.",
+    recommendation: "Top notch infrastructure!",
+    name: "Sumit Sharma",
+    role: "Local Guide",
+    image: "",
   },
+  {
+    text: "Dr vinayak vajpai is the best urologist in agra i get treatment from him result found is good with better response. I suggest to everyone go their and get consultant from dr vinayak vajpai sir",
+    recommendation: "Best urologist in Agra!",
+    name: "Pawan kumar Paithwal",
+    role: "Patient",
+    image: "",
+  },
+  {
+    text: "Best hospital in agra and best urologist Dr.shekhar bajpeyi and vinayak bajpeyi sir",
+    recommendation: "Best hospital in Agra!",
+    name: "RAHUL KUMAR",
+    role: "Patient",
+    image: "",
+  },
+  {
+    text: "Dr Shekhar Vajpai sir is the best urologist in agra i suggest to everyone to go their and get best treatment from him",
+    recommendation: "Highly recommended!",
+    name: "Kartik Mittal",
+    role: "Patient",
+    image: "",
+  },
+  {
+    text: "I had a great experience with this urologist. The doctor listened carefully to my concerns, provided a clear diagnosis, and guided me through the treatment step by step. I felt comfortable and well cared for throughout.",
+    recommendation: "Great experience!",
+    name: "ranvir singh",
+    role: "Patient",
+    image: "",
+  },
+  {
+    text: "Dr. Shekhar Vajpeyi Sir Is Very Senior Urologist In Agra, He's Polite And Very Humble Behaviour With Their Pateints. But Their Staff Is Very Rude And Worst Experience, So That Is My Humble Request You To Improve Their Staff.",
+    recommendation: "Polite and humble doctors",
+    name: "Anurag Tyagi",
+    role: "Local Guide",
+    image: "",
+  },
+  {
+    text: "Patiently suna aur detail me samjhaya. Treatment bahut effective raha aur mujhe jaldi relief mila. Dono doctors ka behaviour bahut polite, supportive aur professional hai, jisse patient ko confidence milta hai.",
+    recommendation: "Effective treatment!",
+    name: "Arman Choudhary",
+    role: "Patient",
+    image: "",
+  },
+  {
+    text: "This hospital is very clean and good management dr. Shekhar vajpayee sir is a good dr good nature and behaviour with us pts.there is sitting his son also dr vinayak vajpayee sir he is also very intelligent dr.",
+    recommendation: "Clean and good management!",
+    name: "Aditya Singh",
+    role: "Patient",
+    image: "",
+  }
 ];
+    
 
 export default function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -84,7 +138,7 @@ export default function TestimonialsSection() {
             return (
               <div
                 key={index}
-                className={`w-full grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 lg:gap-24 transition-all duration-700 ease-in-out pointer-events-none ${
+                className={`w-full grid grid-cols-1 lg:grid-cols-1 gap-8 md:gap-16 lg:gap-24 transition-all duration-700 ease-in-out pointer-events-none ${
                   isActive
                     ? "opacity-100 z-10 pointer-events-auto relative translate-x-0"
                     : "opacity-0 z-0 absolute top-0 left-0 translate-x-4"
@@ -110,17 +164,7 @@ export default function TestimonialsSection() {
                 </div>
 
                 {/* Right Image Side */}
-                <div className="relative h-[400px] md:h-[450px] lg:h-full lg:min-h-[450px] mt-10 md:mt-12 lg:mt-0">
-                  {/* Decorative Stacked Background Cards */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[85%] h-full bg-slate-200/50 rounded-[2rem] -mt-8 border border-white/50"></div>
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[92%] h-full bg-slate-100 rounded-[2rem] -mt-4 border border-white/50 shadow-sm"></div>
-
-                  {/* Main Image */}
-                  <div
-                    className="absolute inset-0 bg-cover bg-center rounded-[2rem] shadow-xl border border-white"
-                    style={{ backgroundImage: `url('${testimonial.image}')` }}
-                  ></div>
-                </div>
+                
               </div>
             );
           })}

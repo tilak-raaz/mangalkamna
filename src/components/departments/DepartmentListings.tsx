@@ -6,7 +6,7 @@ import {
   HeartPulse,
   Stethoscope,
   ChevronRight,
-  Microscope2,
+  Microscope,
   Zap,
 } from "lucide-react";
 
@@ -55,7 +55,7 @@ const departments = [
   },
   {
     name: "Pathology",
-    icon: Microscope2,
+    icon: Microscope,
     slug: "pathology",
     description: "Clinical Pathology, Histopathology, Microbiology",
     isVisible: true,

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import AchievementsBar from "./AchievementsBar";
 
 const images = [
@@ -44,35 +44,35 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0 bg-white/40 md:bg-white/20"></div>
       <div className="absolute inset-0 z-0 bg-gradient-to-t md:bg-gradient-to-r from-white/95 via-white/80 md:via-white/70 to-transparent"></div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-24">
         <div className="w-full flex justify-between items-end">
-          <div className="max-w-2xl space-y-6 md:space-y-8">
+          <div className="max-w-2xl space-y-5 sm:space-y-6 md:space-y-8 w-full">
             <AchievementsBar />
 
-            <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-[#cb1b1a]/20 px-3 md:px-4 py-1.5 md:py-2 rounded-full shadow-sm">
+            <div className="hidden sm:inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-[#cb1b1a]/20 px-3 md:px-4 py-1.5 md:py-2 rounded-full shadow-sm">
               <div className="w-2 md:w-2.5 h-2 md:h-2.5 bg-[#cb1b1a] rounded-full animate-pulse"></div>
               <span className="text-xs md:text-sm font-bold text-[#681412] tracking-wide">
                 24/7 Hospital
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.3rem] font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-[#681412]">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.3rem] font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-[#681412]">
               Advanced Medical and Surgical <br className="hidden sm:block" />
               <span className="text-[#cb1b1a] font-extrabold relative block sm:inline">
                 Super-Speciality Hospital
               </span>
             </h1>
 
-            <p className="text-sm md:text-base text-[#681412]/70 font-medium mb-6">
+            <p className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-[#681412]">
               By Dr Shekhar Vajpeyi
             </p>
 
-            <p className="text-xs sm:text-sm md:text-base text-[#681412]/75 font-medium mb-6 leading-relaxed">
-              24/7 Emergency Care • Advanced Diagonostic Services • Expert
+            <p className="text-xs sm:text-sm md:text-base text-[#681412]/80 font-medium mb-6 leading-relaxed">
+              24/7 Emergency Care • Advanced Diagnostic Services • Expert
               Doctors and Specialists • Modern Operation Theatres
             </p>
 
-            <p className="text-base sm:text-lg md:text-xl text-[#681412]/80 max-w-2xl leading-relaxed font-medium">
+            <p className="text-sm sm:text-lg md:text-xl text-[#681412]/85 max-w-2xl leading-relaxed font-medium">
               State-of-the-art healthcare services delivered with compassion,
               precision, and a patient first approach.
             </p>

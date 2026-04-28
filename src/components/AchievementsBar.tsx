@@ -11,9 +11,9 @@ const profileImages = [
 
 export default function AchievementsBar() {
   return (
-    <div className="inline-flex items-center gap-6 md:gap-8 bg-white/90 backdrop-blur-sm border border-[#cb1b1a]/20 px-5 md:px-6 py-3 md:py-3.5 rounded-full shadow-md">
+    <div className="inline-flex items-center gap-3 sm:gap-6 md:gap-8 bg-white/90 backdrop-blur-sm border border-[#cb1b1a]/20 px-3 sm:px-5 md:px-6 py-2 sm:py-3 md:py-3.5 rounded-full shadow-md w-full sm:w-auto overflow-hidden sm:overflow-visible overflow-x-auto no-scrollbar">
       {/* Profile Images */}
-      <div className="flex items-center -space-x-3">
+      <div className="flex items-center -space-x-3 shrink-0">
         {profileImages.map((img, index) => (
           <div
             key={index}
@@ -27,26 +27,26 @@ export default function AchievementsBar() {
       <div className="w-px h-8 bg-[#cb1b1a]/20"></div>
 
       {/* Appointments Text */}
-      <div className="flex flex-col items-start">
+      <div className="flex flex-col items-start shrink-0">
         <span className="text-sm md:text-base font-bold text-[#681412]">
           15K+
         </span>
-        <span className="text-xs md:text-sm text-[#681412]/70 font-medium">
+        <span className="text-[10px] sm:text-xs md:text-sm text-[#681412]/70 font-medium tracking-tight">
           Appointments
         </span>
       </div>
 
       {/* Divider */}
-      <div className="w-px h-8 bg-[#cb1b1a]/20"></div>
+      <div className="hidden sm:block w-px h-6 sm:h-8 bg-[#cb1b1a]/20 shrink-0"></div>
 
       {/* Rating */}
-      <div className="flex items-center gap-2">
+      <div className="hidden sm:flex items-center gap-1 sm:gap-2 shrink-0">
         <div className="flex items-center gap-0.5">
           {[...Array(5)].map((_, i) => (
             <Star
               key={i}
-              size={16}
-              className={`${
+              size={14}
+              className={`sm:w-4 sm:h-4 ${
                 i < 4
                   ? "fill-[#fbbf24] text-[#fbbf24]"
                   : "fill-[#fbbf24]/50 text-[#fbbf24]/50"
@@ -57,7 +57,7 @@ export default function AchievementsBar() {
         <span className="ml-1 text-sm md:text-base font-bold text-[#681412]">
           4.7
         </span>
-        <span className="text-xs md:text-sm text-[#681412]/70 font-medium">
+        <span className="hidden sm:inline text-xs md:text-sm text-[#681412]/70 font-medium">
           Ratings
         </span>
       </div>

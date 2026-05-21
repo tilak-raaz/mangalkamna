@@ -24,7 +24,7 @@ export default function OurStory() {
               <div className="space-y-6 text-slate-600 text-[1rem] md:text-[1.1rem] leading-[1.8] font-medium max-w-lg lg:pr-6">
                 <p>
                   Founded in{" "}
-                  <span className="font-bold text-slate-900">2009</span>,
+                  <span className="font-bold text-slate-900">2026</span>,
                   Mangalkamna Hospital began as a modest clinic with a singular
                   vision: to bring compassionate, accessible, and affordable
                   healthcare to our community. Over the decades, we have grown
@@ -50,7 +50,7 @@ export default function OurStory() {
               {/* Hero Image (Wide Top Image) */}
               <div className="relative w-full aspect-[4/3] md:aspect-[16/9] lg:aspect-[4/3] rounded-3xl overflow-hidden shadow-lg border border-slate-100">
                 <Image
-                  src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2906&auto=format&fit=crop"
+                  src="https://res.cloudinary.com/du5qoczcn/image/upload/v1776351564/0D5A8773_fwziak.jpg"
                   alt="Mangalkamna Hospital Overview"
                   fill
                   className="object-cover"
@@ -62,7 +62,7 @@ export default function OurStory() {
                 {/* Stat 1 */}
                 <div className="flex flex-col items-center justify-center p-6 md:p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-[#cb1b1a]/20 hover:bg-white hover:shadow-[0_20px_40px_-15px_rgba(203,27,26,0.1)] transition-all duration-300 group text-center">
                   <div className="text-3xl lg:text-4xl font-extrabold text-[#cb1b1a] mb-1">
-                    15+
+                    30+
                   </div>
                   <div className="text-xs font-bold text-slate-700 uppercase tracking-wider">
                     Years Experience
@@ -72,7 +72,7 @@ export default function OurStory() {
                 {/* Stat 2 */}
                 <div className="flex flex-col items-center justify-center p-6 md:p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-[#cb1b1a]/20 hover:bg-white hover:shadow-[0_20px_40px_-15px_rgba(203,27,26,0.1)] transition-all duration-300 group text-center">
                   <div className="text-3xl lg:text-4xl font-extrabold text-[#cb1b1a] mb-1">
-                    30+
+                    7+
                   </div>
                   <div className="text-xs font-bold text-slate-700 uppercase tracking-wider">
                     Medical Departments
@@ -82,7 +82,7 @@ export default function OurStory() {
                 {/* Stat 3 */}
                 <div className="flex flex-col items-center justify-center p-6 md:p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-[#cb1b1a]/20 hover:bg-white hover:shadow-[0_20px_40px_-15px_rgba(203,27,26,0.1)] transition-all duration-300 group text-center">
                   <div className="text-3xl lg:text-4xl font-extrabold text-[#cb1b1a] mb-1">
-                    10k+
+                    5k+
                   </div>
                   <div className="text-xs font-bold text-slate-700 uppercase tracking-wider">
                     Positive Reviews
@@ -92,7 +92,7 @@ export default function OurStory() {
                 {/* Stat 4 */}
                 <div className="flex flex-col items-center justify-center p-6 md:p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-[#cb1b1a]/20 hover:bg-white hover:shadow-[0_20px_40px_-15px_rgba(203,27,26,0.1)] transition-all duration-300 group text-center">
                   <div className="text-3xl lg:text-4xl font-extrabold text-[#cb1b1a] mb-1">
-                    100K+
+                    15K+
                   </div>
                   <div className="text-xs font-bold text-slate-700 uppercase tracking-wider">
                     Trusted Patients

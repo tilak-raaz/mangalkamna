@@ -31,7 +31,7 @@ export default function DoctorsHero() {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium max-w-2xl">
-              Our team of 200+ highly qualified and experienced doctors brings
+              Our team of 15+ highly qualified and experienced doctors brings
               global expertise to your doorstep. From diagnosis to treatment,
               they are dedicated to your well-being.
             </p>

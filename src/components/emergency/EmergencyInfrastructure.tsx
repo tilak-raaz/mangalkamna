@@ -30,16 +30,7 @@ export default function EmergencyInfrastructure() {
       description: "Fleet of 8 advanced life support (ALS) ambulances",
       icon: Truck,
     },
-    {
-      facility: "Response Time",
-      description: "Target: Door-to-Doctor in under 5 minutes",
-      icon: Clock,
-    },
-    {
-      facility: "Blood Bank",
-      description: "24/7 blood bank with all blood groups available",
-      icon: Droplet,
-    },
+     
   ];
 
   return (

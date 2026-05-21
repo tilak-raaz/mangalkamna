@@ -30,7 +30,7 @@ export default function Navbar() {
                 24/7 Emergency Care Available
               </span>
               <span className="text-white/60">|</span>
-              <span>📱 WhatsApp / Call: +91 82797 67958</span>
+              <span>📱 WhatsApp / Call: +91 82797 67958 , 9027422666 </span>
               <span className="text-white/60">|</span>
               <span>
                 Departments: Cardiology, Neurology, Orthopedics, Pediatrics,
@@ -73,7 +73,7 @@ export default function Navbar() {
             <div className="hidden xl:block w-px h-4 bg-white/30"></div>
             <div className="flex items-center gap-2.5 hover:text-white/80 transition-colors cursor-pointer">
               <Phone size={16} />
-              <a href="tel:+918279767958">+91 82797 67958</a>
+              <a href="tel:+918279767958">+91 82797 67958 , 9027422666 </a>
             </div>
           </div>
           <div className="flex items-center gap-5">
@@ -217,14 +217,7 @@ export default function Navbar() {
             </div>
 
             <div className="flex items-center gap-4 lg:gap-6 relative z-[60]">
-              <div className="hidden md:flex flex-col items-end">
-                <span className="text-[10px] text-[#681412] uppercase tracking-widest font-bold leading-none">
-                  Emergency
-                </span>
-                <span className="text-sm font-bold text-[#cb1b1a]">
-                  +91 82797 67958
-                </span>
-              </div>
+               
               <Link
                 href="/appointment"
                 className="hidden sm:inline-flex px-5 md:px-6 py-2 md:py-2.5 rounded-full bg-[#cb1b1a] text-white text-xs md:text-sm font-semibold hover:bg-[#681412] transition-colors shadow-lg shadow-[#cb1b1a]/30"

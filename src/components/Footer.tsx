@@ -49,7 +49,7 @@ export default function Footer() {
                 <Twitter size={18} />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/mangalkamnahospital/"
                 className="w-10 h-10 rounded-full bg-slate-800/50 border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-[#681412] hover:text-white hover:border-[#681412] transition-all"
               >
                 <Instagram size={18} />

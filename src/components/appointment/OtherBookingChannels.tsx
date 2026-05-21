@@ -5,7 +5,7 @@ export default function OtherBookingChannels() {
     {
       icon: Phone,
       title: "Phone",
-      details: "+91-8679026660",
+      details: "+91-8679026660 , +91-9027422666",
       subDetails: "8:00 AM – 8:00 PM, all days",
     },
     {
@@ -18,14 +18,11 @@ export default function OtherBookingChannels() {
       icon: UserPlus,
       title: "Walk-In OPD",
       details: "Registration desk",
-      subDetails: "Open from 8:00 AM daily",
+       
+      
+      subDetails: "Monday-Saturday: 9:00 AM – 3:00 PM | Sunday: 9:00 AM – 2:00 PM",
     },
-    {
-      icon: Smartphone,
-      title: "Mobile App",
-      details: "Download Mangalkamna App",
-      subDetails: "Available on iOS & Android",
-    },
+     
     {
       icon: Mail,
       title: "Email",

@@ -11,7 +11,7 @@ const features = [
   {
     icon: ShieldCheck,
     title: "NABH Accredited",
-    description: "Recognized for quality care and patient safety standards.",
+    description: "In proccess ",
     colorText: "text-[#cb1b1a]",
     bgHover: "group-hover:bg-[#cb1b1a]",
     borderHover: "hover:border-[#cb1b1a]/30",
@@ -94,7 +94,7 @@ export default function WhyChooseUsSection() {
             <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
               <div>
                 <h4 className="text-4xl font-extrabold text-[#681412] tracking-tight mb-1">
-                  20k+
+                  15k+
                 </h4>
                 <p className="text-sm font-bold text-slate-500 uppercase tracking-widest">
                   Happy Patients

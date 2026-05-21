@@ -4,31 +4,31 @@ import { ArrowRight, Calendar, User } from "lucide-react";
 const newsArticles = [
   {
     id: 1,
-    title: "Preventing Kidney Stones: Hydration and Dietary Changes",
-    category: "Urology",
-    date: "April 18, 2026",
+    title: "Rising Cases of Kidney Stones in India: The Impact of Diet and Dehydration",
+    category: "Indian Urology",
+    date: "May 10, 2026",
     excerpt:
-      "Discover the most effective lifestyle modifications and dietary adjustments to prevent the formation of painful kidney stones and maintain optimal renal health.",
+      "A deeper look into the surge of kidney stones across major Indian cities, examining the role of hot tropical climates, local diets rich in oxalates, and inadequate hydration.",
     image:
       "https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&q=80&w=2670",
   },
   {
     id: 2,
-    title: "Understanding Prostate Health: When to Get Screened",
-    category: "Urology",
-    date: "April 05, 2026",
+    title: "Prostate Cancer Screening in India: Addressing the Stigma",
+    category: "Indian Urology",
+    date: "April 28, 2026",
     excerpt:
-      "An essential guide to the warning signs of prostate enlargement (BPH) and the critical importance of regular PSA screenings for early detection.",
+      "Exploring how cultural stigmas in India delay prostate cancer screenings and the increasing urgent need for accessible PSA tests in rural and urban healthcare centers.",
     image:
       "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=2670",
   },
   {
     id: 3,
-    title: "Managing Overactive Bladder: Modern Treatment Options",
-    category: "Urology",
-    date: "March 22, 2026",
+    title: "Advanced Robotic Urology Surgeries Gain Momentum in Indian Hospitals",
+    category: "Indian Urology",
+    date: "April 15, 2026",
     excerpt:
-      "Explore the latest advancements in treating overactive bladder, ranging from targeted behavioral therapies and medications to minimally invasive procedures.",
+      "Indian hospitals are rapidly adopting robotic-assisted surgeries for complex urological procedures, minimizing recovery time and transforming patient care across the country.",
     image:
       "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=2670",
   },

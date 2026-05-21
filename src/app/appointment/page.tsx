@@ -11,7 +11,6 @@ export const metadata = {
 export default function AppointmentPage() {
   return (
     <>
-      <AppointmentHero />
       <AppointmentSection />
       <OtherBookingChannels />
       <OpdSchedule />

@@ -42,7 +42,7 @@ export default function AppointmentSection() {
                   <input
                     type="text"
                     id="name"
-                    placeholder="John Doe"
+                    placeholder="Amit Sharma"
                     className="w-full px-5 py-4 rounded-[1rem] bg-slate-50/50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all font-medium placeholder:font-normal placeholder:text-slate-400"
                   />
                 </div>
@@ -56,7 +56,7 @@ export default function AppointmentSection() {
                   <input
                     type="tel"
                     id="phone"
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="+91 82797 67958"
                     className="w-full px-5 py-4 rounded-[1rem] bg-slate-50/50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all font-medium placeholder:font-normal placeholder:text-slate-400"
                   />
                 </div>
@@ -73,7 +73,7 @@ export default function AppointmentSection() {
                   <input
                     type="email"
                     id="email"
-                    placeholder="john@example.com"
+                    placeholder="amit.sharma@example.com"
                     className="w-full px-5 py-4 rounded-[1rem] bg-slate-50/50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all font-medium placeholder:font-normal placeholder:text-slate-400"
                   />
                 </div>
@@ -108,6 +108,8 @@ export default function AppointmentSection() {
                     <option value="" disabled>
                       Select a medical service
                     </option>
+                    <option value="urology">Urology</option>
+                    <option value="general-surgery">General Surgery</option>
                     <option value="cardiology">Cardiology Center</option>
                     <option value="neurology">Neurology</option>
                     <option value="orthopedics">Orthopedics & Sports</option>

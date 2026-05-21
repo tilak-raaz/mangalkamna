@@ -44,7 +44,12 @@ export default function ContactInfo() {
     {
       icon: Clock,
       label: "Hospital Hours",
-      value: "OPD: 8:00 AM – 8:00 PM | Emergency: 24/7",
+      value: "Saturday OPD: 9:00 AM – 3:00 PM | Emergency: 24/7",
+    },
+    {
+      icon: Clock,
+      label: "Hospital Hours",
+      value: "Sunday OPD: 9:00 AM – 2:00 PM | Emergency: 24/7",
     },
     {
       icon: Car,

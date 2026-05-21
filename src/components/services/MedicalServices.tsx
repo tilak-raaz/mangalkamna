@@ -25,7 +25,6 @@ const serviceCategories = [
       "Plastic & Reconstructive Surgery",
       "Robotic-Assisted Surgery",
       "Bariatric (Weight Loss) Surgery",
-      "Organ Transplant (Kidney, Liver)",
     ],
   },
   {
@@ -37,8 +36,6 @@ const serviceCategories = [
       "Radiology — MRI, CT Scan, X-Ray, Ultrasound",
       "4D / 3D Echocardiography",
       "Endoscopy & Colonoscopy",
-      "Pulmonary Function Tests (PFT)",
-      "Genetic Testing",
     ],
   },
   {
@@ -48,12 +45,7 @@ const serviceCategories = [
     items: [
       "Infertility Care & Reproductive Medicine",
       "Sexual Issue Management",
-      "Cancer Screening & Early Detection",
-      "Cardiac Wellness Programme",
-      "Diabetes Management & Education",
-      "Pain Management Clinic",
-      "Mental Health & Counselling Services",
-      "Physiotherapy & Rehabilitation Centre",
+      "Stone Management and Prostate related Issue Management",
     ],
   },
 ];
@@ -99,14 +91,28 @@ export default function MedicalServices() {
                 </h3>
 
                 <ul className="space-y-4">
-                  {category.items.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-4">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#cb1b1a] mt-2.5 shrink-0"></span>
-                      <span className="text-slate-700 font-medium leading-relaxed">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
+                  {category.items.map((item, idx) => {
+                    const isStartingSoon = [
+                      "Plastic & Reconstructive Surgery",
+                      "Robotic-Assisted Surgery",
+                      "Bariatric (Weight Loss) Surgery",
+                    ].includes(item);
+
+                    return (
+                      <li key={idx} className="flex items-start gap-4">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#cb1b1a] mt-2.5 shrink-0"></span>
+                        <span className="text-slate-700 font-medium leading-relaxed flex-1">
+                          {item}
+                          {isStartingSoon ? "*" : ""}
+                          {isStartingSoon && (
+                            <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-md text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800 border border-amber-200 align-middle">
+                              Starting Soon
+                            </span>
+                          )}
+                        </span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             </div>

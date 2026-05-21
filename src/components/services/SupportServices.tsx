@@ -12,10 +12,7 @@ const supportServices = [
     icon: Pill,
     title: "24/7 Pharmacy",
   },
-  {
-    icon: Syringe,
-    title: "Blood Bank",
-  },
+   
   {
     icon: Activity,
     title: "Dietary & Nutrition Services",

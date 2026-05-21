@@ -41,12 +41,12 @@ export default function EmergencyHero() {
                 <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-xl md:text-2xl font-bold">
                   <div className="flex items-center gap-2">
                     <Phone className="w-6 h-6 text-white/80" />
-                    <span>+91-XXXX-XXXXXX</span>
+                    <span>+91 8279767958</span>
                   </div>
                   <span className="hidden md:inline text-white/40">|</span>
                   <div className="flex items-center gap-2">
-                    <span className="text-white/80 text-lg">Toll Free:</span>
-                    <span>1800-XXX-XXXX</span>
+                    <Phone className="w-6 h-6 text-white/80" />
+                    <span>+91 9027422666</span>
                   </div>
                 </div>
               </div>

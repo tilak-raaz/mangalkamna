@@ -3,10 +3,11 @@
 import { Star } from "lucide-react";
 
 const profileImages = [
-  "https://res.cloudinary.com/du5qoczcn/image/upload/v1773571642/WhatsApp_Image_2026-03-15_at_16.17.01_mft9qc.jpg",
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+  "https://images.unsplash.com/photo-1497487231007-0a45e7b4b68a?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1731136508636-be70733180a4?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1757690927997-b9872fb49cbf?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://media.istockphoto.com/id/1206272574/photo/image-of-hindu-young-handsome-indian-man-being-silly-with-hand-on-chin-and-laughing-thinking.webp?a=1&b=1&s=612x612&w=0&k=20&c=4VuslforWhuhHawiLz2TFGE2DjvApnVuaAy2_zh8MNA=",
+  "https://media.istockphoto.com/id/1163506192/photo/portrait-of-a-confident-university-student.webp?a=1&b=1&s=612x612&w=0&k=20&c=LL42KgruqJz2kp0u8wM4Mn79HqlS6unlqmGO949Pvwo=",
 ];
 
 export default function AchievementsBar() {

@@ -78,21 +78,8 @@ export default function VisitorGuidelines() {
           ))}
         </div>
 
-        {/* Decorative notice bar */}
-        <div className="mt-16 bg-[#cb1b1a]/5 border border-[#cb1b1a]/20 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-          <div>
-            <h4 className="text-lg font-bold text-[#681412] mb-1">
-              Need help finding a patient?
-            </h4>
-            <p className="text-slate-600 font-medium">
-              Our Help Desk staff at the main lobby are available 24/7 to assist
-              you.
-            </p>
-          </div>
-          <button className="whitespace-nowrap px-8 py-3 bg-[#681412] text-white font-bold rounded-xl hover:bg-[#cb1b1a] hover:shadow-lg hover:shadow-[#cb1b1a]/20 transition-all duration-300">
-            Contact Help Desk
-          </button>
-        </div>
+        
+         
       </div>
     </section>
   );

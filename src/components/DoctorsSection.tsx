@@ -64,13 +64,7 @@ export default function DoctorsSection() {
                 </p>
 
                 {/* CTA Button */}
-                <Link
-                  href={`/doctors/${doctor.slug}`}
-                  className="mt-auto w-full flex items-center justify-center gap-2 py-4 px-4 bg-slate-50 text-[#681412] text-[15px] font-bold rounded-xl border border-slate-100 group-hover:bg-[#681412] group-hover:text-white group-hover:border-[#681412] transition-all duration-300"
-                >
-                  <Calendar size={18} strokeWidth={2.5} />
-                  Book Appointment
-                </Link>
+                
               </div>
             </div>
           ))}

@@ -53,25 +53,12 @@ export default function DepartmentDoctors({
 
               {/* Doctor Info */}
               <div className="p-6 relative flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-[#681412] transition-colors">
-                  {doctor.name}
-                </h3>
+                 
                 <p className="text-[#cb1b1a] font-medium text-sm mb-6">
                   {doctor.role}
                 </p>
 
-                <div className="mt-auto">
-                  <Link
-                    href="#appointment"
-                    className="inline-flex items-center gap-2 text-slate-600 font-bold text-sm tracking-wide hover:text-[#681412] transition-colors"
-                  >
-                    BOOK CONSULTATION
-                    <ArrowUpRight
-                      size={18}
-                      className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                    />
-                  </Link>
-                </div>
+                 
               </div>
             </div>
           ))}

@@ -11,18 +11,17 @@ import {
   CalendarClock,
   CalendarCheck,
 } from "lucide-react";
-import {
-  doctorsData,
-  getUniqueDepartments,
-  type Doctor,
-} from "@/data/doctorsData";
+import { doctorsData, type Doctor } from "@/data/doctorsData";
+import { departmentsData } from "@/data/departmentsData";
 
 export default function DoctorsDirectory() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDept, setSelectedDept] = useState("All");
-  const [availabilityFilter, setAvailabilityFilter] = useState("All");
 
-  const departments = ["All", ...getUniqueDepartments()];
+  const departments = [
+    "All",
+    ...Array.from(new Set(departmentsData.map((d) => d.name))),
+  ];
 
   const filteredDoctors = useMemo(() => {
     return doctorsData.filter((doctor: Doctor) => {
@@ -32,14 +31,9 @@ export default function DoctorsDirectory() {
       const matchDept =
         selectedDept === "All" || doctor.specialization === selectedDept;
 
-      let matchAvailability = true;
-      if (availabilityFilter === "Available Today") {
-        matchAvailability = doctor.isAvailableToday === true;
-      }
-
-      return matchName && matchDept && matchAvailability;
+      return matchName && matchDept;
     });
-  }, [searchTerm, selectedDept, availabilityFilter]);
+  }, [searchTerm, selectedDept]);
 
   return (
     <section className="py-20 bg-slate-50 relative min-h-screen">
@@ -83,29 +77,6 @@ export default function DoctorsDirectory() {
                   {dept === "All" ? "All Departments" : dept}
                 </option>
               ))}
-            </select>
-          </div>
-
-          {/* Spacer / Divider on Desktop */}
-          <div className="hidden md:block w-px bg-slate-200 mx-2 self-stretch my-2"></div>
-
-          {/* Availability Filter */}
-          <div className="flex-1 md:max-w-[200px]">
-            <select
-              value={availabilityFilter}
-              onChange={(e) => setAvailabilityFilter(e.target.value)}
-              className="w-full px-4 py-3 bg-slate-50 border-none rounded-xl md:rounded-full focus:ring-2 focus:ring-[#cb1b1a]/20 focus:bg-white transition-all text-slate-700 font-medium appearance-none cursor-pointer"
-              style={{
-                backgroundImage:
-                  "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e\")",
-                backgroundPosition: "right 0.5rem center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "1.5em 1.5em",
-                paddingRight: "2.5rem",
-              }}
-            >
-              <option value="All">Any Availability</option>
-              <option value="Available Today">Available Today</option>
             </select>
           </div>
         </div>
@@ -221,7 +192,6 @@ export default function DoctorsDirectory() {
                 onClick={() => {
                   setSearchTerm("");
                   setSelectedDept("All");
-                  setAvailabilityFilter("All");
                 }}
                 className="text-[#cb1b1a] font-bold hover:underline"
               >

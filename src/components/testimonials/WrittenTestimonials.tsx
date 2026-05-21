@@ -4,33 +4,33 @@ export default function WrittenTestimonials() {
   const testimonials = [
     {
       id: 1,
-      name: "Meena S.",
-      department: "Cardiology",
-      date: "October 2023",
+      name: "Pawan kumar Paithwal",
+      department: "Urology",
+      date: "Recent",
       rating: 5,
       review:
-        "I was diagnosed with a severe heart blockage and was terrified. Dr. [Name] explained everything step by step, performed the angioplasty with precision, and within a week I was back home feeling better than I had in years. The nursing staff was exceptional — always patient, always kind. Mangalkamna Hospital didn't just treat my heart; they took care of my entire being.",
-      initials: "MS",
+        "Dr vinayak vajpai is the best urologist in agra i get treatment from him result found is good with better response. I suggest to everyone go their and get consultant from dr vinayak vajpai sir",
+      initials: "PK",
     },
     {
       id: 2,
-      name: "Arjun T.",
-      department: "Orthopedics",
-      date: "November 2023",
+      name: "Kartik Mittal",
+      department: "Urology",
+      date: "Recent",
       rating: 5,
       review:
-        "After suffering from knee pain for years, I finally opted for knee replacement surgery here. From pre-operative counselling to physiotherapy post-surgery, every step was planned perfectly. I'm now walking pain-free and wish I had done it sooner. Excellent hospital, excellent team.",
-      initials: "AT",
+        "Dr Shekhar Vajpai sir is the best urologist in agra i suggest to everyone to go their and get best treatment from him",
+      initials: "KM",
     },
     {
       id: 3,
-      name: "Fatima B.",
-      department: "Maternity / Gynaecology",
-      date: "December 2023",
+      name: "ranvir singh",
+      department: "Urology",
+      date: "Recent",
       rating: 5,
       review:
-        "I delivered my first baby at Mangalkamna Hospital and it was a beautiful, reassuring experience. The maternity team was warm, supportive, and professional throughout. The NICU team was exceptional when my baby needed monitoring for a few days. My family and I are forever grateful.",
-      initials: "FB",
+        "I had a great experience with this urologist. The doctor listened carefully to my concerns, provided a clear diagnosis, and guided me through the treatment step by step. I felt comfortable and well cared for throughout.",
+      initials: "RS",
     },
   ];
 

@@ -100,7 +100,7 @@ export default function AmbulanceServices() {
                         Call 24/7
                       </div>
                       <div className="text-xl md:text-2xl font-extrabold text-slate-900 group-hover/btn:text-[#cb1b1a] transition-colors">
-                        +91-XXXX-XXXXXX
+                        +91-90274-22666
                       </div>
                     </div>
                   </div>
@@ -119,7 +119,7 @@ export default function AmbulanceServices() {
                         WhatsApp
                       </div>
                       <div className="text-xl md:text-2xl font-extrabold text-slate-900 group-hover/btn2:text-green-600 transition-colors">
-                        +91-XXXX-XXXXXX
+                        +91-82797-67958
                       </div>
                     </div>
                   </div>

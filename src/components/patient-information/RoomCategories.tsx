@@ -18,16 +18,10 @@ export default function RoomCategories() {
       type: "Private",
       amenities:
         "Air conditioning, attached bathroom, sofa-cum-bed, TV, mini fridge",
-      occupancy: "Single occupancy",
+      occupancy: "Single + Attendant",
       highlight: true,
     },
-    {
-      type: "Deluxe",
-      amenities:
-        "Premium furnishing, guest lounge area, dedicated nursing care",
-      occupancy: "Single + attendant",
-      highlight: false,
-    },
+     
   ];
 
   return (

@@ -6,26 +6,14 @@ export default function MultipleLocations() {
       id: "main-campus",
       name: "Main Campus & Research Center",
       address:
-        "Plot no.38P/40/47P/48P/48, Rajeev Nagar Colony, Agra, Uttar Pradesh 282002",
-      phone: "+91-XXXX-XXXXXX",
+        "Plot no.38P/40/47P/48P/48, Rajeev Nagar Colony opp Bombay wali bagichi, Sheetla road, Kendriya Hindi Sansthan Rd, Hariparwat ward, Agra, Uttar Pradesh 282002",
+      phone: "+91 82797 67958 - 9027422666",
       services:
         "24/7 Emergency, Cardiology, Neurology, Orthopedics, General Surgery, ICU",
       directions:
         "Situated opposite Bombay wali bagichi, via Sheetla road and Kendriya Hindi Sansthan Rd.",
       mapUrl:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14197.697241285227!2d77.99406059522956!3d27.174418652610738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3974776b6d511ea9%3A0xea1a72d3e43033f7!2sMahanandan%20Super%20Speciality%20Hospital!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
-    },
-    {
-      id: "city-clinic",
-      name: "City Center OPD Clinic",
-      address: "[Building Name], [Commercial Street], City Center - [PIN Code]",
-      phone: "+91-XXXX-XXXXXX",
-      services:
-        "General Physician, Pediatrics, Dental, Routine Checkups, Pharmacy",
-      directions:
-        "Located near the central historic monument, 5 mins from the main square.",
-      mapUrl:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3549.400502181515!2d78.006935!3d27.182245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDEwJzU2LjEiTiA3OMKwMDAnMjUuMCJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
     },
   ];
 

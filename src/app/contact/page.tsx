@@ -2,7 +2,6 @@ import ContactHero from "@/components/contact/ContactHero";
 import ContactInfo from "@/components/contact/ContactInfo";
 import ContactForm from "@/components/contact/ContactForm";
 import MultipleLocations from "@/components/contact/MultipleLocations";
-import HowToReach from "@/components/contact/HowToReach";
 import SocialMediaLinks from "@/components/contact/SocialMediaLinks";
 
 export const metadata = {
@@ -28,7 +27,6 @@ export default function ContactPage() {
         </div>
       </section>
       <MultipleLocations />
-      <HowToReach />
       <SocialMediaLinks />
     </main>
   );

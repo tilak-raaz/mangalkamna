@@ -21,35 +21,32 @@ export default function ContactInfo() {
     {
       icon: MapPin,
       label: "Address",
-      value: "Greater Noida, Uttar Pradesh, India",
+      value:
+        "Plot no.38P/40/47P/48P/48, Rajeev Nagar Colony opp Bombay wali bagichi, Sheetla road, Kendriya Hindi Sansthan Rd, Hariparwat ward, Agra, Uttar Pradesh 282002",
     },
     {
       icon: Phone,
       label: "Phone Numbers",
       value:
-        "+91-90274-22666 | +91-86790-26660 | +91-86790-2663 | 05624-622053",
+        "+91-90274-22666 | +91-86790-26660 | +91-86790-2663 | +91-86790-26663 | +91-86790-26667 | +91-86790-26669 | +91-86799-92453 | 05624-622053",
     },
     {
       icon: ShieldAlert,
       label: "Emergency (24/7)",
-      value: "+91-90274-22666",
+      value: "+91 82797 67958 | +91 9027422666",
       highlight: true,
     },
     {
       icon: Phone,
       label: "Appointments",
-      value: "+91-90274-22666 | Hospitalmangalkamna@gmail.com",
+      value: "+91 82797 67958 | +91 9027422666 | Hospitalmangalkamna@gmail.com",
     },
 
     {
       icon: Clock,
       label: "Hospital Hours",
-      value: "Saturday OPD: 9:00 AM – 3:00 PM | Emergency: 24/7",
-    },
-    {
-      icon: Clock,
-      label: "Hospital Hours",
-      value: "Sunday OPD: 9:00 AM – 2:00 PM | Emergency: 24/7",
+      value:
+        "Saturday OPD: 9:00 AM – 3:00 PM | Sunday OPD: 9:00 AM – 2:00 PM | Emergency: 24/7",
     },
     {
       icon: Car,
@@ -78,7 +75,7 @@ export default function ContactInfo() {
               }`}
             >
               <div
-                className={`mt-0.5 p-2.5 rounded-xl flex-shrink-0 ${
+                className={`mt-0.5 p-2.5 rounded-xl shrink-0 ${
                   detail.highlight
                     ? "bg-[#cb1b1a] text-white"
                     : "bg-red-50 text-[#cb1b1a]"

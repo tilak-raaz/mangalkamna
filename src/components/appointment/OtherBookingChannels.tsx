@@ -5,24 +5,24 @@ export default function OtherBookingChannels() {
     {
       icon: Phone,
       title: "Phone",
-      details: "+91-8679026660 , +91-9027422666",
+      details: "+91-8679026660 , +91-9027422666 / +91 82797 67958 - 9027422666",
       subDetails: "8:00 AM – 8:00 PM, all days",
     },
     {
       icon: MessageCircle,
       title: "WhatsApp",
       details: "Message us on",
-      subDetails: "+91-8679026660",
+      subDetails: "+91-8679026660 / +91 82797 67958 - 9027422666",
     },
     {
       icon: UserPlus,
       title: "Walk-In OPD",
       details: "Registration desk",
-       
-      
-      subDetails: "Monday-Saturday: 9:00 AM – 3:00 PM | Sunday: 9:00 AM – 2:00 PM",
+
+      subDetails:
+        "Monday-Saturday: 9:00 AM – 3:00 PM | Sunday: 9:00 AM – 2:00 PM",
     },
-     
+
     {
       icon: Mail,
       title: "Email",

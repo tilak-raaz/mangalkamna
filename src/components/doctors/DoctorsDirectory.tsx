@@ -9,7 +9,6 @@ import {
   GraduationCap,
   Globe,
   CalendarClock,
-  CalendarCheck,
 } from "lucide-react";
 import { doctorsData, type Doctor } from "@/data/doctorsData";
 import { departmentsData } from "@/data/departmentsData";
@@ -156,19 +155,12 @@ export default function DoctorsDirectory() {
                   </div>
 
                   {/* Actions */}
-                  <div className="relative z-10 pt-4 flex items-center justify-between gap-4 mt-auto">
+                  <div className="relative z-10 pt-4 flex items-center justify-start gap-4 mt-auto">
                     <Link
                       href={`/doctors/${doctor.slug}`}
                       className="text-sm font-bold text-slate-500 hover:text-[#cb1b1a] transition-colors"
                     >
                       View Profile
-                    </Link>
-                    <Link
-                      href="#appointment"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#681412] text-white text-sm font-bold rounded-full hover:bg-[#cb1b1a] hover:shadow-md hover:shadow-[#cb1b1a]/20 transition-all duration-300"
-                    >
-                      <CalendarCheck size={16} />
-                      Book Now
                     </Link>
                   </div>
                 </div>

@@ -11,7 +11,7 @@ const features = [
   {
     icon: ShieldCheck,
     title: "NABH Accredited",
-    description: "In proccess ",
+    description: "(In process)",
     colorText: "text-[#cb1b1a]",
     bgHover: "group-hover:bg-[#cb1b1a]",
     borderHover: "hover:border-[#cb1b1a]/30",

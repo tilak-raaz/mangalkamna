@@ -88,7 +88,7 @@ export default function AmbulanceServices() {
 
               <div className="space-y-4">
                 <a
-                  href="#call"
+                  href="tel:+919027422666"
                   className="flex items-center justify-between p-4 md:p-5 rounded-2xl border-2 border-[#cb1b1a]/20 bg-white hover:border-[#cb1b1a] hover:shadow-[0_8px_20px_rgba(203,27,26,0.1)] transition-all group/btn"
                 >
                   <div className="flex items-center gap-4">
@@ -107,7 +107,9 @@ export default function AmbulanceServices() {
                 </a>
 
                 <a
-                  href="#whatsapp"
+                  href="https://wa.me/918279767958"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-between p-4 md:p-5 rounded-2xl border-2 border-green-600/20 bg-white hover:border-green-600 hover:shadow-[0_8px_20px_rgba(22,163,74,0.1)] transition-all group/btn2"
                 >
                   <div className="flex items-center gap-4">

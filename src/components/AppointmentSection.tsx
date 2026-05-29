@@ -56,7 +56,7 @@ export default function AppointmentSection() {
                   <input
                     type="tel"
                     id="phone"
-                    placeholder="+91 82797 67958"
+                    placeholder="+91 82797 67958 - 9027422666"
                     className="w-full px-5 py-4 rounded-[1rem] bg-slate-50/50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all font-medium placeholder:font-normal placeholder:text-slate-400"
                   />
                 </div>
@@ -216,7 +216,7 @@ export default function AppointmentSection() {
                       Phone Number
                     </h5>
                     <p className="text-red-100/80 leading-relaxed text-[15px]">
-                      +91 82797 67958
+                      +91 82797 67958 - 9027422666
                     </p>
                   </div>
                 </div>

@@ -9,19 +9,12 @@ export default function RoomCategories() {
       highlight: false,
     },
     {
-      type: "Semi-Private",
-      amenities: "Air conditioning, attached bathroom, TV, 1 attender bed",
-      occupancy: "2 patients",
-      highlight: false,
-    },
-    {
       type: "Private",
       amenities:
         "Air conditioning, attached bathroom, sofa-cum-bed, TV, mini fridge",
       occupancy: "Single + Attendant",
       highlight: true,
     },
-     
   ];
 
   return (

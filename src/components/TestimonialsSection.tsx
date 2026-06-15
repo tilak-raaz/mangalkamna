@@ -130,7 +130,7 @@ export default function TestimonialsSection() {
                   >
                     <div className="flex flex-col justify-center h-full">
                       <p className="text-lg md:text-xl lg:text-[22px] leading-relaxed text-slate-700 font-medium md:pr-8">
-                        "{testimonial.text}"
+                        {testimonial.text}
                       </p>
                       <p className="text-md md:text-lg font-bold mt-6 mb-8 text-slate-900 flex items-center gap-2">
                         <span className="w-6 h-0.5 bg-[#cb1b1a] inline-block"></span>

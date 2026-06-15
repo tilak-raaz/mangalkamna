@@ -13,60 +13,11 @@ const services = [
       "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2680&auto=format&fit=crop",
   },
   {
-    title: "Nephrology",
+    title: "Critical Care & Anesthesia",
     description:
-      "Comprehensive kidney care, from early diagnosis to advanced renal replacement therapy. Services Include: CKD & AKI Treatment, Hemodialysis, Hypertension Clinic, Diabetic Kidney Disease, Glomerular Disease, and Pre/Post-Transplant Care.",
-    image:
-      "https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=2671&auto=format&fit=crop",
-  },
-  {
-    title: "Plastic & Reconstructive Surgery",
-    description:
-      "Advanced surgical procedures for reconstruction, aesthetics, and functional restoration. Our experienced surgeons provide customized solutions for trauma, burn injuries, and reconstructive needs.",
-    image:
-      "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=987&auto=format&fit=crop",
-  },
-  {
-    title: "Pain Management Clinic",
-    description:
-      "Specialized center for managing acute and chronic pain through multimodal approaches. Services include interventional pain procedures, medication management, and rehabilitation.",
-    image:
-      "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=2670",
-  },
-  {
-    title: "Diabetes Management",
-    description:
-      "Comprehensive diabetes care program including diagnosis, treatment, education, and management of complications. Our endocrinologists provide personalized treatment plans.",
+      "Advanced ICU and HDU equipped with Ventilators, Multiparameter Monitors, and Isolation Facilities. We provide comprehensive perioperative anesthetic care and manage post-operative patients, cardiac emergencies, renal failure, sepsis, trauma & multi-organ dysfunction with a trained Critical Care Team.",
     image:
       "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=2670",
-  },
-  {
-    title: "Infertility Care",
-    description:
-      "Advanced fertility treatments and reproductive medicine services. We offer comprehensive evaluation and treatment options for couples struggling with infertility.",
-    image:
-      "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?q=80&w=987&auto=format&fit=crop",
-  },
-  {
-    title: "Sexual Issue Management",
-    description:
-      "Specialized clinic for management of sexual dysfunction and related conditions. Our experts provide confidential, comprehensive care.",
-    image:
-      "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=2670",
-  },
-  {
-    title: "Critical Care & ICU",
-    description:
-      "Advanced ICU and HDU equipped with Ventilators, Multiparameter Monitors, and Isolation Facilities. We manage post-operative patients, cardiac emergencies, renal failure, sepsis, trauma & multi-organ dysfunction with a Trained Critical Care Team.",
-    image:
-      "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=2670",
-  },
-  {
-    title: "Dietitian Services",
-    description:
-      "Personalized nutritional counseling and meal planning for various medical conditions. Our registered dietitians work with patients to optimize their nutritional health.",
-    image:
-      "https://images.unsplash.com/photo-1512621539247-4600259cb1da?auto=format&fit=crop&q=80&w=2670",
   },
 ];
 

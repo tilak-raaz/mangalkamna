@@ -12,59 +12,18 @@ import {
 
 const departments = [
   {
+    name: "Critical Care & Anesthesia",
+    icon: HeartPulse,
+    slug: "critical-care-and-anesthesia",
+    description:
+      "ICU Management, Surgical Anesthesia, Pain Management, Ventilator Care",
+    isVisible: true,
+  },
+  {
     name: "Urology",
     icon: Activity,
     slug: "urology",
     description: "Endourology, Oncourology, Reconstructive Urology, Andrology",
-    isVisible: true,
-  },
-  {
-    name: "Nephrology",
-    icon: Droplets,
-    slug: "nephrology",
-    description: "Hemodialysis, CKD, AKI, Post-Transplant Care",
-    isVisible: true,
-  },
-  {
-    name: "General Surgery",
-    icon: Stethoscope,
-    slug: "general-surgery",
-    description: "Hernia Repair, Cholecystectomy, Cancer Surgery",
-    isVisible: true,
-  },
-  {
-    name: "General Medicine",
-    icon: Stethoscope,
-    slug: "general-medicine",
-    description: "Diabetes, Hypertension, Respiratory Diseases",
-    isVisible: true,
-  },
-  {
-    name: "Cardiology",
-    icon: Heart,
-    slug: "cardiology",
-    description: "ECG, 2D Echo, Angioplasty, Heart Failure Management",
-    isVisible: false,
-  },
-  {
-    name: "Cardiac Surgery",
-    icon: HeartPulse,
-    slug: "cardiac-surgery",
-    description: "CABG, Valve Repair, Congenital Cardiac Surgery",
-    isVisible: false,
-  },
-  {
-    name: "Pathology",
-    icon: Microscope,
-    slug: "pathology",
-    description: "Clinical Pathology, Histopathology, Microbiology",
-    isVisible: true,
-  },
-  {
-    name: "Radiology",
-    icon: Zap,
-    slug: "radiology",
-    description: "X-Ray, Ultrasound, CT Scan, MRI",
     isVisible: true,
   },
 ];

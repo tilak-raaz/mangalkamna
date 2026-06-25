@@ -1,12 +1,14 @@
 import { notFound } from "next/navigation";
-import { doctorsData, getDoctorBySlug } from "@/data/doctorsData";
 import DoctorProfileHero from "@/components/doctors/DoctorProfileHero";
 import DoctorProfileDetails from "@/components/doctors/DoctorProfileDetails";
 import DoctorReviews from "@/components/doctors/DoctorReviews";
 import AppointmentSection from "@/components/AppointmentSection";
+import { getPublicDoctorBySlug, listPublicDoctors } from "@/lib/doctorData";
 
-export function generateStaticParams() {
-  return doctorsData.map((doc) => ({
+export async function generateStaticParams() {
+  const doctors = await listPublicDoctors();
+
+  return doctors.map((doc) => ({
     slug: doc.slug,
   }));
 }
@@ -17,7 +19,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }> | { slug: string };
 }) {
   const resolvedParams = await params;
-  const doctor = getDoctorBySlug(resolvedParams.slug);
+  const doctor = await getPublicDoctorBySlug(resolvedParams.slug);
 
   if (!doctor) {
     return {
@@ -37,7 +39,7 @@ export default async function DoctorProfilePage({
   params: Promise<{ slug: string }> | { slug: string };
 }) {
   const resolvedParams = await params;
-  const doctor = getDoctorBySlug(resolvedParams.slug);
+  const doctor = await getPublicDoctorBySlug(resolvedParams.slug);
 
   if (!doctor) {
     notFound();

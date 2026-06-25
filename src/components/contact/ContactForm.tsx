@@ -6,20 +6,50 @@ import { Send, CheckCircle2 } from "lucide-react";
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setError("");
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      const response = await fetch("/api/inquiries", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          type: "contact",
+          fullName: String(formData.get("fullName") || "").trim(),
+          email: String(formData.get("email") || "").trim(),
+          phone: String(formData.get("phone") || "").trim(),
+          subject: String(formData.get("subject") || "").trim(),
+          message: String(formData.get("message") || "").trim(),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message.");
+      }
+
       setIsSubmitted(true);
-    }, 1500);
+      e.currentTarget.reset();
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : "Failed to send message.";
+      setError(message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
     return (
-      <div className="bg-white rounded-3xl border border-slate-100 p-10 shadow-[0_20px_40px_rgb(0,0,0,0.04)] h-full flex flex-col items-center justify-center text-center min-h-[600px]">
+      <div className="bg-white rounded-3xl border border-slate-100 p-10 shadow-[0_20px_40px_rgb(0,0,0,0.04)] h-full flex flex-col items-center justify-center text-center min-h-150">
         <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-6">
           <CheckCircle2 className="w-10 h-10 text-green-500" />
         </div>
@@ -43,7 +73,7 @@ export default function ContactForm() {
   return (
     <div className="bg-slate-900 rounded-3xl p-8 relative overflow-hidden h-full shadow-2xl shadow-slate-900/20">
       {/* Decorative background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-size-[24px_24px]"></div>
       <div className="absolute top-0 right-0 w-64 h-64 bg-[#cb1b1a] rounded-full blur-[80px] opacity-20 -translate-y-1/2 translate-x-1/3"></div>
 
       <div className="relative z-10">
@@ -56,6 +86,12 @@ export default function ContactForm() {
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-5">
+          {error ? (
+            <div className="rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+              {error}
+            </div>
+          ) : null}
+
           <div>
             <label
               htmlFor="fullName"
@@ -66,6 +102,7 @@ export default function ContactForm() {
             <input
               type="text"
               id="fullName"
+              name="fullName"
               required
               className="w-full bg-slate-800/50 border border-slate-700 text-white rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#cb1b1a] focus:ring-1 focus:ring-[#cb1b1a] transition-all placeholder:text-slate-500"
               placeholder="John Doe"
@@ -83,6 +120,7 @@ export default function ContactForm() {
               <input
                 type="email"
                 id="email"
+                name="email"
                 required
                 className="w-full bg-slate-800/50 border border-slate-700 text-white rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#cb1b1a] focus:ring-1 focus:ring-[#cb1b1a] transition-all placeholder:text-slate-500"
                 placeholder="john@example.com"
@@ -98,6 +136,7 @@ export default function ContactForm() {
               <input
                 type="tel"
                 id="phone"
+                name="phone"
                 required
                 className="w-full bg-slate-800/50 border border-slate-700 text-white rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#cb1b1a] focus:ring-1 focus:ring-[#cb1b1a] transition-all placeholder:text-slate-500"
                 placeholder="+91 98765 43210"
@@ -114,6 +153,7 @@ export default function ContactForm() {
             </label>
             <select
               id="subject"
+              name="subject"
               required
               defaultValue=""
               className="w-full bg-slate-800/50 border border-slate-700 text-white rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#cb1b1a] focus:ring-1 focus:ring-[#cb1b1a] transition-all appearance-none"
@@ -139,6 +179,7 @@ export default function ContactForm() {
             </label>
             <textarea
               id="message"
+              name="message"
               required
               rows={4}
               className="w-full bg-slate-800/50 border border-slate-700 text-white rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#cb1b1a] focus:ring-1 focus:ring-[#cb1b1a] transition-all placeholder:text-slate-500 resize-none"

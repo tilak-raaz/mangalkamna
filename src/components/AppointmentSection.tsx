@@ -1,6 +1,53 @@
+"use client";
+
+import { useState } from "react";
 import { MapPin, Phone, Mail, Clock, CalendarCheck } from "lucide-react";
 
 export default function AppointmentSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      const formData = new FormData(event.currentTarget);
+      const response = await fetch("/api/inquiries", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          type: "appointment",
+          name: String(formData.get("name") || "").trim(),
+          phone: String(formData.get("phone") || "").trim(),
+          email: String(formData.get("email") || "").trim(),
+          date: String(formData.get("date") || "").trim(),
+          service: String(formData.get("service") || "").trim(),
+          notes: String(formData.get("notes") || "").trim(),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to book appointment.");
+      }
+
+      setIsSubmitted(true);
+      event.currentTarget.reset();
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : "Failed to book appointment.";
+      setError(message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section
       id="appointment"
@@ -9,7 +56,7 @@ export default function AppointmentSection() {
       {/* Background Decor Elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-200/50 -z-10 hidden lg:block"></div>
 
-      <div className="max-w-[85rem] mx-auto px-4 md:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 px-4">
           <span className="flex items-center justify-center gap-3 text-[#cb1b1a] font-bold tracking-[0.2em] uppercase text-sm mb-4">
@@ -29,141 +76,181 @@ export default function AppointmentSection() {
         {/* Main Content Grid */}
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-stretch">
           {/* Left Form Side */}
-          <div className="w-full lg:w-3/5 bg-white p-6 sm:p-8 md:p-12 rounded-[2rem] lg:rounded-[2.5rem] shadow-[0_20px_50px_rgba(15,23,42,0.06)] border border-slate-100 z-10 relative">
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label
-                    htmlFor="name"
-                    className="text-sm font-bold text-slate-800 ml-1"
-                  >
-                    Full Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    placeholder="Amit Sharma"
-                    className="w-full px-5 py-4 rounded-[1rem] bg-slate-50/50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all font-medium placeholder:font-normal placeholder:text-slate-400"
-                  />
+          <div className="w-full lg:w-3/5 bg-white p-6 sm:p-8 md:p-12 rounded-3xl lg:rounded-4xl shadow-[0_20px_50px_rgba(15,23,42,0.06)] border border-slate-100 z-10 relative">
+            {isSubmitted ? (
+              <div className="min-h-130 flex flex-col items-center justify-center text-center px-6 py-12">
+                <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mb-6">
+                  <CalendarCheck className="w-10 h-10 text-emerald-600" />
                 </div>
-                <div className="space-y-2">
-                  <label
-                    htmlFor="phone"
-                    className="text-sm font-bold text-slate-800 ml-1"
-                  >
-                    Phone Number <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    placeholder="+91 82797 67958 - 9027422666"
-                    className="w-full px-5 py-4 rounded-[1rem] bg-slate-50/50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all font-medium placeholder:font-normal placeholder:text-slate-400"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label
-                    htmlFor="email"
-                    className="text-sm font-bold text-slate-800 ml-1"
-                  >
-                    Email Address <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="amit.sharma@example.com"
-                    className="w-full px-5 py-4 rounded-[1rem] bg-slate-50/50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all font-medium placeholder:font-normal placeholder:text-slate-400"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label
-                    htmlFor="date"
-                    className="text-sm font-bold text-slate-800 ml-1"
-                  >
-                    Preferred Date <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="date"
-                    id="date"
-                    className="w-full px-5 py-4 rounded-[1rem] bg-slate-50/50 border border-slate-200 text-slate-500 focus:text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all font-medium"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label
-                  htmlFor="service"
-                  className="text-sm font-bold text-slate-800 ml-1"
+                <h3 className="text-3xl font-extrabold text-slate-900 mb-3">
+                  Appointment request sent
+                </h3>
+                <p className="text-slate-600 max-w-md mb-8">
+                  Thank you. Your appointment request has been sent to our team
+                  and we will contact you shortly.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setIsSubmitted(false)}
+                  className="px-6 py-3 rounded-xl bg-[#681412] text-white font-bold hover:bg-[#4a0e0d] transition-colors"
                 >
-                  Service Needed <span className="text-red-500">*</span>
-                </label>
-                <div className="relative">
-                  <select
-                    id="service"
-                    defaultValue=""
-                    className="w-full px-5 py-4 rounded-[1rem] bg-slate-50/50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all appearance-none cursor-pointer font-medium"
-                  >
-                    <option value="" disabled>
-                      Select a medical service
-                    </option>
-                    <option value="urology">Urology</option>
-                    <option value="general-surgery">General Surgery</option>
-                    <option value="cardiology">Cardiology Center</option>
-                    <option value="neurology">Neurology</option>
-                    <option value="orthopedics">Orthopedics & Sports</option>
-                    <option value="pediatrics">Pediatric Care</option>
-                    <option value="dentistry">Dental Care</option>
-                    <option value="general">General Consultation</option>
-                  </select>
-                  <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                  Send another request
+                </button>
+              </div>
+            ) : (
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                {error ? (
+                  <div className="rounded-xl border border-red-500/20 bg-red-50 px-4 py-3 text-sm text-red-700">
+                    {error}
+                  </div>
+                ) : null}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="name"
+                      className="text-sm font-bold text-slate-800 ml-1"
                     >
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
+                      Full Name <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      placeholder="Amit Sharma"
+                      className="w-full px-5 py-4 rounded-xl bg-slate-50/50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all font-medium placeholder:font-normal placeholder:text-slate-400"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="phone"
+                      className="text-sm font-bold text-slate-800 ml-1"
+                    >
+                      Phone Number <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      required
+                      placeholder="+91 82797 67958 - 9027422666"
+                      className="w-full px-5 py-4 rounded-xl bg-slate-50/50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all font-medium placeholder:font-normal placeholder:text-slate-400"
+                    />
                   </div>
                 </div>
-              </div>
 
-              <div className="space-y-2">
-                <label
-                  htmlFor="notes"
-                  className="text-sm font-bold text-slate-800 ml-1"
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-bold text-slate-800 ml-1"
+                    >
+                      Email Address <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      placeholder="amit.sharma@example.com"
+                      className="w-full px-5 py-4 rounded-xl bg-slate-50/50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all font-medium placeholder:font-normal placeholder:text-slate-400"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="date"
+                      className="text-sm font-bold text-slate-800 ml-1"
+                    >
+                      Preferred Date <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="date"
+                      id="date"
+                      name="date"
+                      required
+                      className="w-full px-5 py-4 rounded-xl bg-slate-50/50 border border-slate-200 text-slate-500 focus:text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all font-medium"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label
+                    htmlFor="service"
+                    className="text-sm font-bold text-slate-800 ml-1"
+                  >
+                    Service Needed <span className="text-red-500">*</span>
+                  </label>
+                  <div className="relative">
+                    <select
+                      id="service"
+                      name="service"
+                      required
+                      defaultValue=""
+                      className="w-full px-5 py-4 rounded-xl bg-slate-50/50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all appearance-none cursor-pointer font-medium"
+                    >
+                      <option value="" disabled>
+                        Select a medical service
+                      </option>
+                      <option value="urology">Urology</option>
+                      <option value="general-surgery">General Surgery</option>
+                      <option value="cardiology">Cardiology Center</option>
+                      <option value="neurology">Neurology</option>
+                      <option value="orthopedics">Orthopedics & Sports</option>
+                      <option value="pediatrics">Pediatric Care</option>
+                      <option value="dentistry">Dental Care</option>
+                      <option value="general">General Consultation</option>
+                    </select>
+                    <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="m6 9 6 6 6-6" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label
+                    htmlFor="notes"
+                    className="text-sm font-bold text-slate-800 ml-1"
+                  >
+                    Additional Notes
+                  </label>
+                  <textarea
+                    id="notes"
+                    name="notes"
+                    rows={4}
+                    placeholder="Any specific concerns or symptoms we should know about beforehand?"
+                    className="w-full px-5 py-4 rounded-xl bg-slate-50/50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all font-medium placeholder:font-normal placeholder:text-slate-400 resize-none"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-4 px-8 bg-[#681412] hover:bg-[#4a0e0d] text-white rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-red-900/25 hover:shadow-xl hover:-translate-y-0.5 group mt-2"
                 >
-                  Additional Notes
-                </label>
-                <textarea
-                  id="notes"
-                  rows={4}
-                  placeholder="Any specific concerns or symptoms we should know about beforehand?"
-                  className="w-full px-5 py-4 rounded-[1rem] bg-slate-50/50 border border-slate-200 text-slate-900 focus:outline-none focus:border-[#cb1b1a] focus:ring-4 focus:ring-[#cb1b1a]/10 transition-all font-medium placeholder:font-normal placeholder:text-slate-400 resize-none"
-                ></textarea>
-              </div>
-
-              <button
-                type="button"
-                className="w-full py-4 px-8 bg-[#681412] hover:bg-[#4a0e0d] text-white rounded-[1rem] font-bold text-lg flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-red-900/25 hover:shadow-xl hover:-translate-y-0.5 group mt-2"
-              >
-                Confirm Appointment
-                <CalendarCheck
-                  size={20}
-                  className="group-hover:scale-110 group-hover:rotate-3 transition-transform"
-                />
-              </button>
-            </form>
+                  {isSubmitting ? "Sending..." : "Confirm Appointment"}
+                  <CalendarCheck
+                    size={20}
+                    className="group-hover:scale-110 group-hover:rotate-3 transition-transform"
+                  />
+                </button>
+              </form>
+            )}
           </div>
 
           {/* Right Contact Side - Upgraded Premium Aesthetic */}
-          <div className="w-full lg:w-2/5 min-h-[500px] bg-[#681412] rounded-[2rem] lg:rounded-[2.5rem] p-8 md:p-10 lg:p-12 text-white relative overflow-hidden flex flex-col shadow-2xl">
+          <div className="w-full lg:w-2/5 min-h-125 bg-[#681412] rounded-3xl lg:rounded-4xl p-8 md:p-10 lg:p-12 text-white relative overflow-hidden flex flex-col shadow-2xl">
             {/* Decors */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#cb1b1a] rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 opacity-30"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-red-400 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2 opacity-20"></div>

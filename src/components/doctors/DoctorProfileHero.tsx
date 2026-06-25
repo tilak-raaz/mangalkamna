@@ -70,7 +70,7 @@ export default function DoctorProfileHero({ doctor }: DoctorProfileHeroProps) {
               </h1>
 
               <p className="text-lg text-slate-600 font-medium mb-6">
-                {doctor.designation}
+                {doctor.designation || doctor.specialization}
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -83,7 +83,7 @@ export default function DoctorProfileHero({ doctor }: DoctorProfileHeroProps) {
                       Qualifications
                     </p>
                     <p className="text-sm font-semibold text-slate-800 leading-tight">
-                      {doctor.qualifications}
+                      {doctor.qualifications || "Not specified"}
                     </p>
                   </div>
                 </div>
@@ -97,7 +97,9 @@ export default function DoctorProfileHero({ doctor }: DoctorProfileHeroProps) {
                       Experience
                     </p>
                     <p className="text-sm font-semibold text-slate-800 leading-tight">
-                      {doctor.experience}+ Years
+                      {doctor.experience
+                        ? `${doctor.experience}+ Years`
+                        : "Experience on request"}
                     </p>
                   </div>
                 </div>

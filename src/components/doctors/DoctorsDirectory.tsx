@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -10,20 +10,53 @@ import {
   Globe,
   CalendarClock,
 } from "lucide-react";
-import { doctorsData, type Doctor } from "@/data/doctorsData";
-import { departmentsData } from "@/data/departmentsData";
+import type { Doctor } from "@/data/doctorsData";
 
 export default function DoctorsDirectory() {
+  const [doctors, setDoctors] = useState<Doctor[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDept, setSelectedDept] = useState("All");
 
-  const departments = [
-    "All",
-    ...Array.from(new Set(departmentsData.map((d) => d.name))),
-  ];
+  useEffect(() => {
+    const loadDoctors = async () => {
+      setIsLoading(true);
+      setError("");
+
+      try {
+        const response = await fetch("/api/public/doctors", {
+          cache: "no-store",
+        });
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Failed to load doctors.");
+        }
+
+        setDoctors(data.doctors || []);
+      } catch (err) {
+        const message =
+          err instanceof Error ? err.message : "Failed to load doctors.";
+        setError(message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadDoctors();
+  }, []);
+
+  const departments = useMemo(() => {
+    const doctorDepartments = doctors
+      .map((doctor) => doctor.specialization)
+      .filter((department): department is string => Boolean(department));
+
+    return ["All", ...Array.from(new Set(doctorDepartments))];
+  }, [doctors]);
 
   const filteredDoctors = useMemo(() => {
-    return doctorsData.filter((doctor: Doctor) => {
+    return doctors.filter((doctor: Doctor) => {
       const matchName = doctor.name
         .toLowerCase()
         .includes(searchTerm.toLowerCase());
@@ -32,7 +65,7 @@ export default function DoctorsDirectory() {
 
       return matchName && matchDept;
     });
-  }, [searchTerm, selectedDept]);
+  }, [doctors, searchTerm, selectedDept]);
 
   return (
     <section className="py-20 bg-slate-50 relative min-h-screen">
@@ -57,7 +90,7 @@ export default function DoctorsDirectory() {
           <div className="hidden md:block w-px bg-slate-200 mx-2 self-stretch my-2"></div>
 
           {/* Department Filter */}
-          <div className="flex-1 md:max-w-[250px]">
+          <div className="flex-1 md:max-w-64">
             <select
               value={selectedDept}
               onChange={(e) => setSelectedDept(e.target.value)}
@@ -91,8 +124,20 @@ export default function DoctorsDirectory() {
           </h2>
         </div>
 
+        {error ? (
+          <div className="mb-8 p-4 rounded-2xl bg-red-50 text-red-700 border border-red-100 text-sm font-medium">
+            {error}
+          </div>
+        ) : null}
+
+        {isLoading ? (
+          <div className="py-20 text-center bg-white rounded-3xl border border-slate-100">
+            <p className="text-slate-500 font-medium">Loading doctors...</p>
+          </div>
+        ) : null}
+
         {/* Grid of Doctors */}
-        {filteredDoctors.length > 0 ? (
+        {!isLoading && filteredDoctors.length > 0 ? (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             {filteredDoctors.map((doctor: Doctor) => (
               <div
@@ -148,7 +193,8 @@ export default function DoctorsDirectory() {
                       <div className="flex items-start gap-2.5 text-sm text-slate-600">
                         <CalendarClock className="w-4 h-4 text-[#cb1b1a] mt-0.5 shrink-0" />
                         <span className="font-medium text-slate-700">
-                          {doctor.opdSchedule}
+                          {doctor.opdSchedule ||
+                            "Schedule available on request"}
                         </span>
                       </div>
                     </div>
@@ -167,7 +213,7 @@ export default function DoctorsDirectory() {
               </div>
             ))}
           </div>
-        ) : (
+        ) : !isLoading ? (
           <div className="flex items-center justify-center py-20 bg-white rounded-3xl border border-slate-100">
             <div className="text-center max-w-md mx-auto">
               <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-300">
@@ -191,7 +237,7 @@ export default function DoctorsDirectory() {
               </button>
             </div>
           </div>
-        )}
+        ) : null}
       </div>
     </section>
   );

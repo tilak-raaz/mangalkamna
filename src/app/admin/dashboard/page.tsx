@@ -2,7 +2,7 @@
 
 import { ProtectedRoute } from "@/components/admin/ProtectedRoute";
 import { AdminSidebar } from "@/components/admin/AdminSidebar";
-import { Users, Image, Video } from "lucide-react";
+import { Users, Image } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -17,16 +17,10 @@ interface GalleryImage {
   title: string;
 }
 
-interface VideoItem {
-  id: string;
-  title: string;
-}
-
 export default function AdminDashboard() {
   const router = useRouter();
   const [doctorCount, setDoctorCount] = useState(0);
   const [imageCount, setImageCount] = useState(0);
-  const [videoCount, setVideoCount] = useState(0);
 
   useEffect(() => {
     // Load doctors count
@@ -41,13 +35,6 @@ export default function AdminDashboard() {
     if (imagesData) {
       const images: GalleryImage[] = JSON.parse(imagesData);
       setImageCount(images.length);
-    }
-
-    // Load videos count
-    const videosData = localStorage.getItem("videos");
-    if (videosData) {
-      const videos: VideoItem[] = JSON.parse(videosData);
-      setVideoCount(videos.length);
     }
   }, []);
 
@@ -64,12 +51,6 @@ export default function AdminDashboard() {
       icon: Image,
       color: "bg-green-50 text-green-600",
     },
-    {
-      label: "Videos",
-      value: videoCount.toString(),
-      icon: Video,
-      color: "bg-purple-50 text-purple-600",
-    },
   ];
 
   const quickActions = [
@@ -84,12 +65,6 @@ export default function AdminDashboard() {
       title: "Gallery Images",
       description: "Manage gallery images",
       href: "/admin/gallery",
-    },
-    {
-      icon: Video,
-      title: "Videos",
-      description: "Upload or edit videos",
-      href: "/admin/videos",
     },
   ];
 

@@ -1,13 +1,12 @@
-import { Calendar } from "lucide-react";
+import { listPublicDoctors } from "@/lib/doctorData";
 import Link from "next/link";
-import { doctorsData } from "@/data/doctorsData";
 
-export default function DoctorsSection() {
-  const featuredDoctors = doctorsData.slice(0, 3);
+export default async function DoctorsSection() {
+  const featuredDoctors = (await listPublicDoctors()).slice(0, 3);
 
   return (
     <section id="doctors" className="py-24 bg-white relative">
-      <div className="max-w-[85rem] mx-auto px-4 md:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="max-w-2xl">
@@ -35,10 +34,10 @@ export default function DoctorsSection() {
           {featuredDoctors.map((doctor, index) => (
             <div
               key={index}
-              className="group flex flex-col rounded-[2rem] overflow-hidden bg-white border border-slate-100 hover:border-slate-200 shadow-sm hover:shadow-[0_20px_50px_rgba(30,58,138,0.08)] hover:-translate-y-2 transition-all duration-500"
+              className="group flex flex-col rounded-3xl overflow-hidden bg-white border border-slate-100 hover:border-slate-200 shadow-sm hover:shadow-[0_20px_50px_rgba(30,58,138,0.08)] hover:-translate-y-2 transition-all duration-500"
             >
               {/* Doctor Image */}
-              <div className="aspect-[4/3] md:aspect-[5/4] xl:aspect-[4/3] relative overflow-hidden bg-slate-100">
+              <div className="aspect-square relative overflow-hidden bg-slate-100">
                 <div
                   className="absolute inset-0 bg-cover bg-top group-hover:scale-105 transition-transform duration-700 ease-out"
                   style={{ backgroundImage: `url('${doctor.photo}')` }}
@@ -60,11 +59,10 @@ export default function DoctorsSection() {
                   </Link>
                 </h3>
                 <p className="text-slate-500 font-medium mb-8">
-                  {doctor.designation}
+                  {doctor.designation || doctor.specialization}
                 </p>
 
                 {/* CTA Button */}
-                
               </div>
             </div>
           ))}

@@ -11,17 +11,18 @@ export type Doctor = {
   photo: string;
   designation: string;
   specialization: string;
-  qualifications: string;
+  qualifications?: string;
   experience: number;
-  languages: string[];
-  opdSchedule: string; // Deprecated, keep for backwards compat
-  opdDays: string;
-  opdTimings: string;
-  isAvailableToday: boolean;
-  specialInterests: string[];
-  publications: string;
-  memberships: string;
-  reviews: Review[];
+  languages?: string[];
+  opdSchedule?: string; // Deprecated, keep for backwards compat
+  opdDays?: string;
+  opdTimings?: string;
+  isAvailableToday?: boolean;
+  specialInterests?: string[];
+  publications?: string;
+  memberships?: string;
+  reviews?: Review[];
+  description?: string;
 };
 
 export const doctorsData: Doctor[] = [

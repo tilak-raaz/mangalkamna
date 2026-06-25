@@ -7,56 +7,133 @@ import { Plus, Trash2, Upload } from "lucide-react";
 
 interface GalleryImage {
   id: string;
-  url: string;
-  title: string;
-  uploadedAt: string;
+  imageURL: string;
+  createdAt: string;
 }
 
 export default function GalleryManagement() {
   const [images, setImages] = useState<GalleryImage[]>([]);
-  const [title, setTitle] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  // Load images from localStorage
-  useEffect(() => {
-    const stored = localStorage.getItem("galleryImages");
-    if (stored) {
-      setImages(JSON.parse(stored));
+  const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  const cloudinaryUploadPreset =
+    process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
+
+  const loadImages = async () => {
+    setError("");
+
+    try {
+      const response = await fetch("/api/gallery", { cache: "no-store" });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to load gallery images.");
+      }
+
+      setImages(data.images || []);
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : "Failed to load gallery images.";
+      setError(message);
     }
+  };
+
+  useEffect(() => {
+    loadImages();
   }, []);
 
-  const handleAddImage = () => {
-    if (!imageUrl || !title) {
-      alert("Please fill in all fields");
+  const uploadToCloudinary = async (file: File) => {
+    if (!cloudinaryCloudName || !cloudinaryUploadPreset) {
+      throw new Error(
+        "Missing Cloudinary config. Set NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME and NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET in .env.local",
+      );
+    }
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", cloudinaryUploadPreset);
+
+    const response = await fetch(
+      `https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`,
+      {
+        method: "POST",
+        body: formData,
+      },
+    );
+
+    const data = await response.json();
+
+    if (!response.ok || !data.secure_url) {
+      throw new Error(data.error?.message || "Cloudinary upload failed.");
+    }
+
+    return data.secure_url as string;
+  };
+
+  const handleAddImage = async () => {
+    if (!selectedFile) {
+      alert("Please select an image file first.");
       return;
     }
 
+    setError("");
     setIsLoading(true);
 
-    setTimeout(() => {
-      const newImage: GalleryImage = {
-        id: Date.now().toString(),
-        url: imageUrl,
-        title: title,
-        uploadedAt: new Date().toLocaleDateString(),
-      };
+    try {
+      const imageURL = await uploadToCloudinary(selectedFile);
 
-      const updated = [...images, newImage];
-      setImages(updated);
-      localStorage.setItem("galleryImages", JSON.stringify(updated));
+      const saveResponse = await fetch("/api/gallery", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ imageURL }),
+      });
 
-      setTitle("");
-      setImageUrl("");
+      const saveData = await saveResponse.json();
+
+      if (!saveResponse.ok) {
+        throw new Error(saveData.error || "Failed to save gallery image.");
+      }
+
+      setImages((current) => [saveData.image, ...current]);
+      setSelectedFile(null);
+    } catch (err) {
+      const message =
+        err instanceof Error ? err.message : "Failed to upload image.";
+      setError(message);
+    } finally {
       setIsLoading(false);
-    }, 500);
+    }
   };
 
-  const handleDeleteImage = (id: string) => {
+  const handleDeleteImage = async (id: string) => {
     if (confirm("Delete this image?")) {
-      const updated = images.filter((img) => img.id !== id);
-      setImages(updated);
-      localStorage.setItem("galleryImages", JSON.stringify(updated));
+      setError("");
+
+      try {
+        const response = await fetch("/api/gallery", {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Failed to delete image.");
+        }
+
+        setImages((current) => current.filter((img) => img.id !== id));
+      } catch (err) {
+        const message =
+          err instanceof Error ? err.message : "Failed to delete image.";
+        setError(message);
+      }
     }
   };
 
@@ -87,26 +164,14 @@ export default function GalleryManagement() {
               <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    Image Title
+                    Upload Image
                   </label>
                   <input
-                    type="text"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    placeholder="e.g., Hospital Reception"
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#cb1b1a] text-slate-900 bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    Image URL
-                  </label>
-                  <input
-                    type="text"
-                    value={imageUrl}
-                    onChange={(e) => setImageUrl(e.target.value)}
-                    placeholder="https://..."
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) =>
+                      setSelectedFile(e.target.files?.[0] || null)
+                    }
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#cb1b1a] text-slate-900 bg-white"
                   />
                 </div>
@@ -114,12 +179,18 @@ export default function GalleryManagement() {
                 <div className="p-8 border-2 border-dashed border-slate-300 rounded-lg text-center bg-slate-50">
                   <Upload className="w-12 h-12 text-slate-400 mx-auto mb-3" />
                   <p className="text-slate-600 mb-2">
-                    Or paste image URL above
+                    Select an image file to upload to Cloudinary
                   </p>
                   <p className="text-sm text-slate-500">
                     Supports JPG, PNG, WebP up to 5MB
                   </p>
                 </div>
+
+                {error ? (
+                  <div className="p-4 rounded-lg bg-red-50 text-red-700 border border-red-100 text-sm font-medium">
+                    {error}
+                  </div>
+                ) : null}
 
                 <button
                   onClick={handleAddImage}
@@ -127,7 +198,7 @@ export default function GalleryManagement() {
                   className="w-full flex items-center justify-center gap-2 bg-[#cb1b1a] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#a51615] disabled:opacity-50 transition-colors"
                 >
                   <Plus className="w-5 h-5" />
-                  {isLoading ? "Uploading..." : "Add Image"}
+                  {isLoading ? "Uploading..." : "Upload and Save"}
                 </button>
               </div>
             </div>
@@ -148,19 +219,17 @@ export default function GalleryManagement() {
                   >
                     <div className="relative h-48 overflow-hidden bg-slate-100">
                       <img
-                        src={image.url}
-                        alt={image.title}
+                        src={image.imageURL}
+                        alt="Gallery image"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
                     </div>
 
                     <div className="p-4">
-                      <h3 className="font-bold text-slate-900 mb-2">
-                        {image.title}
-                      </h3>
                       <p className="text-xs text-slate-500 mb-4">
-                        Uploaded: {image.uploadedAt}
+                        Uploaded:{" "}
+                        {new Date(image.createdAt).toLocaleDateString()}
                       </p>
 
                       <button

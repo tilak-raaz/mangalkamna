@@ -16,7 +16,7 @@ export default function DoctorProfileDetails({
             {/* Left Column (Main details) */}
             <div className="lg:col-span-2 space-y-12">
               {/* Special Interests */}
-              {doctor.specialInterests.length > 0 && (
+              {doctor.specialInterests?.length ? (
                 <div>
                   <h3 className="text-2xl font-extrabold text-slate-900 mb-6 border-b border-slate-100 pb-4">
                     Special Interests
@@ -38,7 +38,7 @@ export default function DoctorProfileDetails({
               )}
 
               {/* Publications */}
-              {doctor.publications && (
+              {doctor.publications ? (
                 <div>
                   <h3 className="text-2xl font-extrabold text-slate-900 mb-6 border-b border-slate-100 pb-4">
                     Publications & Research
@@ -50,7 +50,7 @@ export default function DoctorProfileDetails({
               )}
 
               {/* Memberships */}
-              {doctor.memberships && (
+              {doctor.memberships ? (
                 <div>
                   <h3 className="text-2xl font-extrabold text-slate-900 mb-6 border-b border-slate-100 pb-4">
                     Professional Memberships
@@ -65,7 +65,7 @@ export default function DoctorProfileDetails({
             {/* Right Column (Sidebar Timings & Language) */}
             <div className="space-y-6">
               <div className="bg-[#681412] rounded-3xl p-8 relative overflow-hidden text-white shadow-xl shadow-[#681412]/20">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(white_1px,transparent_1px)] [background-size:12px_12px] opacity-10 rounded-bl-full translate-x-4 -translate-y-4"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(white_1px,transparent_1px)] bg-size-[12px_12px] opacity-10 rounded-bl-full translate-x-4 -translate-y-4"></div>
                 <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
                   OPD Schedule
                 </h3>
@@ -75,13 +75,17 @@ export default function DoctorProfileDetails({
                     <p className="text-white/60 text-sm font-semibold uppercase tracking-wider mb-1">
                       Consultation Days
                     </p>
-                    <p className="font-bold text-lg">{doctor.opdDays}</p>
+                    <p className="font-bold text-lg">
+                      {doctor.opdDays || "To be announced"}
+                    </p>
                   </div>
                   <div>
                     <p className="text-white/60 text-sm font-semibold uppercase tracking-wider mb-1">
                       Timings
                     </p>
-                    <p className="font-bold text-lg">{doctor.opdTimings}</p>
+                    <p className="font-bold text-lg">
+                      {doctor.opdTimings || "To be announced"}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -91,14 +95,20 @@ export default function DoctorProfileDetails({
                   Languages Spoken
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {doctor.languages.map((lang, idx) => (
-                    <span
-                      key={idx}
-                      className="px-4 py-2 bg-white border border-slate-200 text-slate-700 font-medium text-sm rounded-full"
-                    >
-                      {lang}
+                  {doctor.languages?.length ? (
+                    doctor.languages.map((lang, idx) => (
+                      <span
+                        key={idx}
+                        className="px-4 py-2 bg-white border border-slate-200 text-slate-700 font-medium text-sm rounded-full"
+                      >
+                        {lang}
+                      </span>
+                    ))
+                  ) : (
+                    <span className="text-slate-500 font-medium text-sm">
+                      Not specified
                     </span>
-                  ))}
+                  )}
                 </div>
               </div>
             </div>

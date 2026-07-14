@@ -9,7 +9,9 @@ import {
   Users,
   Image,
   Video,
+  FileText,
   Home,
+  Settings,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -40,9 +42,19 @@ export function AdminSidebar() {
       icon: Image,
     },
     {
+      label: "Pages",
+      href: "/admin/content",
+      icon: FileText,
+    },
+    {
       label: "Videos",
       href: "/admin/videos",
       icon: Video,
+    },
+    {
+      label: "SEO Settings",
+      href: "/admin/seo",
+      icon: Settings,
     },
   ];
 

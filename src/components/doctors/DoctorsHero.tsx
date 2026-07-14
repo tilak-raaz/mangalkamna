@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import type { PageRecord } from "@/lib/pageData";
 
-export default function DoctorsHero() {
+export default function DoctorsHero({ page }: { page?: PageRecord | null }) {
+  const title = page?.title || "Doctors & Medical Team";
+  const description =
+    page?.excerpt ||
+    "Our team of 15+ highly qualified and experienced doctors brings global expertise to your doorstep. From diagnosis to treatment, they are dedicated to your well-being.";
+
   return (
     <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 bg-slate-50 overflow-hidden border-b border-slate-200">
       {/* Background aesthetics */}
@@ -16,7 +22,7 @@ export default function DoctorsHero() {
               Home
             </Link>
             <ChevronRight size={14} className="shrink-0 text-slate-400" />
-            <span className="text-[#cb1b1a]">Doctors & Medical Team</span>
+            <span className="text-[#cb1b1a]">{title}</span>
           </nav>
 
           {/* Hero Content Area */}
@@ -31,9 +37,7 @@ export default function DoctorsHero() {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium max-w-2xl">
-              Our team of 15+ highly qualified and experienced doctors brings
-              global expertise to your doorstep. From diagnosis to treatment,
-              they are dedicated to your well-being.
+              {description}
             </p>
           </div>
         </div>

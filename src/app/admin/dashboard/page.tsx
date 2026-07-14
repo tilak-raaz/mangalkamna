@@ -2,7 +2,7 @@
 
 import { ProtectedRoute } from "@/components/admin/ProtectedRoute";
 import { AdminSidebar } from "@/components/admin/AdminSidebar";
-import { Users, Image } from "lucide-react";
+import { Users, Image, FileText } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -17,25 +17,44 @@ interface GalleryImage {
   title: string;
 }
 
+interface PageRecord {
+  id: string;
+  title: string;
+}
+
 export default function AdminDashboard() {
   const router = useRouter();
   const [doctorCount, setDoctorCount] = useState(0);
   const [imageCount, setImageCount] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
 
   useEffect(() => {
-    // Load doctors count
-    const doctorsData = localStorage.getItem("doctors");
-    if (doctorsData) {
-      const doctors: Doctor[] = JSON.parse(doctorsData);
-      setDoctorCount(doctors.length);
-    }
+    const loadCounts = async () => {
+      const [doctorsResponse, imagesResponse, pagesResponse] =
+        await Promise.all([
+          fetch("/api/doctors", { cache: "no-store" }),
+          fetch("/api/gallery", { cache: "no-store" }),
+          fetch("/api/pages", { cache: "no-store" }),
+        ]);
 
-    // Load gallery images count
-    const imagesData = localStorage.getItem("galleryImages");
-    if (imagesData) {
-      const images: GalleryImage[] = JSON.parse(imagesData);
-      setImageCount(images.length);
-    }
+      const doctorsData = await doctorsResponse.json();
+      const imagesData = await imagesResponse.json();
+      const pagesData = await pagesResponse.json();
+
+      if (doctorsResponse.ok) {
+        setDoctorCount((doctorsData.doctors || []).length);
+      }
+
+      if (imagesResponse.ok) {
+        setImageCount((imagesData.images || []).length);
+      }
+
+      if (pagesResponse.ok) {
+        setPageCount((pagesData.pages || []).length);
+      }
+    };
+
+    void loadCounts();
   }, []);
 
   const stats = [
@@ -51,6 +70,12 @@ export default function AdminDashboard() {
       icon: Image,
       color: "bg-green-50 text-green-600",
     },
+    {
+      label: "Custom Pages",
+      value: pageCount.toString(),
+      icon: FileText,
+      color: "bg-amber-50 text-amber-600",
+    },
   ];
 
   const quickActions = [
@@ -65,6 +90,12 @@ export default function AdminDashboard() {
       title: "Gallery Images",
       description: "Manage gallery images",
       href: "/admin/gallery",
+    },
+    {
+      icon: FileText,
+      title: "Custom Pages",
+      description: "Create and edit site pages",
+      href: "/admin/content",
     },
   ];
 

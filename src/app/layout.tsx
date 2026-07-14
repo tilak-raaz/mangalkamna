@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AdminProvider } from "@/lib/adminContext";
 import { ConditionalLayout } from "@/components/ConditionalLayout";
+import { getSeoSettings } from "@/lib/seoData";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,10 +16,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Docta Consultation",
-  description: "Consult a doctor anytime, anywhere by video call",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const seoSettings = await getSeoSettings();
+
+  return {
+    title: seoSettings.pageTitle,
+    description: seoSettings.metaDescription,
+    keywords: seoSettings.metaKeywords,
+  };
+}
 
 export default function RootLayout({
   children,

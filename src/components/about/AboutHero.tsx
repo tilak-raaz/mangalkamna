@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import type { PageRecord } from "@/lib/pageData";
 
-export default function AboutHero() {
+export default function AboutHero({ page }: { page?: PageRecord | null }) {
+  const title = page?.title || "About Mangalkamna Hospital";
+  const description =
+    page?.excerpt ||
+    "A legacy of healing built on trust, clinical expertise, and compassionate care.";
+
   return (
     <>
       {/* SECTION 1 — PAGE HERO BANNER */}
@@ -18,15 +24,19 @@ export default function AboutHero() {
                 Home
               </Link>
               <ChevronRight size={14} />
-              <span className="text-[#681412] font-bold">About Us</span>
+              <span className="text-[#681412] font-bold">{title}</span>
             </nav>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-bold leading-[1.15] tracking-tight text-[#681412]">
-              About Mangalkamna <br className="hidden lg:block" /> Hospital —{" "}
+              {title} <br className="hidden lg:block" /> Hospital —{" "}
               <br className="hidden md:block lg:hidden" />
               <span className="text-[#cb1b1a]">A Legacy of Healing</span>
             </h1>
+
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium max-w-3xl">
+              {description}
+            </p>
           </div>
         </div>
       </section>

@@ -3,14 +3,19 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import AchievementsBar from "./AchievementsBar";
+import type { PageRecord } from "@/lib/pageData";
 
 const images = [
   "https://res.cloudinary.com/du5qoczcn/image/upload/v1773571642/WhatsApp_Image_2026-03-15_at_16.17.01_mft9qc.jpg",
   "https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=2828&auto=format&fit=crop",
 ];
 
-export default function HeroSection() {
+export default function HeroSection({ page }: { page?: PageRecord | null }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const heroTitle = page?.title || "Super-Speciality Hospital";
+  const heroDescription =
+    page?.excerpt ||
+    "State-of-the-art healthcare services delivered with compassion, precision, and a patient first approach.";
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -59,7 +64,7 @@ export default function HeroSection() {
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.3rem] font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-[#681412]">
               Advanced Medical and Surgical <br className="hidden sm:block" />
               <span className="text-[#cb1b1a] font-extrabold relative block sm:inline">
-                Super-Speciality Hospital
+                {heroTitle}
               </span>
             </h1>
 
@@ -73,8 +78,7 @@ export default function HeroSection() {
             </p>
 
             <p className="text-sm sm:text-lg md:text-xl text-[#681412]/85 max-w-2xl leading-relaxed font-medium">
-              State-of-the-art healthcare services delivered with compassion,
-              precision, and a patient first approach.
+              {heroDescription}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-4 md:pt-6">

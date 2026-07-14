@@ -1,19 +1,32 @@
+import type { Metadata } from "next";
+import { getPageBySlug } from "@/lib/pageData";
+import PageCmsContent from "@/components/PageCmsContent";
 import ContactHero from "@/components/contact/ContactHero";
 import ContactInfo from "@/components/contact/ContactInfo";
 import ContactForm from "@/components/contact/ContactForm";
 import MultipleLocations from "@/components/contact/MultipleLocations";
 import SocialMediaLinks from "@/components/contact/SocialMediaLinks";
 
-export const metadata = {
-  title: "Contact Us - Hospital Name",
-  description:
-    "Get in touch with us. View our contact details, location, and reach out through our contact form.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPageBySlug("contact");
 
-export default function ContactPage() {
+  return {
+    title: page?.metaTitle || page?.title || "Contact Us - Hospital Name",
+    description:
+      page?.metaDescription ||
+      page?.excerpt ||
+      "Get in touch with us. View our contact details, location, and reach out through our contact form.",
+  };
+}
+
+export default async function ContactPage() {
+  const page = await getPageBySlug("contact");
+  const editablePage = page?.isPublished ? page : null;
+
   return (
     <main className="min-h-screen bg-slate-50 relative pt-20 overflow-hidden">
       <ContactHero />
+      <PageCmsContent page={editablePage} title="Contact Page Content" />
 
       <section className="py-20 bg-slate-50 relative z-10">
         <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">

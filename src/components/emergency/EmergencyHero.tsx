@@ -1,6 +1,12 @@
 import { AlertCircle, Phone, Clock } from "lucide-react";
+import type { PageRecord } from "@/lib/pageData";
 
-export default function EmergencyHero() {
+export default function EmergencyHero({ page }: { page?: PageRecord | null }) {
+  const title = page?.title || "Emergency & Urgent Care";
+  const description =
+    page?.excerpt ||
+    "24/7 emergency services, trauma care, ALS ambulances, and life-saving protocols. We are always ready when every second counts.";
+
   return (
     <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-slate-50 relative overflow-hidden">
       {/* Background Elements */}
@@ -13,15 +19,13 @@ export default function EmergencyHero() {
           <div className="max-w-2xl">
             <span className="flex items-center gap-3 text-[#cb1b1a] font-bold tracking-[0.2em] uppercase text-sm mb-6">
               <span className="w-8 h-0.5 bg-[#cb1b1a]"></span>
-              Emergency Care
+              {title}
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1] mb-6 tracking-tight">
-              Emergency & <span className="text-[#cb1b1a]">Urgent Care</span>
+              {title} <span className="text-[#cb1b1a]">Urgent Care</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
-              24/7 emergency services, trauma care, ALS ambulances, and
-              life-saving protocols. We are always ready when every second
-              counts.
+              {description}
             </p>
           </div>
 

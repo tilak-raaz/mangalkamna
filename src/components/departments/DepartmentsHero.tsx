@@ -1,7 +1,17 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import type { PageRecord } from "@/lib/pageData";
 
-export default function DepartmentsHero() {
+export default function DepartmentsHero({
+  page,
+}: {
+  page?: PageRecord | null;
+}) {
+  const title = page?.title || "Departments & Specialties";
+  const description =
+    page?.excerpt ||
+    "7+ Departments — from Preventive Care to Complex Surgical Intervention. Our institution is equipped with the latest technology, led by experienced super specialists and specialists.";
+
   return (
     <>
       {/* SECTION 1 — PAGE INTRO */}
@@ -18,23 +28,19 @@ export default function DepartmentsHero() {
                 Home
               </Link>
               <ChevronRight size={14} />
-              <span className="text-[#681412] font-bold">
-                Departments & Specialties
-              </span>
+              <span className="text-[#681412] font-bold">{title}</span>
             </nav>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-bold leading-[1.15] tracking-tight text-[#681412] mb-6">
               World-Class Specialties
               <br className="hidden md:block lg:hidden" />
-              <span className="text-[#cb1b1a]"> Under One Roof</span>
+              <span className="text-[#cb1b1a]"> {title}</span>
             </h1>
 
             {/* Sub-text */}
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium max-w-3xl">
-              7+ Departments — from Preventive Care to Complex Surgical
-              Intervention. Our institution is equipped with the latest
-              technology, led by experienced super specialists and specialists.
+              {description}
             </p>
           </div>
         </div>

@@ -1,7 +1,17 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import type { PageRecord } from "@/lib/pageData";
 
-export default function PatientInfoHero() {
+export default function PatientInfoHero({
+  page,
+}: {
+  page?: PageRecord | null;
+}) {
+  const title = page?.title || "Patient Information";
+  const description =
+    page?.excerpt ||
+    "Everything you need to know about admissions, discharge, insurance, patient rights, and visiting guidelines to ensure a smooth and comfortable stay.";
+
   return (
     <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-slate-50">
       {/* Background Elements */}
@@ -20,7 +30,7 @@ export default function PatientInfoHero() {
             Home
           </Link>
           <ChevronRight className="w-4 h-4 text-slate-400" />
-          <span className="text-[#cb1b1a] font-bold">Patient Information</span>
+          <span className="text-[#cb1b1a] font-bold">{title}</span>
         </nav>
 
         <div className="max-w-3xl">
@@ -30,7 +40,7 @@ export default function PatientInfoHero() {
           </span>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1] tracking-tight mb-8">
-            Important Information <br className="hidden md:block" />
+            {title} <br className="hidden md:block" />
             <span className="text-[#681412] relative inline-block mt-2">
               For Our Patients
               <svg
@@ -49,9 +59,7 @@ export default function PatientInfoHero() {
           </h1>
 
           <p className="text-slate-600 text-lg md:text-xl leading-relaxed font-medium mb-10">
-            Everything you need to know about admissions, discharge, insurance,
-            patient rights, and visiting guidelines to ensure a smooth and
-            comfortable stay.
+            {description}
           </p>
 
           <div className="flex flex-wrap items-center gap-4">

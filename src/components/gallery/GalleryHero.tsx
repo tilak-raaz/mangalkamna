@@ -1,6 +1,12 @@
 import { Camera } from "lucide-react";
+import type { PageRecord } from "@/lib/pageData";
 
-export default function GalleryHero() {
+export default function GalleryHero({ page }: { page?: PageRecord | null }) {
+  const title = page?.title || "Gallery & Virtual Tour";
+  const description =
+    page?.excerpt ||
+    "Explore our world-class facilities, state-of-the-art infrastructure, dedicated healthcare professionals, and memorable hospital milestones.";
+
   return (
     <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-slate-50 relative overflow-hidden">
       {/* Decorative background */}
@@ -14,18 +20,17 @@ export default function GalleryHero() {
 
         <span className="flex items-center justify-center gap-3 text-[#cb1b1a] font-bold tracking-[0.2em] uppercase text-sm mb-6">
           <span className="w-8 h-0.5 bg-[#cb1b1a]"></span>
-          Our Visual Tour
+          {title}
           <span className="w-8 h-0.5 bg-[#cb1b1a]"></span>
         </span>
 
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1] mb-6 tracking-tight max-w-4xl mx-auto">
-          A Glimpse Inside <br className="hidden md:block" />
+          {title} <br className="hidden md:block" />
           <span className="text-[#cb1b1a]">Mangalkamna Hospital</span>
         </h1>
 
         <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-3xl mx-auto">
-          Explore our world-class facilities, state-of-the-art infrastructure,
-          dedicated healthcare professionals, and memorable hospital milestones.
+          {description}
         </p>
       </div>
     </section>

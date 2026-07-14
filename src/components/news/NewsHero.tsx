@@ -1,6 +1,12 @@
 import { FileText } from "lucide-react";
+import type { PageRecord } from "@/lib/pageData";
 
-export default function NewsHero() {
+export default function NewsHero({ page }: { page?: PageRecord | null }) {
+  const title = page?.title || "News & Health Blog";
+  const description =
+    page?.excerpt ||
+    "Stay informed with expert health advice, the latest medical breakthroughs, hospital announcements, and practical wellness tips — written by our specialists for you.";
+
   return (
     <section className="relative pt-32 pb-20 bg-gradient-to-br from-slate-50 to-white overflow-hidden border-b border-slate-100">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
@@ -12,16 +18,14 @@ export default function NewsHero() {
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
-            Health Insights, Hospital News &{" "}
+            {title}, Hospital News &{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#cb1b1a] to-rose-600">
               Wellness Tips
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
-            Stay informed with expert health advice, the latest medical
-            breakthroughs, hospital announcements, and practical wellness tips —
-            written by our specialists for you.
+            {description}
           </p>
         </div>
       </div>

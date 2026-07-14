@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import type { PageRecord } from "@/lib/pageData";
 
-export default function ServicesHero() {
+export default function ServicesHero({ page }: { page?: PageRecord | null }) {
+  const title = page?.title || "Services & Treatments";
+  const description =
+    page?.excerpt ||
+    "We offer a complete spectrum of medical, surgical, diagnostic, and rehabilitative services — all under one roof, powered by advanced technology and compassionate care.";
+
   return (
     <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-slate-50">
       {/* Background Elements */}
@@ -20,9 +26,7 @@ export default function ServicesHero() {
             Home
           </Link>
           <ChevronRight className="w-4 h-4 text-slate-400" />
-          <span className="text-[#cb1b1a] font-bold">
-            Services & Treatments
-          </span>
+          <span className="text-[#cb1b1a] font-bold">{title}</span>
         </nav>
 
         <div className="max-w-3xl">
@@ -37,13 +41,11 @@ export default function ServicesHero() {
               Healthcare Services
             </span>
             <br />
-            For Every Need
+            {title}
           </h1>
 
           <p className="text-slate-600 text-lg md:text-xl leading-relaxed font-medium mb-10">
-            We offer a complete spectrum of medical, surgical, diagnostic, and
-            rehabilitative services — all under one roof, powered by advanced
-            technology and compassionate care.
+            {description}
           </p>
 
           <div className="flex flex-wrap items-center gap-4">

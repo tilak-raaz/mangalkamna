@@ -2,7 +2,7 @@
 
 ## Overview
 
-A complete admin panel for managing hospital content including doctors, gallery images, videos, and page content. Built with Next.js, TypeScript, and Appwrite.
+A complete admin panel for managing hospital content including doctors, gallery images, videos, and custom pages. Built with Next.js, TypeScript, and Appwrite.
 
 ## Features
 
@@ -10,7 +10,8 @@ A complete admin panel for managing hospital content including doctors, gallery 
 - **Doctors Management**: Add, edit, and delete doctors
 - **Gallery Management**: Upload and manage hospital gallery images
 - **Videos Management**: Manage testimonials and promotional videos
-- **Content Management**: Edit page content and media across all pages
+- **Pages Management**: Add, edit, publish, and delete custom site pages
+- **SEO Settings**: Manage global SEO metadata, social media, and analytics
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
 
 ## Credentials
@@ -46,45 +47,41 @@ APPWRITE_API_KEY=your_api_key
 
 #### Getting Appwrite Credentials:
 
-1. **Create an Appwrite Account**: Visit [appwrite.io](https://appwrite.io)
-2. **Create a Project**: Set up a new project in your Appwrite console
-3. **Get Endpoint**: Found in Project Settings → API → Endpoint
-4. **Get Project ID**: Found in Project Settings
-5. **Create API Key**: Go to Settings → API Keys → Create new key with necessary permissions
+1. Create an Appwrite account at [appwrite.io](https://appwrite.io)
+2. Create a project in your Appwrite console
+3. Get the endpoint from Project Settings → API → Endpoint
+4. Get the project ID from Project Settings
+5. Create an API key with the required database permissions
 
 ### 3. Database Setup
 
-The system currently uses localStorage for demo purposes. To enable Appwrite:
-
-**Create Collections in Appwrite:**
+Create these collections in the same Appwrite database:
 
 #### Doctors Collection
 
-```
+```txt
 Database: hospital_db
 Collection: doctors
 Fields:
 - name (String, Required)
-- specialization (String, Required)
-- experience (String)
-- image (String)
-- bio (String)
+- speciality (String, Required)
+- doctorImage (String, Required)
+- experience (String, Required)
+- description (String, Required)
 ```
 
 #### Gallery Collection
 
-```
+```txt
 Database: hospital_db
 Collection: gallery
 Fields:
-- title (String, Required)
-- url (String, Required)
-- uploadedAt (String)
+- imageURL (String, Required)
 ```
 
 #### Videos Collection
 
-```
+```txt
 Database: hospital_db
 Collection: videos
 Fields:
@@ -94,16 +91,33 @@ Fields:
 - uploadedAt (String)
 ```
 
-#### Content Collection
+#### Pages Collection
 
-```
+```txt
 Database: hospital_db
-Collection: page_content
+Collection: pages
 Fields:
-- pageName (String, Required)
-- sectionName (String, Required)
+- title (String, Required)
+- slug (String, Required, unique)
+- excerpt (String)
 - content (String, Required)
-- imageUrl (String)
+- coverImageUrl (String)
+- metaTitle (String)
+- metaDescription (String)
+- isPublished (Boolean)
+```
+
+#### SEO Details Collection
+
+```txt
+Database ID: 6a3d9eb6002096f75ef1
+Collection: seo_details
+Fields:
+- pageTitle (String, Required)
+- metaDescription (String, Required)
+- metaKeywords (String, Required)
+- $createdAt (Datetime, system field)
+- $updatedAt (Datetime, system field)
 ```
 
 ### 4. File Uploads (Optional)
@@ -116,7 +130,7 @@ To enable file uploads to Appwrite:
 
 ## File Structure
 
-```
+```txt
 src/
 ├── app/
 │   ├── admin/
@@ -129,13 +143,19 @@ src/
 │   │   │   └── page.tsx (Gallery Management)
 │   │   ├── videos/
 │   │   │   └── page.tsx (Videos Management)
-│   │   └── content/
-│   │       └── page.tsx (Content Management)
+│   │   ├── content/
+│   │   │   └── page.tsx (Pages Management)
+│   │   └── seo/
+│   │       └── page.tsx (SEO Details)
+│   ├── api/
+│   │   └── seo/
+│   │       └── route.ts (SEO API Endpoints)
 │   └── layout.tsx (Updated with AdminProvider)
 ├── components/
 │   └── admin/
 │       ├── AdminSidebar.tsx (Navigation)
-│       └── ProtectedRoute.tsx (Auth Protection)
+│       ├── ProtectedRoute.tsx (Auth Protection)
+│       └── SEOSettings.tsx (SEO Form Component)
 ├── lib/
 │   ├── adminContext.tsx (Admin Context)
 │   └── appwrite.ts (Appwrite Client Config)
@@ -155,66 +175,82 @@ src/
 
 1. Click "Doctors" in sidebar
 2. Click "Add Doctor"
-3. Fill in doctor details:
-   - Name
-   - Specialization
-   - Experience
-   - Image URL
-   - Bio
+3. Fill in doctor details
 4. Click "Add Doctor" to save
 5. Edit or delete existing doctors using action buttons
 
 ### Manage Gallery
 
 1. Click "Gallery Images" in sidebar
-2. Enter image title and URL
-3. Click "Add Image"
+2. Select or upload an image
+3. Click "Upload and Save"
 4. Delete images as needed
 
 ### Manage Videos
 
 1. Click "Videos" in sidebar
 2. Enter video title, category, and URL
-3. Select category (Testimonials, Procedures, etc.)
+3. Select category
 4. Click "Add Video"
 
-### Manage Content
+### Manage Pages
 
-1. Click "Content Management" in sidebar
-2. Select page and section
-3. Enter content and optional image
-4. Save changes
+1. Click "Pages" in sidebar
+2. Click "New Page"
+3. Enter title, slug, SEO fields, and content
+4. Publish or save as draft
+5. Use the public preview link to check the page
+
+### Manage SEO Details
+
+1. Click "SEO Settings" in sidebar
+2. Configure page title, meta description, and meta keywords
+3. Click "Save SEO Settings" to apply changes
+4. Success message confirms the settings have been saved
+
+## API Reference
+
+### SEO Details Endpoints
+
+**GET `/api/seo`**
+
+- Retrieves current SEO details from the database
+- Returns: SEO details object or default values if none exist
+
+**PUT `/api/seo`**
+
+- Updates SEO details in the database
+- Body: JSON object with `pageTitle`, `metaDescription`, and `metaKeywords`
+- Returns: Updated SEO details object
+
+Example usage:
+
+```javascript
+// Get SEO settings
+const response = await fetch("/api/seo");
+const { seoSettings } = await response.json();
+
+// Update SEO settings
+await fetch("/api/seo", {
+  method: "PUT",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    pageTitle: "My Hospital",
+    metaDescription: "Best hospital services...",
+    metaKeywords: "hospital, healthcare, medical services",
+  }),
+});
+```
 
 ## Data Storage
 
-Currently, the system uses browser localStorage for demo purposes. Data persists locally but will be cleared if browser cache is cleared.
-
-### Migrate to Appwrite:
-
-To switch to Appwrite database:
-
-1. Update each management page to use Appwrite queries instead of localStorage
-2. Install Appwrite SDK (already done)
-3. Import and use Appwrite client from `src/lib/appwrite.ts`
-4. Replace localStorage calls with Appwrite database calls
-
-Example (in doctors management):
-
-```typescript
-import { databases } from "@/lib/appwrite";
-
-// Add doctor
-await databases.createDocument("hospital_db", "doctors", "unique()", formData);
-
-// Get doctors
-const response = await databases.listDocuments("hospital_db", "doctors");
-```
+The app uses Appwrite for doctors, gallery images, pages, and SEO details. Videos currently use browser localStorage.
 
 ## Security Considerations
 
 ⚠️ **Current Implementation Notes:**
 
-- Authentication is client-side only (for demo)
+- Authentication is client-side only for demo purposes
 - In production, implement server-side authentication
 - Use environment variables for sensitive data
 - Add role-based access control
@@ -225,13 +261,11 @@ const response = await databases.listDocuments("hospital_db", "doctors");
 
 ## Production Deployment
 
-1. **Update Credentials**: Change admin ID and password
-2. **Implement Server Auth**: Add server-side authentication
-3. **Configure Appwrite**: Set up production Appwrite instance
-4. **Enable HTTPS**: Force HTTPS connections
-5. **Environment Variables**: Set all credentials in hosting platform
-6. **Database Backups**: Enable Appwrite auto-backups
-7. **Monitoring**: Set up error tracking and monitoring
+1. Update admin credentials
+2. Configure Appwrite for production
+3. Set all environment variables on the hosting platform
+4. Enable HTTPS
+5. Set up backups and monitoring
 
 ## Troubleshooting
 
@@ -243,39 +277,12 @@ const response = await databases.listDocuments("hospital_db", "doctors");
 
 ### Data not persisting
 
-- Check localStorage is enabled
-- Verify Appwrite connection if using Appwrite
+- Verify Appwrite configuration
 - Check browser console for errors
+- Confirm the Appwrite collections exist
 
 ### Upload failures
 
 - Verify file size limits
 - Check Appwrite storage bucket permissions
 - Verify file types are allowed
-
-### Authentication issues
-
-- Clear localStorage: `localStorage.clear()`
-- Try incognito/private browsing mode
-- Check browser console for errors
-
-## Support
-
-For issues or questions:
-
-1. Check the troubleshooting section
-2. Review Appwrite documentation: [docs.appwrite.io](https://docs.appwrite.io)
-3. Check console logs for error messages
-
-## Next Steps
-
-1. Provide Appwrite credentials
-2. Configure `.env.local` with Appwrite details
-3. Test admin functionality
-4. Customize as needed
-5. Deploy to production
-
----
-
-**Admin Panel Version**: 1.0.0
-**Last Updated**: May 2026

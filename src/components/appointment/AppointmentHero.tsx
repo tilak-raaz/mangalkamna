@@ -1,7 +1,17 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import type { PageRecord } from "@/lib/pageData";
 
-export default function AppointmentHero() {
+export default function AppointmentHero({
+  page,
+}: {
+  page?: PageRecord | null;
+}) {
+  const title = page?.title || "Book Appointment";
+  const description =
+    page?.excerpt ||
+    "Don\'t wait in queues. Book your consultation with our specialists online in minutes and receive an instant confirmation.";
+
   return (
     <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-slate-50">
       {/* Background Elements */}
@@ -20,7 +30,7 @@ export default function AppointmentHero() {
             Home
           </Link>
           <ChevronRight className="w-4 h-4 text-slate-400" />
-          <span className="text-[#cb1b1a] font-bold">Book Appointment</span>
+          <span className="text-[#cb1b1a] font-bold">{title}</span>
         </nav>
 
         <div className="max-w-3xl">
@@ -30,7 +40,7 @@ export default function AppointmentHero() {
           </span>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.1] tracking-tight mb-8">
-            Book Your Appointment <br className="hidden md:block" />
+            {title} <br className="hidden md:block" />
             <span className="text-[#681412] relative inline-block mt-2">
               Quick, Easy & Confirmed
               <svg
@@ -49,8 +59,7 @@ export default function AppointmentHero() {
           </h1>
 
           <p className="text-slate-600 text-lg md:text-xl leading-relaxed font-medium mb-10">
-            Don&apos;t wait in queues. Book your consultation with our
-            specialists online in minutes and receive an instant confirmation.
+            {description}
           </p>
 
           <div className="flex flex-wrap items-center gap-4">

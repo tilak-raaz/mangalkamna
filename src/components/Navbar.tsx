@@ -22,7 +22,7 @@ export default function Navbar() {
     <>
       <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300">
         {/* Marquee Banner */}
-        <div className="w-full bg-gradient-to-r from-[#cb1b1a] via-[#e82726] to-[#cb1b1a] text-white py-2.5 overflow-hidden relative shadow-[0_2px_10px_rgba(203,27,26,0.2)]">
+        <div className="w-full bg-linear-to-r from-[#cb1b1a] via-[#e82726] to-[#cb1b1a] text-white py-2.5 overflow-hidden relative shadow-[0_2px_10px_rgba(203,27,26,0.2)]">
           <div className="flex whitespace-nowrap animate-marquee w-max hover:[animation-play-state:paused]">
             <div className="flex gap-16 px-8 text-xs md:text-sm font-bold tracking-wide items-center drop-shadow-sm">
               <span className="flex items-center gap-2">
@@ -62,7 +62,7 @@ export default function Navbar() {
         </div>
 
         {/* Top Bar */}
-        <div className="hidden lg:flex items-center justify-between px-6 md:px-12 lg:px-24 py-3 bg-gradient-to-r from-[#4a0e0d] via-[#681412] to-[#4a0e0d] text-white/90 text-sm font-medium shadow-lg relative z-10 border-b border-white/5">
+        <div className="hidden lg:flex items-center justify-between px-6 md:px-12 lg:px-24 py-3 bg-linear-to-r from-[#4a0e0d] via-[#681412] to-[#4a0e0d] text-white/90 text-sm font-medium shadow-lg relative z-10 border-b border-white/5">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-2.5 hover:text-white/80 transition-colors cursor-pointer">
               <Mail size={16} />
@@ -114,7 +114,7 @@ export default function Navbar() {
         {/* Main Navbar */}
         <nav className="w-full py-2 lg:py-3 px-6 md:px-12 lg:px-24 bg-white/95 lg:bg-white/80 backdrop-blur-md lg:backdrop-blur-md border-b border-slate-100 lg:border-slate-100 shadow-sm lg:shadow-sm transition-all duration-300">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 relative z-[60]">
+            <Link href="/" className="flex items-center gap-2 relative z-60">
               <Image
                 src="/mangalkamna-logo.png"
                 alt="Mangalkamna Hospital Logo"
@@ -212,11 +212,17 @@ export default function Navbar() {
                   >
                     News & Health Blog
                   </Link>
+                  <Link
+                    href="/pages"
+                    className="px-4 py-2.5 hover:bg-slate-50 text-slate-700 hover:text-[#cb1b1a] text-sm font-semibold rounded-xl transition-colors"
+                  >
+                    Pages
+                  </Link>
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center gap-4 lg:gap-6 relative z-[60]">
+            <div className="flex items-center gap-4 lg:gap-6 relative z-60">
               <Link
                 href="/appointment"
                 className="hidden sm:inline-flex px-5 md:px-6 py-2 md:py-2.5 rounded-full bg-[#cb1b1a] text-white text-xs md:text-sm font-semibold hover:bg-[#681412] transition-colors shadow-lg shadow-[#cb1b1a]/30"
@@ -327,7 +333,7 @@ export default function Navbar() {
 
       {/* Global top padding to offset the fixed header */}
       <div
-        className="h-[104px] lg:h-[105px] w-full invisible pointer-events-none"
+        className="h-26 lg:h-26.25 w-full invisible pointer-events-none"
         aria-hidden="true"
       />
     </>

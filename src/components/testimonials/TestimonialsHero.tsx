@@ -1,6 +1,16 @@
 import { HeartHandshake } from "lucide-react";
+import type { PageRecord } from "@/lib/pageData";
 
-export default function TestimonialsHero() {
+export default function TestimonialsHero({
+  page,
+}: {
+  page?: PageRecord | null;
+}) {
+  const title = page?.title || "Testimonials";
+  const description =
+    page?.excerpt ||
+    "Thousands of patients have trusted us with their health journey. Here are some of their stories — in their own words.";
+
   return (
     <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-slate-50 relative overflow-hidden">
       {/* Background Decor */}
@@ -14,7 +24,7 @@ export default function TestimonialsHero() {
 
         <span className="flex items-center justify-center gap-3 text-[#cb1b1a] font-bold tracking-[0.2em] uppercase text-sm mb-6">
           <span className="w-8 h-0.5 bg-[#cb1b1a]"></span>
-          Patient Success Stories
+          {title}
           <span className="w-8 h-0.5 bg-[#cb1b1a]"></span>
         </span>
 
@@ -24,8 +34,7 @@ export default function TestimonialsHero() {
         </h1>
 
         <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-          Thousands of patients have trusted us with their health journey. Here
-          are some of their stories — in their own words.
+          {description}
         </p>
       </div>
     </section>

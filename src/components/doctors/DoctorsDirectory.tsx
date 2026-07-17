@@ -4,7 +4,6 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Search,
   Stethoscope,
   GraduationCap,
   Globe,
@@ -16,7 +15,6 @@ export default function DoctorsDirectory() {
   const [doctors, setDoctors] = useState<Doctor[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
   const [selectedDept, setSelectedDept] = useState("All");
 
   useEffect(() => {
@@ -57,40 +55,17 @@ export default function DoctorsDirectory() {
 
   const filteredDoctors = useMemo(() => {
     return doctors.filter((doctor: Doctor) => {
-      const matchName = doctor.name
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
-      const matchDept =
-        selectedDept === "All" || doctor.specialization === selectedDept;
-
-      return matchName && matchDept;
+      return selectedDept === "All" || doctor.specialization === selectedDept;
     });
-  }, [doctors, searchTerm, selectedDept]);
+  }, [doctors, selectedDept]);
 
   return (
     <section className="py-20 bg-slate-50 relative min-h-screen">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
         {/* Fillter Bar */}
         <div className="bg-white rounded-2xl md:rounded-full shadow-[0_10px_30px_-15px_rgba(0,0,0,0.1)] p-4 md:p-6 mb-12 flex flex-col md:flex-row gap-4 border border-slate-100 z-20 relative">
-          {/* Search by Name */}
-          <div className="flex-1 relative">
-            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-              <Search className="h-5 w-5 text-slate-400" />
-            </div>
-            <input
-              type="text"
-              placeholder="Search doctor by name..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-slate-50 border-none rounded-xl md:rounded-full focus:ring-2 focus:ring-[#cb1b1a]/20 focus:bg-white transition-all text-slate-700 font-medium placeholder:font-normal"
-            />
-          </div>
-
-          {/* Spacer / Divider on Desktop */}
-          <div className="hidden md:block w-px bg-slate-200 mx-2 self-stretch my-2"></div>
-
           {/* Department Filter */}
-          <div className="flex-1 md:max-w-64">
+          <div className="flex-1 md:max-w-xs">
             <select
               value={selectedDept}
               onChange={(e) => setSelectedDept(e.target.value)}
@@ -217,23 +192,20 @@ export default function DoctorsDirectory() {
           <div className="flex items-center justify-center py-20 bg-white rounded-3xl border border-slate-100">
             <div className="text-center max-w-md mx-auto">
               <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-300">
-                <Search size={32} />
+                <Stethoscope size={32} />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">
                 No doctors found
               </h3>
               <p className="text-slate-500 mb-6">
                 We couldn&apos;t find any specialist matching your current
-                filters. Try changing the department or search term.
+                filter. Try changing the department.
               </p>
               <button
-                onClick={() => {
-                  setSearchTerm("");
-                  setSelectedDept("All");
-                }}
+                onClick={() => setSelectedDept("All")}
                 className="text-[#cb1b1a] font-bold hover:underline"
               >
-                Clear all filters
+                Clear filter
               </button>
             </div>
           </div>

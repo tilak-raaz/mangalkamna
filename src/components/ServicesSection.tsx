@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
-const services = [
+const defaultServices = [
   {
     title: "Urology",
     description:
@@ -21,7 +21,38 @@ const services = [
   },
 ];
 
-export default function ServicesSection() {
+type DepartmentSectionItem = {
+  id: string;
+  deptName: string;
+  deptDesc: string;
+};
+
+type ServicesSectionProps = {
+  departments?: DepartmentSectionItem[];
+};
+
+const departmentFallbackImages = [
+  "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2680&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=2670",
+  "https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=2680&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=2670&auto=format&fit=crop",
+];
+
+export default function ServicesSection({
+  departments = [],
+}: ServicesSectionProps) {
+  const services =
+    departments.length > 0
+      ? departments.map((department, index) => ({
+          title: department.deptName,
+          description: department.deptDesc,
+          image:
+            departmentFallbackImages[
+              index % departmentFallbackImages.length
+            ],
+        }))
+      : defaultServices;
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
 

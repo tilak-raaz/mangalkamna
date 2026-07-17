@@ -1,12 +1,47 @@
 import Image from "next/image";
 
-export default function Leadership() {
+type LeaderItem = {
+  id: string;
+  leaderName: string;
+  leaderDept: string;
+  leaderDesc: string;
+  leaderImg: string;
+};
+
+type LeadershipProps = {
+  leaders?: LeaderItem[];
+};
+
+const fallbackLeaders: LeaderItem[] = [
+  {
+    id: "fallback-1",
+    leaderName: "Dr. Shekhar Vajpeyi",
+    leaderDept: "Senior Consultant - Urology, Andrology & Uro-Oncology",
+    leaderDesc:
+      "M.S., M.Ch (Urology) | Expert in laser prostate surgery, stone surgery, minimally invasive uro-oncology, endourology and reconstructive urology with extensive surgical experience.",
+    leaderImg:
+      "https://res.cloudinary.com/du5qoczcn/image/upload/a_-90/ar_1:1,c_auto/0D5A8851_a6tvgn.jpg",
+  },
+  {
+    id: "fallback-2",
+    leaderName: "Dr. Vinayak Vajpeyi",
+    leaderDept: "Consultant - Urology & Minimally Invasive Surgery",
+    leaderDesc:
+      "M.S., M.Ch (Urology) | Specializing in advanced endourology, laparoscopic procedures and modern prostate treatments.",
+    leaderImg:
+      "https://res.cloudinary.com/du5qoczcn/image/upload/a_-90/ar_1:1,c_auto/0D5A8848_wp5brx.jpg",
+  },
+];
+
+export default function Leadership({ leaders = [] }: LeadershipProps) {
+  const leadershipMembers = leaders.length > 0 ? leaders : fallbackLeaders;
+
   return (
     <>
       {/* SECTION 6 — LEADERSHIP TEAM */}
       <section className="relative w-full py-20 lg:py-32 bg-white overflow-hidden">
         {/* Background elements */}
-        <div className="absolute bottom-0 left-0 w-full h-[500px] bg-gradient-to-t from-slate-50 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-125 bg-linear-to-t from-slate-50 to-transparent"></div>
         <div className="absolute top-40 left-0 w-72 h-72 bg-[#cb1b1a]/5 rounded-full blur-3xl -translate-x-1/2"></div>
         <div className="absolute bottom-20 right-0 w-80 h-80 bg-[#681412]/5 rounded-full blur-3xl translate-x-1/2"></div>
 
@@ -27,29 +62,16 @@ export default function Leadership() {
           </div>
 
           <div className="flex flex-col gap-8 md:gap-10 relative z-10 w-full max-w-5xl mx-auto">
-            {[
-              {
-                name: "Dr. Shekhar Vajpeyi",
-                role: "Senior Consultant – Urology, Andrology & Uro-Oncology",
-                bio: "M.S., M.Ch (Urology) | Expert in laser prostate surgery, stone surgery, minimally invasive uro-oncology, endourology and reconstructive urology with extensive surgical experience.",
-                image: "https://res.cloudinary.com/du5qoczcn/image/upload/a_-90/ar_1:1,c_auto/0D5A8851_a6tvgn.jpg",
-              },
-              {
-                name: "Dr. Vinayak Vajpeyi",
-                role: "Consultant – Urology & Minimally Invasive Surgery",
-                bio: "M.S., M.Ch (Urology) | Specializing in advanced endourology, laparoscopic procedures and modern prostate treatments.",
-                image: "https://res.cloudinary.com/du5qoczcn/image/upload/a_-90/ar_1:1,c_auto/0D5A8848_wp5brx.jpg",
-              }
-            ].map((leader, idx) => (
+            {leadershipMembers.map((leader, idx) => (
               <div
-                key={idx}
-                className="group relative bg-white rounded-[2rem] p-6 md:p-8 flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10 border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(203,27,26,0.15)] hover:border-[#cb1b1a]/20 transition-all duration-300 w-full"
+                key={leader.id || idx}
+                className="group relative bg-white rounded-4xl p-6 md:p-8 flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10 border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(203,27,26,0.15)] hover:border-[#cb1b1a]/20 transition-all duration-300 w-full"
               >
                 {/* Image Container - Left Side */}
-                <div className="relative w-48 h-48 md:w-56 md:h-56 shrink-0 rounded-[1.5rem] overflow-hidden shadow-md group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-500 bg-slate-50 border-[6px] border-white">
+                <div className="relative w-48 h-48 md:w-56 md:h-56 shrink-0 rounded-3xl overflow-hidden shadow-md group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-500 bg-slate-50 border-[6px] border-white">
                   <Image
-                    src={leader.image}
-                    alt={leader.name}
+                    src={leader.leaderImg}
+                    alt={leader.leaderName}
                     fill
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
@@ -57,19 +79,19 @@ export default function Leadership() {
                 </div>
 
                 {/* Content - Right Side */}
-                <div className="flex flex-col flex-grow text-center md:text-left justify-center h-full pt-2 md:pt-4">
+                <div className="flex flex-col grow text-center md:text-left justify-center h-full pt-2 md:pt-4">
                   <div className="mb-4 flex justify-center md:justify-start">
-                    <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#cb1b1a]/10 text-[#cb1b1a] text-xs font-bold uppercase tracking-[0.1em] border border-[#cb1b1a]/10 shadow-sm">
-                      {leader.role}
+                    <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#cb1b1a]/10 text-[#cb1b1a] text-xs font-bold uppercase tracking-widest border border-[#cb1b1a]/10 shadow-sm">
+                      {leader.leaderDept}
                     </span>
                   </div>
 
                   <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4 group-hover:text-[#cb1b1a] transition-colors">
-                    {leader.name}
+                    {leader.leaderName}
                   </h3>
 
                   <p className="text-slate-600 font-medium leading-relaxed md:text-[1.05rem]">
-                    {leader.bio}
+                    {leader.leaderDesc}
                   </p>
                 </div>
               </div>

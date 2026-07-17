@@ -1,6 +1,24 @@
 import Image from "next/image";
 
-export default function OurStory() {
+type OurStoryProps = {
+  ourStoryText?: string;
+  image?: string;
+};
+
+const fallbackStoryText =
+  "Founded in 2026, Mangalkamna Hospital began as a modest clinic with a singular vision: to bring compassionate, accessible, and affordable healthcare to our community. Over the decades, we have grown into a multi-specialty hospital - a centre of excellence housing state-of-the-art infrastructure, renowned specialists, and a patient-first philosophy that touches every corner of our work.\n\nToday, we proudly serve thousands of patients each year, from routine wellness check-ups to complex surgeries. Our journey is defined not by the buildings we have built, but by the lives we have transformed.";
+
+export default function OurStory({ ourStoryText, image }: OurStoryProps) {
+  const paragraphText = ourStoryText?.trim() ? ourStoryText : fallbackStoryText;
+  const paragraphs = paragraphText
+    .split(/\n\n+/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+
+  const storyImage =
+    image?.trim() ||
+    "https://res.cloudinary.com/du5qoczcn/image/upload/v1776351564/0D5A8773_fwziak.jpg";
+
   return (
     <>
       {/* SECTION 2 — OUR STORY */}
@@ -22,26 +40,9 @@ export default function OurStory() {
               </div>
 
               <div className="space-y-6 text-slate-600 text-[1rem] md:text-[1.1rem] leading-[1.8] font-medium max-w-lg lg:pr-6">
-                <p>
-                  Founded in{" "}
-                  <span className="font-bold text-slate-900">2026</span>,
-                  Mangalkamna Hospital began as a modest clinic with a singular
-                  vision: to bring compassionate, accessible, and affordable
-                  healthcare to our community. Over the decades, we have grown
-                  into a multi-specialty hospital — a centre of excellence
-                  housing state-of-the-art infrastructure, renowned specialists,
-                  and a patient-first philosophy that touches every corner of
-                  our work.
-                </p>
-                <p>
-                  Today, we proudly serve thousands of patients each year, from
-                  routine wellness check-ups to complex surgeries. Our journey
-                  is defined not by the buildings we have built, but by the{" "}
-                  <span className="text-[#cb1b1a] font-bold">
-                    lives we have transformed
-                  </span>
-                  .
-                </p>
+                {paragraphs.map((paragraph, index) => (
+                  <p key={`${paragraph.slice(0, 24)}-${index}`}>{paragraph}</p>
+                ))}
               </div>
             </div>
 
@@ -50,7 +51,7 @@ export default function OurStory() {
               {/* Hero Image (Wide Top Image) */}
               <div className="relative w-full aspect-[4/3] md:aspect-[16/9] lg:aspect-[4/3] rounded-3xl overflow-hidden shadow-lg border border-slate-100">
                 <Image
-                  src="https://res.cloudinary.com/du5qoczcn/image/upload/v1776351564/0D5A8773_fwziak.jpg"
+                  src={storyImage}
                   alt="Mangalkamna Hospital Overview"
                   fill
                   className="object-cover"

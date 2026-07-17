@@ -2,7 +2,7 @@
 
 import { ProtectedRoute } from "@/components/admin/ProtectedRoute";
 import { AdminSidebar } from "@/components/admin/AdminSidebar";
-import { Users, Image } from "lucide-react";
+import { Users, Image, FileText } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -65,6 +65,12 @@ export default function AdminDashboard() {
       title: "Gallery Images",
       description: "Manage gallery images",
       href: "/admin/gallery",
+    },
+    {
+      icon: FileText,
+      title: "Home Content",
+      description: "Edit home page sections",
+      href: "/admin/content",
     },
   ];
 

@@ -1,6 +1,7 @@
 import { Stethoscope, Scissors, Microscope, Baby } from "lucide-react";
+import { getPublicServicesPageItems } from "@/lib/sitePageData";
 
-const serviceCategories = [
+const fallbackServiceCategories = [
   {
     id: "medical",
     title: "Medical Services",
@@ -50,7 +51,18 @@ const serviceCategories = [
   },
 ];
 
-export default function MedicalServices() {
+export default async function MedicalServices() {
+  const serviceItems = await getPublicServicesPageItems();
+  const serviceCategories =
+    serviceItems.length > 0
+      ? serviceItems.map((service) => ({
+          id: service.id,
+          title: service.name,
+          icon: Stethoscope,
+          items: service.points,
+        }))
+      : fallbackServiceCategories;
+
   return (
     <section id="categories" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">

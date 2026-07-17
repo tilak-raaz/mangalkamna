@@ -35,7 +35,7 @@ export default function DoctorProfileDetails({
                     ))}
                   </ul>
                 </div>
-              )}
+              ) : null}
 
               {/* Publications */}
               {doctor.publications ? (
@@ -47,7 +47,7 @@ export default function DoctorProfileDetails({
                     {doctor.publications}
                   </p>
                 </div>
-              )}
+              ) : null}
 
               {/* Memberships */}
               {doctor.memberships ? (
@@ -59,7 +59,7 @@ export default function DoctorProfileDetails({
                     {doctor.memberships}
                   </p>
                 </div>
-              )}
+              ) : null}
             </div>
 
             {/* Right Column (Sidebar Timings & Language) */}

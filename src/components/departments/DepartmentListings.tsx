@@ -1,37 +1,14 @@
+import * as Icons from "lucide-react";
 import Link from "next/link";
-import {
-  Activity,
-  Droplets,
-  Heart,
-  HeartPulse,
-  Stethoscope,
-  ChevronRight,
-  Microscope,
-  Zap,
-} from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import { listPublicDepartments } from "@/lib/homeContentData";
+function getIcon(iconName: string) {
+  // @ts-expect-error dynamic lucide icon lookup
+  return Icons[iconName] || Icons.Stethoscope;
+}
 
-const departments = [
-  {
-    name: "Critical Care & Anesthesia",
-    icon: HeartPulse,
-    slug: "critical-care-and-anesthesia",
-    description:
-      "ICU Management, Surgical Anesthesia, Pain Management, Ventilator Care",
-    isVisible: true,
-  },
-  {
-    name: "Urology",
-    icon: Activity,
-    slug: "urology",
-    description: "Endourology, Oncourology, Reconstructive Urology, Andrology",
-    isVisible: true,
-  },
-];
-
-export default function DepartmentListings() {
-  const visibleDepartments = departments.filter(
-    (dept) => dept.isVisible !== false,
-  );
+export default async function DepartmentListings() {
+  const visibleDepartments = await listPublicDepartments();
 
   return (
     <section className="py-20 bg-white relative">
@@ -39,7 +16,7 @@ export default function DepartmentListings() {
         {/* Grid Container */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
           {visibleDepartments.map((dept, index) => {
-            const Icon = dept.icon;
+            const Icon = getIcon(dept.iconName);
             return (
               <div
                 key={index}
@@ -57,7 +34,7 @@ export default function DepartmentListings() {
                 </h3>
 
                 <p className="text-slate-600 font-medium leading-relaxed mb-8 flex-grow relative z-10">
-                  {dept.description}
+                  {dept.intro}
                 </p>
 
                 <div className="mt-auto relative z-10 pt-4 border-t border-slate-50">

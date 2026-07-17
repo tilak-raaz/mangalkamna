@@ -11,7 +11,7 @@ export const metadata = {
     "Information regarding admissions, discharge, insurance, rights, and visiting guidelines at Mangalkamna Hospital.",
 };
 
-export default function PatientInformationPage() {
+export default async function PatientInformationPage() {
   return (
     <>
       <PatientInfoHero />

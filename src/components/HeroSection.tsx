@@ -4,12 +4,21 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import AchievementsBar from "./AchievementsBar";
 
-const images = [
+const defaultImages = [
   "https://res.cloudinary.com/du5qoczcn/image/upload/v1773571642/WhatsApp_Image_2026-03-15_at_16.17.01_mft9qc.jpg",
   "https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=2828&auto=format&fit=crop",
 ];
 
-export default function HeroSection() {
+type HeroSectionProps = {
+  title?: string;
+  heroImages?: string[];
+};
+
+export default function HeroSection({
+  title,
+  heroImages = [],
+}: HeroSectionProps) {
+  const images = heroImages.length > 0 ? heroImages : defaultImages;
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -17,7 +26,7 @@ export default function HeroSection() {
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [images.length]);
 
   const goToNext = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -56,16 +65,19 @@ export default function HeroSection() {
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.3rem] font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-[#681412]">
-              Advanced Medical and Surgical <br className="hidden sm:block" />
-              <span className="text-[#cb1b1a] font-extrabold relative block sm:inline">
-                Super-Speciality Hospital
-              </span>
-            </h1>
+            <div className="space-y-0 sm:space-y-1">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.3rem] font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-[#681412]">
+                {title || "Advanced Medical and Surgical"}{" "}
+                <br className="hidden sm:block" />
+                <span className="text-[#cb1b1a] font-extrabold relative block sm:inline-block mt-2 sm:mt-3">
+                  Super-Speciality Hospital
+                </span>
+              </h1>
 
-            <p className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-[#681412]">
-              By Dr Shekhar Vajpeyi
-            </p>
+              <p className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.2] md:leading-[1.15] tracking-tight text-[#681412]">
+                By Dr Shekhar Vajpeyi
+              </p>
+            </div>
 
             <p className="text-xs sm:text-sm md:text-base text-[#681412]/80 font-medium mb-6 leading-relaxed">
               24/7 Emergency Care • Advanced Diagnostic Services • Expert

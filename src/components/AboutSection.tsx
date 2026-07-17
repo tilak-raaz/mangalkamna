@@ -1,7 +1,11 @@
 import { ArrowRight, Award, Stethoscope, Bed, Ambulance } from "lucide-react";
 import Link from "next/link";
 
-export default function AboutSection() {
+type AboutSectionProps = {
+  aboutUsText?: string;
+};
+
+export default function AboutSection({ aboutUsText }: AboutSectionProps) {
   return (
     <section
       id="about"
@@ -27,16 +31,8 @@ export default function AboutSection() {
             </h2>
 
             <p className="text-slate-600 text-[1.125rem] md:text-xl lg:text-[1.35rem] leading-[1.8] max-w-4xl font-medium text-center balance">
-              Welcome to{" "}
-              <span className="text-slate-900 font-bold">
-                Mangalkamna Hospital
-              </span>{" "}
-              — an advanced and new institution with highly experienced super
-              specialists. We combine cutting-edge medical technology with a
-              dedicated team of specialists to provide world-class treatment
-              across all major disciplines. Whether you need routine check-ups,
-              advanced surgical procedures, or critical emergency care, we are
-              here for you — every step of the way.
+              {aboutUsText ||
+                "Welcome to Mangalkamna Hospital — an advanced and new institution with highly experienced super specialists. We combine cutting-edge medical technology with a dedicated team of specialists to provide world-class treatment across all major disciplines. Whether you need routine check-ups, advanced surgical procedures, or critical emergency care, we are here for you — every step of the way."}
             </p>
           </div>
 

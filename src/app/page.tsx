@@ -6,21 +6,30 @@ import DoctorsSection from "../components/DoctorsSection";
 import TestimonialsSection from "../components/TestimonialsSection";
 import NewsSection from "../components/NewsSection";
 import AppointmentSection from "../components/AppointmentSection";
-import Footer from "../components/Footer";
+import {
+  getPublicHomePageContent,
+  listPublicDepartments,
+  listPublicTestimonials,
+} from "@/lib/homeContentData";
 
-export default function Home() {
+export default async function Home() {
+  const [homeContent, testimonials, departments] = await Promise.all([
+    getPublicHomePageContent(),
+    listPublicTestimonials(),
+    listPublicDepartments(),
+  ]);
+
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
-      <HeroSection />
+      <HeroSection title={homeContent.title} heroImages={homeContent.heroImages} />
       <div className="w-full">
-        <AboutSection />
-        <WhyChooseUsSection />
-        <ServicesSection />
+        <AboutSection aboutUsText={homeContent.aboutUsText} />
+        <WhyChooseUsSection whyChooseUsText={homeContent.whyChooseUsText} />
+        <ServicesSection departments={departments} />
         <DoctorsSection />
-        <TestimonialsSection />
+        <TestimonialsSection testimonials={testimonials} />
         <NewsSection />
         <AppointmentSection />
-        
       </div>
     </div>
   );

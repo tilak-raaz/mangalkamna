@@ -1,21 +1,44 @@
 import { Check } from "lucide-react";
+import { getPublicPatientRoomCategories } from "@/lib/sitePageData";
 
-export default function RoomCategories() {
-  const rooms = [
-    {
-      type: "General Ward",
-      amenities: "Basic nursing care, shared bathroom, standard hospital meals",
-      occupancy: "6–8 patients",
-      highlight: false,
-    },
-    {
-      type: "Private",
-      amenities:
-        "Air conditioning, attached bathroom, sofa-cum-bed, TV, mini fridge",
-      occupancy: "Single + Attendant",
-      highlight: true,
-    },
-  ];
+type RoomCategory = {
+  type: string;
+  amenities: string;
+  occupancy: string;
+  insuranceDetails: string[];
+  highlight: boolean;
+};
+
+const fallbackRooms: RoomCategory[] = [
+  {
+    type: "General Ward",
+    amenities: "Basic nursing care, shared bathroom, standard hospital meals",
+    occupancy: "6–8 patients",
+    insuranceDetails: ["Cashless support subject to policy approval"],
+    highlight: false,
+  },
+  {
+    type: "Private",
+    amenities:
+      "Air conditioning, attached bathroom, sofa-cum-bed, TV, mini fridge",
+    occupancy: "Single + Attendant",
+    insuranceDetails: ["Cashless support for eligible plans"],
+    highlight: true,
+  },
+];
+
+export default async function RoomCategories() {
+  const roomsFromDb = await getPublicPatientRoomCategories();
+  const rooms: RoomCategory[] =
+    roomsFromDb.length > 0
+      ? roomsFromDb.map((room, index) => ({
+          type: room.roomType,
+          amenities: room.amenities,
+          occupancy: room.occupancy,
+          insuranceDetails: room.insuranceDetails,
+          highlight: index === 1,
+        }))
+      : fallbackRooms;
 
   return (
     <section className="py-24 bg-slate-50 relative overflow-hidden">
@@ -58,9 +81,14 @@ export default function RoomCategories() {
                 </div>
                 <div className="flex items-start gap-2 mt-4">
                   <Check className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                  <p className="text-slate-600 font-medium text-sm">
-                    {room.amenities}
-                  </p>
+                  <div className="text-slate-600 font-medium text-sm space-y-2">
+                    <p>{room.amenities}</p>
+                    {room.insuranceDetails.length > 0 ? (
+                      <p className="text-xs text-slate-500">
+                        Insurance: {room.insuranceDetails.join(", ")}
+                      </p>
+                    ) : null}
+                  </div>
                 </div>
               </div>
             ))}

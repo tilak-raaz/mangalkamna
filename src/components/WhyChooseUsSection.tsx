@@ -59,7 +59,13 @@ const features = [
   },
 ];
 
-export default function WhyChooseUsSection() {
+type WhyChooseUsSectionProps = {
+  whyChooseUsText?: string;
+};
+
+export default function WhyChooseUsSection({
+  whyChooseUsText,
+}: WhyChooseUsSectionProps) {
   return (
     <section
       id="why-choose-us"
@@ -85,10 +91,8 @@ export default function WhyChooseUsSection() {
             </div>
 
             <p className="text-slate-600 text-lg md:text-xl leading-relaxed">
-              We combine medical excellence with a deeply compassionate
-              approach. Our commitment to cutting-edge technology and
-              patient-first care makes us the leading choice for thousands of
-              families worldwide.
+              {whyChooseUsText ||
+                "We combine medical excellence with a deeply compassionate approach. Our commitment to cutting-edge technology and patient-first care makes us the leading choice for thousands of families worldwide."}
             </p>
 
             <div className="pt-6 flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">

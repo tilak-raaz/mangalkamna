@@ -10,6 +10,14 @@ import {
   Image,
   Video,
   Home,
+  FileText,
+  Building2,
+  ClipboardList,
+  BedDouble,
+  MessagesSquare,
+  SquareLibrary,
+  Search,
+  FilePlus2,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -44,6 +52,46 @@ export function AdminSidebar() {
       href: "/admin/videos",
       icon: Video,
     },
+    {
+      label: "Home Content",
+      href: "/admin/content",
+      icon: FileText,
+    },
+    {
+      label: "About Us",
+      href: "/admin/about",
+      icon: SquareLibrary,
+    },
+    {
+      label: "Departments",
+      href: "/admin/departments",
+      icon: Building2,
+    },
+    {
+      label: "Page Addition",
+      href: "/admin/page-addition",
+      icon: FilePlus2,
+    },
+    {
+      label: "Services",
+      href: "/admin/services",
+      icon: ClipboardList,
+    },
+    {
+      label: "Patient Info",
+      href: "/admin/patient-info",
+      icon: BedDouble,
+    },
+    {
+      label: "Testimonials",
+      href: "/admin/testimonials",
+      icon: MessagesSquare,
+    },
+    {
+      label: "SEO",
+      href: "/admin/seo",
+      icon: Search,
+    },
   ];
 
   return (
@@ -70,12 +118,12 @@ export function AdminSidebar() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed left-0 top-0 z-40 h-screen w-64 bg-white border-r border-slate-200 transform transition-transform md:translate-x-0 ${
+        className={`fixed left-0 top-0 z-40 h-screen w-64 bg-white border-r border-slate-200 transform transition-transform md:translate-x-0 flex flex-col ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         {/* Logo */}
-        <div className="p-6 border-b border-slate-200">
+        <div className="p-4 border-b border-slate-200 shrink-0">
           <Link href="/admin/dashboard" className="flex items-center gap-3">
             <div className="p-2 bg-[#cb1b1a] rounded">
               <LayoutDashboard className="w-6 h-6 text-white" />
@@ -90,41 +138,38 @@ export function AdminSidebar() {
         </div>
 
         {/* Admin Info */}
-        <div className="p-6 border-b border-slate-200 bg-slate-50">
-          <p className="text-xs text-slate-500 uppercase tracking-wider mb-1">
+        <div className="px-4 py-3 border-b border-slate-200 bg-slate-50 shrink-0">
+          <p className="text-[10px] text-slate-500 uppercase tracking-wider mb-0.5">
             Logged in as
           </p>
-          <p className="text-lg font-semibold text-slate-900">{adminId}</p>
+          <p className="text-sm font-semibold text-slate-900 truncate">{adminId}</p>
         </div>
 
         {/* Navigation */}
-        <nav className="p-4 space-y-1">
+        <nav className="flex-1 min-h-0 overflow-y-auto p-3 space-y-0.5">
           {navItems.map((item) => {
             const Icon = item.icon;
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-700 hover:bg-red-50 hover:text-[#cb1b1a] transition-colors group font-medium"
+                className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-slate-700 hover:bg-red-50 hover:text-[#cb1b1a] transition-colors group font-medium"
                 onClick={() => setIsOpen(false)}
               >
-                <Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <Icon className="w-4 h-4 shrink-0 group-hover:scale-110 transition-transform" />
                 <span>{item.label}</span>
               </Link>
             );
           })}
         </nav>
 
-        {/* Divider */}
-        <div className="mx-4 my-4 border-t border-slate-200"></div>
-
         {/* Logout Button */}
-        <div className="p-4">
+        <div className="p-3 border-t border-slate-200 shrink-0">
           <button
             onClick={handleLogout}
-            className="w-full flex items-center justify-center gap-2 bg-red-50 hover:bg-red-100 text-red-600 py-3 rounded-lg font-semibold transition-colors"
+            className="w-full flex items-center justify-center gap-2 bg-red-50 hover:bg-red-100 text-red-600 py-2.5 rounded-lg font-semibold text-sm transition-colors"
           >
-            <LogOut className="w-5 h-5" />
+            <LogOut className="w-4 h-4" />
             Logout
           </button>
         </div>

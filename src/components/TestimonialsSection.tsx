@@ -2,9 +2,8 @@
 
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { text } from "stream/consumers";
 
-const testimonials = [
+const defaultTestimonials = [
   {
     text: "As a parent of a child who recently underwent surgery at this hospital, I cannot express enough gratitude for the exceptional care we received. The pediatric team was not only highly skilled but also incredibly compassionate, making us feel at ease during a stressful time. The hospital environment was clean and welcoming, which helped reduce our anxiety. I highly recommend this hospital for pediatric care.",
     recommendation: "Highly recommended!",
@@ -84,15 +83,41 @@ const testimonials = [
   },
 ];
 
-export default function TestimonialsSection() {
+type TestimonialItem = {
+  id: string;
+  name: string;
+  deptConcerned: string;
+  reviewText: string;
+};
+
+type TestimonialsSectionProps = {
+  testimonials?: TestimonialItem[];
+};
+
+export default function TestimonialsSection({
+  testimonials = [],
+}: TestimonialsSectionProps) {
+  const mappedTestimonials =
+    testimonials.length > 0
+      ? testimonials.map((item) => ({
+          text: item.reviewText,
+          recommendation: item.deptConcerned || "Patient Review",
+          name: item.name,
+          role: item.deptConcerned || "Patient",
+          image: "",
+        }))
+      : defaultTestimonials;
+
   const [activeIndex, setActiveIndex] = useState(0);
 
   const nextTestimonial = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    setActiveIndex((prev) => (prev + 1) % mappedTestimonials.length);
   };
 
   const prevTestimonial = () => {
-    setActiveIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+    setActiveIndex((prev) =>
+      prev === 0 ? mappedTestimonials.length - 1 : prev - 1,
+    );
   };
 
   return (
@@ -117,7 +142,7 @@ export default function TestimonialsSection() {
             <div className="relative min-h-[300px]">
               <Quote className="absolute -top-8 -left-4 md:-top-12 md:-left-8 text-slate-100 fill-slate-100 w-24 h-24 md:w-32 md:h-32 rotate-180 -z-10 select-none" />
 
-              {testimonials.map((testimonial, index) => {
+              {mappedTestimonials.map((testimonial, index) => {
                 const isActive = index === activeIndex;
                 return (
                   <div

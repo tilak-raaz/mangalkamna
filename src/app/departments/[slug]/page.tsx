@@ -4,8 +4,10 @@ import DepartmentDetailHero from "@/components/departments/DepartmentDetailHero"
 import DepartmentServices from "@/components/departments/DepartmentServices";
 import DepartmentDoctors from "@/components/departments/DepartmentDoctors";
 import AppointmentSection from "@/components/AppointmentSection";
+import { getPublicDepartmentBySlug } from "@/lib/homeContentData";
+import { getPublicDepartmentDetailBySlug } from "@/lib/departmentDetailData";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   return departmentsData.map((dept) => ({
     slug: dept.slug,
   }));
@@ -18,7 +20,7 @@ export async function generateMetadata({
 }) {
   // Handle async params for Next 15+ or sync for older versions
   const resolvedParams = await params;
-  const department = getDepartmentBySlug(resolvedParams.slug);
+  const department = getDepartmentBySlug(resolvedParams.slug) || (await getPublicDepartmentBySlug(resolvedParams.slug));
 
   if (!department) {
     return {
@@ -39,25 +41,37 @@ export default async function DepartmentPage({
 }) {
   // Handle async params for Next 15+ correctly
   const resolvedParams = await params;
-  const department = getDepartmentBySlug(resolvedParams.slug);
+  const department = getDepartmentBySlug(resolvedParams.slug) || (await getPublicDepartmentBySlug(resolvedParams.slug));
 
   if (!department) {
     notFound();
   }
+
+  const detail = await getPublicDepartmentDetailBySlug(resolvedParams.slug);
+
+  const conditions = detail && detail.conditionsTreated.length > 0
+    ? detail.conditionsTreated
+    : department.conditions;
+  const procedures = detail && detail.keyProcedures.length > 0
+    ? detail.keyProcedures
+    : department.procedures;
+  const doctors = detail && detail.doctorName
+    ? [{ name: detail.doctorName, role: detail.doctorDesc, image: "" }]
+    : department.doctors;
 
   return (
     <div className="flex flex-col w-full min-h-screen bg-white">
       <DepartmentDetailHero
         name={department.name}
         iconName={department.iconName}
-        intro={department.intro}
+        intro={detail?.deptDesc || department.intro}
       />
       <DepartmentServices
-        conditions={department.conditions}
-        procedures={department.procedures}
+        conditions={conditions}
+        procedures={procedures}
       />
       <DepartmentDoctors
-        doctors={department.doctors}
+        doctors={doctors}
         departmentName={department.name}
       />
       <AppointmentSection />

@@ -59,7 +59,7 @@ export default function AdminLoginPage() {
                 value={id}
                 onChange={(e) => setId(e.target.value)}
                 placeholder="Enter admin ID"
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#cb1b1a] focus:border-transparent transition"
+                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#cb1b1a] focus:border-transparent transition text-black"
                 disabled={isLoading}
               />
             </div>
@@ -74,7 +74,7 @@ export default function AdminLoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter password"
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#cb1b1a] focus:border-transparent transition"
+                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#cb1b1a] focus:border-transparent transition text-black"
                 disabled={isLoading}
               />
             </div>

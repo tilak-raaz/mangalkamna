@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, UserRound } from "lucide-react";
 
 type Doctor = {
   name: string;
@@ -41,12 +41,18 @@ export default function DepartmentDoctors({
             >
               {/* Doctor Image Container */}
               <div className="relative h-72 w-full bg-slate-200 overflow-hidden">
-                <Image
-                  src={doctor.image}
-                  alt={doctor.name}
-                  fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
+                {doctor.image ? (
+                  <Image
+                    src={doctor.image}
+                    alt={doctor.name}
+                    fill
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="flex items-center justify-center h-full w-full bg-slate-100">
+                    <UserRound className="w-16 h-16 text-slate-300" />
+                  </div>
+                )}
                 {/* Gradient overlay to make text readable if placed on bottom, or just for aesthetic */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>

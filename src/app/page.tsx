@@ -21,11 +21,20 @@ export default async function Home() {
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
-      <HeroSection title={homeContent.title} heroImages={homeContent.heroImages} />
+      <HeroSection
+        title={homeContent.title}
+        heroImages={homeContent.heroImages}
+      />
       <div className="w-full">
         <AboutSection aboutUsText={homeContent.aboutUsText} />
         <WhyChooseUsSection whyChooseUsText={homeContent.whyChooseUsText} />
-        <ServicesSection departments={departments} />
+        <ServicesSection
+          departments={departments.map((dept) => ({
+            id: dept.slug,
+            deptName: dept.name,
+            deptDesc: (dept as { intro?: string }).intro ?? (dept as { description?: string }).description ?? "",
+          }))}
+        />
         <DoctorsSection />
         <TestimonialsSection testimonials={testimonials} />
         <NewsSection />

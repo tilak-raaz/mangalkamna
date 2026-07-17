@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 export default async function GalleryPage() {
-  let images = [];
+  let images: Awaited<ReturnType<typeof listGalleryImages>> = [];
 
   try {
     images = await listGalleryImages();

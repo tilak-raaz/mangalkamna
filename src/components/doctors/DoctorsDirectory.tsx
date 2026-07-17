@@ -162,7 +162,7 @@ export default function DoctorsDirectory() {
                       <div className="flex items-center gap-2.5 text-sm text-slate-600">
                         <Globe className="w-4 h-4 text-slate-400 shrink-0" />
                         <span className="font-medium">
-                          {doctor.languages.join(", ")}
+                          {doctor.languages?.join(", ")}
                         </span>
                       </div>
                       <div className="flex items-start gap-2.5 text-sm text-slate-600">

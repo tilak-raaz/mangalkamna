@@ -19,7 +19,7 @@ interface AppwriteHomePageDocument {
   title?: string;
   heroimage?: string | string[];
   aboutUsText?: string;
-  whyChooseUsText?: string;
+  whyChooseUstext?: string;
   [key: string]: unknown;
 }
 
@@ -132,7 +132,7 @@ function mapHomePageDocument(document: AppwriteHomePageDocument): HomePageRecord
     title: toStringValue(document.title),
     heroImages: toStringArray(heroSource),
     aboutUsText: toStringValue(document.aboutUsText),
-    whyChooseUsText: toStringValue(document.whyChooseUsText),
+    whyChooseUsText: toStringValue(document.whyChooseUstext),
     createdAt: document.$createdAt,
     updatedAt: document.$updatedAt,
   };
@@ -194,7 +194,7 @@ export async function createHomePageContent(
       title: input.title,
       heroimage: input.heroImages,
       aboutUsText: input.aboutUsText,
-      whyChooseUsText: input.whyChooseUsText,
+      whyChooseUstext: input.whyChooseUsText,
     },
   );
 
@@ -216,7 +216,7 @@ export async function updateHomePageContent(
       title: input.title,
       heroimage: input.heroImages,
       aboutUsText: input.aboutUsText,
-      whyChooseUsText: input.whyChooseUsText,
+      whyChooseUstext: input.whyChooseUsText,
     },
   );
 
